@@ -3,7 +3,7 @@ TODO Calendar Android
 
 Vistas
 -------------
-----------
+
 **Menú principal**
 - [ ] Portada
 - [ ] Login
@@ -12,16 +12,19 @@ Vistas
 **Menú interior**
 - [ ] Lista de compañias
 - [ ] Perfil de usuario
+- [ ] Configuración usuario
 - [ ] Crear compañia
 
 **Menú Compañia**
-- [ ] Lista de calendarios
-- [ ] Creador de calendarios
-- [ ] Editr de calendarios
+- [ ] Lista de grupos
+- [ ] Creador de grupos
+- [ ] Editor de grupos *1
 - [ ] Configuración de la compañia 
 - [ ] Gestor de usuarios
+- [ ] Gestor de pagos
 
-**Menú de Calendario**
-- [ ] Vista princiapl
-- [ ] Creador de evento
-- [ ] Editar evento
+**Menú de Grupos**
+- [ ] Vista principal (calendario)
+- [ ] Creador de eventos
+- [ ] Editor de eventos
+- [ ] Configuración del grupo *1
