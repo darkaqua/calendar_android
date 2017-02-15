@@ -11,8 +11,8 @@ Vistas
 
 **Menú interior**
 - [ ] Lista de compañias
-- [ ] Perfil de usuario
-- [ ] Configuración usuario
+- [ ] Configuración usuario
+- [ ] Perfil de usuario 
 - [ ] Crear compañia
 
 **Menú Compañia**
@@ -27,4 +27,4 @@ Vistas
 - [ ] Vista principal (calendario)
 - [ ] Creador de eventos
 - [ ] Editor de eventos
-- [ ] Configuración del grupo *1
+- [ ] Configuración del grupo *1
