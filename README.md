@@ -33,10 +33,10 @@ Modelos
 -------------
 
 - [ ] User
-- [ ] Company
+- [ ] Company
 - [ ] Permission
-- [ ] Group
-- [ ] CalendarDate
+- [ ] Group
+- [ ] CalendarDate
 - [ ] PaymentOption
 - [ ] Country
 
@@ -44,9 +44,9 @@ Controladores
 -------------
 
 - [ ] User
-- [ ] Company
+- [ ] Company
 - [ ] Permission
-- [ ] Group
-- [ ] CalendarDate
+- [ ] Group
+- [ ] CalendarDate
 - [ ] PaymentOption
 - [ ] Country
