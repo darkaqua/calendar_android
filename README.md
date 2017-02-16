@@ -28,3 +28,25 @@ Vistas
 - [ ] Creador de eventos
 - [ ] Editor de eventos
 - [ ] Configuración del grupo *1
+
+Modelos
+-------------
+
+- [ ] User
+- [ ] Company
+- [ ] Permission
+- [ ] Group
+- [ ] CalendarDate
+- [ ] PaymentOption
+- [ ] Country
+
+Controladores
+-------------
+
+- [ ] User
+- [ ] Company
+- [ ] Permission
+- [ ] Group
+- [ ] CalendarDate
+- [ ] PaymentOption
+- [ ] Country
