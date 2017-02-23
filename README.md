@@ -5,7 +5,7 @@ Vistas
 -------------
 
 **Menú principal**
-- [ ] Portada
+- [ ] Portada #1
 - [ ] Login
 - [ ] Registro
 
