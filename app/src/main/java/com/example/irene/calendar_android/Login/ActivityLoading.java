@@ -1,10 +1,12 @@
-package com.example.irene.calendar_android;
+package com.example.irene.calendar_android.Login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashScreen extends AppCompatActivity {
+import com.example.irene.calendar_android.R;
+
+public class ActivityLoading extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void startMainMenu(){
-        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+        startActivity(new Intent(ActivityLoading.this, ActivityHome.class));
     }
 
 }

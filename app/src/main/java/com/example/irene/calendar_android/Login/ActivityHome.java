@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android;
+package com.example.irene.calendar_android.Login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.irene.calendar_android.Home.ActivityNavigationDrawer;
+import com.example.irene.calendar_android.R;
+
+public class ActivityHome extends AppCompatActivity {
 
     EditText nomUsuari, password;
     Button login, registrar;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
                     Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(MainActivity.this, paginaPrincipal.class);
+                    Intent i = new Intent(ActivityHome.this, ActivityNavigationDrawer.class);
                     startActivity(i);
                 } else {
                     //Toast.makeText(getApplicationContext(), "Nom usuari o clau incorrecta", Toast.LENGTH_LONG).show();

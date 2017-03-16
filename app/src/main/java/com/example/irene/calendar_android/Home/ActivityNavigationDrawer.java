@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android;
+package com.example.irene.calendar_android.Home;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class paginaPrincipal extends AppCompatActivity
+import com.example.irene.calendar_android.R;
+
+public class ActivityNavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -80,9 +82,9 @@ public class paginaPrincipal extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+       // if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
