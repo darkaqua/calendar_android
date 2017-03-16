@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.irene.calendar_android.MainActivity">
+    tools:context="com.example.irene.calendar_android.Login.ActivityHome">
 
     <TextView
         android:text="Login DarkAqua"
