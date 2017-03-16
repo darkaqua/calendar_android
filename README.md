@@ -5,7 +5,7 @@ Vistas
 -------------
 
 **Menú principal**
-- [ ] Portada [#1](../../issues/1)
+- [x] Portada [#1](../../issues/1)
 - [ ] Login
 - [ ] Registro
 
