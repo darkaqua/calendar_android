@@ -6,12 +6,12 @@ Vistas
 
 **Menú principal**
 - [x] Portada [#1](../../issues/1)
-- [ ] Login
-- [ ] Registro
+- [x] Login  [#2](../../issues/2)
+- [x] Registro  [#3](../../issues/3)
 
 **Menú interior**
 - [ ] Lista de compañias
-- [ ] Configuración usuario
+- [x] Configuración usuario  [#5](../../issues/1)
 - [ ] Perfil de usuario 
 - [ ] Crear compañia
 
