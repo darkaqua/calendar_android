@@ -23,6 +23,7 @@
             android:name=".Home.ActivityNavigationDrawer"
             android:label="@string/title_activity_pagina_principal"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Login.ActivityRegistre"></activity>
     </application>
 
 </manifest>

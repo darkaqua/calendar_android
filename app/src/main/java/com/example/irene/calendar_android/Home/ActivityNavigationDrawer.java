@@ -1,8 +1,11 @@
 package com.example.irene.calendar_android.Home;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +16,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.irene.calendar_android.Fragments.Perfil;
 import com.example.irene.calendar_android.R;
 
 public class ActivityNavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Perfil.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +88,16 @@ public class ActivityNavigationDrawer extends AppCompatActivity
 
        // if (id == R.id.nav_camera) {
             // Handle the camera action
-        if (id == R.id.nav_gallery) {
 
+        // Handle navigation view item clicks here.
+
+        //Creem una flag que ens servirà per saber si estem en un Fragment o no
+
+        boolean FragmentTransaction = false;
+        Fragment fragment = null;
+        if (id == R.id.Perfil) {
+            fragment = new Perfil();
+            FragmentTransaction = true;
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -96,8 +108,24 @@ public class ActivityNavigationDrawer extends AppCompatActivity
 
         }
 
+        if(FragmentTransaction){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_pagina_principal, fragment)
+                    .commit();
+
+
+            //Aquestes dues lineas faran que el titol del lloc tingui el mateix nom que el de la nav bar
+            item.setChecked(true);
+            getSupportActionBar().setTitle(item.getTitle());
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
