@@ -11,7 +11,7 @@ Vistas
 
 **Menú interior**
 - [ ] Lista de compañias
-- [x] Configuración usuario  [#7](../../issues/1)
+- [x] Configuración usuario  [#7](../../issues/7)
 - [ ] Perfil de usuario 
 - [ ] Crear compañia
 
