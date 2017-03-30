@@ -15,11 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.irene.calendar_android.Fragments.CompanyList;
 import com.example.irene.calendar_android.Fragments.ConfigUsuari;
 import com.example.irene.calendar_android.R;
 
 public class ActivityNavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ConfigUsuari.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ConfigUsuari.OnFragmentInteractionListener, CompanyList.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
