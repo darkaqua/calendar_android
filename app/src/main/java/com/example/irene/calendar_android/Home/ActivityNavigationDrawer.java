@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,11 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.irene.calendar_android.Fragments.Perfil;
+import com.example.irene.calendar_android.Fragments.ConfigUsuari;
 import com.example.irene.calendar_android.R;
 
 public class ActivityNavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Perfil.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ConfigUsuari.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +95,7 @@ public class ActivityNavigationDrawer extends AppCompatActivity
         boolean FragmentTransaction = false;
         Fragment fragment = null;
         if (id == R.id.Perfil) {
-            fragment = new Perfil();
+            fragment = new ConfigUsuari();
             FragmentTransaction = true;
         } else if (id == R.id.nav_slideshow) {
 

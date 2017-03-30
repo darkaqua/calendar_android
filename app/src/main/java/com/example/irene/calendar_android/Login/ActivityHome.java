@@ -33,33 +33,6 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         password = (EditText)findViewById(R.id.editTextPassword);
 
 
-       /* Bundle arguments = new Bundle();
-        arguments.putString("id", );
-        RegistreFragment fragment = RegistreFragment.newInstance(arguments);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(android.R.id.content, fragment, RegistreFragment.TAG);
-        ft.commit();*/
-
-        /*login.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view) {
-                if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
-                    Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(ActivityHome.this, ActivityNavigationDrawer.class);
-                    startActivity(i);
-                } else {
-                    //Toast.makeText(getApplicationContext(), "Nom usuari o clau incorrecta", Toast.LENGTH_LONG).show();
-                    if (!nomUsuari.getText().toString().equals("admin")){
-                        nomUsuari.setError("Nom incorrecta");
-                    }if (!password.getText().toString().equals("123")){
-                        password.setError("Contrasenya incorrecta");
-                    }
-                }
-            }
-        });*/
-
-
     }
 
 

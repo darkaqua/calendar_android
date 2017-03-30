@@ -26,6 +26,7 @@ public class ActivityRegistre extends AppCompatActivity {
         switch (id){
             case R.id.btnRegistrarme:
 
+                //Comprovacions dels camps un cop es puguin fer les trucades a la api
                 Intent i = new Intent(ActivityRegistre.this, ActivityHome.class);
                 startActivity(i);
 

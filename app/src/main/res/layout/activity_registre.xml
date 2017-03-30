@@ -16,7 +16,7 @@
         android:inputType="textPersonName"
         android:hint="Nombre"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etName"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp" />
@@ -26,23 +26,23 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/etUserName"
         android:layout_marginTop="11dp"
         android:hint="Nombre de Usuario"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_below="@+id/etName"
+        android:layout_alignLeft="@+id/etName"
+        android:layout_alignStart="@+id/etName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_below="@+id/etUserName"
+        android:layout_alignRight="@+id/etUserName"
+        android:layout_alignEnd="@+id/etUserName"
         android:layout_marginTop="13dp"
-        android:id="@+id/editText5"
+        android:id="@+id/etEmail"
         android:hint="Email" />
 
     <EditText
@@ -50,46 +50,46 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
+        android:layout_below="@+id/etEmail"
+        android:layout_alignLeft="@+id/etEmail"
+        android:layout_alignStart="@+id/etEmail"
         android:layout_marginTop="19dp"
-        android:id="@+id/editText6"
+        android:id="@+id/etReEmail"
         android:hint="Repetir Email" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:ems="10"
-        android:layout_below="@+id/editText6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:id="@+id/editText7"
-        android:hint="Teléfono" />
+        android:layout_below="@+id/etReEmail"
+        android:layout_alignLeft="@+id/etReEmail"
+        android:layout_alignStart="@+id/etReEmail"
+        android:layout_marginTop="19dp"
+        android:id="@+id/etPassword"
+        android:hint="Password" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Llista City"
+        android:inputType="textPassword"
         android:ems="10"
-        android:layout_below="@+id/editText7"
-        android:layout_alignRight="@+id/editText7"
-        android:layout_alignEnd="@+id/editText7"
-        android:layout_marginTop="24dp"
-        android:id="@+id/editText8" />
+        android:layout_marginTop="33dp"
+        android:id="@+id/etRePassword"
+        android:layout_below="@+id/etPassword"
+        android:layout_alignLeft="@+id/etPassword"
+        android:layout_alignStart="@+id/etPassword"
+        android:hint="Password" />
 
     <Button
         android:text="Registrarme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="26dp"
         android:id="@+id/btnRegistrarme"
-        android:layout_alignRight="@+id/editText8"
-        android:layout_alignEnd="@+id/editText8"
-        android:layout_alignLeft="@+id/editText8"
-        android:layout_alignStart="@+id/editText8" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/etRePassword"
+        android:layout_alignStart="@+id/etRePassword"
+        android:layout_alignRight="@+id/etRePassword"
+        android:layout_alignEnd="@+id/etRePassword" />
 
 </RelativeLayout>
