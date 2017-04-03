@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.irene.calendar_android.Fragments.CompanyList">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="130dp"
+        android:id="@+id/lvCompanyList" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="100dp"/>
+</FrameLayout>
