@@ -10,7 +10,7 @@ Vistas
 - [x] Registro  [#3](../../issues/3)
 
 **Menú interior**
-- [ ] Lista de compañias     [#8](../../issues/8)
+- [x] Lista de compañias     [#8](../../issues/8)
 - [x] Configuración usuario  [#7](../../issues/7)
 - [ ] Perfil de usuario 
 - [ ] Crear compañia
