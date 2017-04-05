@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+       // } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 

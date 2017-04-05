@@ -1,4 +1,4 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,6 +21,16 @@
         android:layout_width="match_parent"
         android:id="@+id/drawerLayout">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextUser"
+        android:layout_below="@+id/Titol"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:hint="Email" />
 
 
         <FrameLayout
@@ -47,5 +57,16 @@
 
 
     </android.support.v4.widget.DrawerLayout>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_below="@+id/editTextUser"
+        android:layout_alignLeft="@+id/editTextUser"
+        android:layout_alignStart="@+id/editTextUser"
+        android:layout_marginTop="22dp"
+        android:id="@+id/editTextPassword"
+        android:hint="Password" />
 
-</LinearLayout>
+</RelativeLayout>

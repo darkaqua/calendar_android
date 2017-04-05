@@ -6,12 +6,12 @@ Vistas
 
 **Menú principal**
 - [x] Portada [#1](../../issues/1)
-- [ ] Login
-- [ ] Registro
+- [x] Login  [#2](../../issues/2)
+- [x] Registro  [#3](../../issues/3)
 
 **Menú interior**
-- [ ] Lista de compañias
-- [ ] Configuración usuario
+- [x] Lista de compañias     [#8](../../issues/8)
+- [x] Configuración usuario  [#7](../../issues/7)
 - [ ] Perfil de usuario 
 - [ ] Crear compañia
 
@@ -24,7 +24,7 @@ Vistas
 - [ ] Gestor de pagos
 
 **Menú de Grupos**
-- [ ] Vista principal (calendario)
+- [x] Vista principal (calendario) [#11](../../issues/11)
 - [ ] Creador de eventos
 - [ ] Editor de eventos
 - [ ] Configuración del grupo *1
