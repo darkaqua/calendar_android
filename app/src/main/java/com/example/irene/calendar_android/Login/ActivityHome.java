@@ -45,7 +45,7 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
 
             case R.id.btnIniciar:
 
-                if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
+               /* if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
                    // Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(ActivityHome.this, MainActivity.class);
                     startActivity(i);
@@ -56,15 +56,18 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
                     }if (!password.getText().toString().equals("123")){
                         password.setError("Contrasenya incorrecta");
                     }
-                }
+                }*/
+
+                Intent i = new Intent(ActivityHome.this, MainActivity.class);
+                startActivity(i);
 
 
             break;
 
 
             case R.id.btnRegistrar:
-               Intent i = new Intent(ActivityHome.this, ActivityRegistre.class);
-                startActivity(i);
+               Intent intent = new Intent(ActivityHome.this, ActivityRegistre.class);
+                startActivity(intent);
 
             break;
 

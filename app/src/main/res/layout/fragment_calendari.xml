@@ -2,16 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.irene.calendar_android.CalendariFragment">
+    tools:context="com.example.irene.calendar_android.Fragments.CalendariFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/datePicker"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:headerBackground="@android:color/holo_green_light" />
+        android:calendarViewShown="false"
+        android:scaleX=".9"
+        android:scaleY=".9"
+        android:headerBackground="@android:color/holo_green_light"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

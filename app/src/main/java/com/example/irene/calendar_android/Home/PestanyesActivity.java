@@ -17,10 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
-import com.example.irene.calendar_android.CalendariFragment;
-import com.example.irene.calendar_android.EmpresaFragment;
+import com.example.irene.calendar_android.Fragments.CalendariFragment;
+import com.example.irene.calendar_android.Fragments.EmpresaFragment;
 import com.example.irene.calendar_android.R;
 
 //Activity on mostrà les pestanyes en el navigation drawer

@@ -37,17 +37,21 @@
             android:hint="Nom usuari" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberPassword"
-            android:ems="10"
             android:id="@+id/editTextPassword"
             android:layout_below="@+id/editTextUser"
             android:layout_alignLeft="@+id/editTextUser"
             android:layout_alignStart="@+id/editTextUser"
             android:layout_marginTop="42dp"
             android:hint="Contrasenya"
-            android:layout_weight="0.01" />
+            android:layout_weight="0.01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+
+
+
 
         <Button
             android:text="Iniciar sessió"
@@ -59,21 +63,22 @@
             android:layout_alignEnd="@+id/editTextPassword"
             android:gravity="center"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
             android:layout_alignLeft="@+id/editTextPassword"
             android:layout_alignStart="@+id/editTextPassword" />
 
         <Button
-            android:text="Registrar-te"
+            android:id="@+id/btnRegistrar"
             android:layout_width="242dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:id="@+id/btnRegistrar"
-            android:layout_below="@+id/btnIniciar"
+            android:layout_alignEnd="@+id/btnIniciar"
             android:layout_alignLeft="@+id/btnIniciar"
-            android:layout_alignStart="@+id/btnIniciar"
-            android:layout_marginTop="31dp"
             android:layout_alignRight="@+id/btnIniciar"
-            android:layout_alignEnd="@+id/btnIniciar" />
+            android:layout_alignStart="@+id/btnIniciar"
+            android:layout_below="@+id/btnIniciar"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="35dp"
+            android:text="Registrar-te" />
 
     </LinearLayout>
 

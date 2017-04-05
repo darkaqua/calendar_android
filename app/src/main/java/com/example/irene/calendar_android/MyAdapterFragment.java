@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.irene.calendar_android.Fragments.CalendariFragment;
+import com.example.irene.calendar_android.Fragments.EmpresaFragment;
+
 import static com.example.irene.calendar_android.TabsFragment.int_items;
 
 /**

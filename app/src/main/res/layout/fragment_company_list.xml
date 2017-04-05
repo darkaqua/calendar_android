@@ -1,35 +1,45 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.irene.calendar_android.Fragments.CompanyList">
+    tools:context="com.example.irene.calendar_android.Fragments.EmpresaFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:layout_marginTop="185dp"
-        android:id="@+id/lvCompanyList" />
+        android:id="@+id/lvCompanyList"
+        android:layout_below="@+id/searchView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:layout_marginTop="150dp"/>
+        android:id="@+id/searchView"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
 
-        app:srcCompat="@drawable/calendar_icon" />
+        app:srcCompat="@drawable/calendar_icon"
+        android:layout_marginTop="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="80dp"
-        android:text="Button" />
-</FrameLayout>
+        android:text="Button"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
