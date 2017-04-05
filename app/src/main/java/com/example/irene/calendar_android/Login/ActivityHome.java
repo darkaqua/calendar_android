@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.irene.calendar_android.Home.ActivityNavigationDrawer;
+import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.R;
+
 
 public class ActivityHome extends AppCompatActivity {
 
@@ -19,7 +19,7 @@ public class ActivityHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         login = (Button) findViewById(R.id.btnIniciar);
         registrar = (Button)findViewById(R.id.btnRegistrar);
@@ -32,8 +32,8 @@ public class ActivityHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
-                    Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(ActivityHome.this, ActivityNavigationDrawer.class);
+                   // Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(ActivityHome.this, MainActivity.class);
                     startActivity(i);
                 } else {
                     //Toast.makeText(getApplicationContext(), "Nom usuari o clau incorrecta", Toast.LENGTH_LONG).show();

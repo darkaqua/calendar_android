@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.irene.calendar_android.CalendariFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:headerBackground="@android:color/holo_green_light" />
+
+</RelativeLayout>
