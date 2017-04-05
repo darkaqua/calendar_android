@@ -1,6 +1,5 @@
 package com.example.irene.calendar_android.Login;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +12,8 @@ import android.widget.Toast;
 
 import com.example.irene.calendar_android.Home.ActivityNavigationDrawer;
 import com.example.irene.calendar_android.R;
-import com.example.irene.calendar_android.RegistreFragment;
 
-public class ActivityHome extends AppCompatActivity implements  View.OnClickListener, RegistreFragment.OnFragmentInteractionListener {
+public class ActivityHome extends AppCompatActivity implements  View.OnClickListener {
 
     EditText nomUsuari, password;
     Button login, registrar;
@@ -78,10 +76,6 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
 
  /*
