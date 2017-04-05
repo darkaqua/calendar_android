@@ -24,7 +24,7 @@ Vistas
 - [ ] Gestor de pagos
 
 **Menú de Grupos**
-- [ ] Vista principal (calendario)
+- [x] Vista principal (calendario) [#11](../../issues/11)
 - [ ] Creador de eventos
 - [ ] Editor de eventos
 - [ ] Configuración del grupo *1
