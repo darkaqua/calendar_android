@@ -13,7 +13,7 @@ Vistas
 - [x] Lista de compañias     [#8](../../issues/8)
 - [x] Configuración usuario  [#7](../../issues/7)
 - [ ] Perfil de usuario 
-- [ ] Crear compañia
+- [x] Crear compañia        [#14](../../issues/14)
 
 **Menú Compañia**
 - [ ] Lista de grupos
