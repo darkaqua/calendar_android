@@ -28,12 +28,14 @@
         <activity
             android:name=".Home.PestanyesActivity"
             android:label="@string/title_activity_secciones"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.MainActivity"/>
-        <activity android:name=".Login.ActivityRegistre"></activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Home.MainActivity" />
+
+        <activity android:name=".Login.ActivityRegistre" />
+        <activity android:name=".CompanyCreation.Creacio_Companyia" />
     </application>
 
 </manifest>
