@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.irene.calendar_android.CompanyCreation.Creacio_Companyia;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.MyAdapterFragment;
 import com.example.irene.calendar_android.TabsFragment;
@@ -180,9 +181,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Handle the camera action
        // } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_camera) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.crecioCompañia) {
+            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_pestanyes) {
             Intent i = new Intent(getApplicationContext(), PestanyesActivity.class);

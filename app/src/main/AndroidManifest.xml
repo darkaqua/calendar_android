@@ -36,7 +36,6 @@
 
         <activity android:name=".Login.ActivityRegistre" />
         <activity android:name=".CompanyCreation.Creacio_Companyia" />
-        <activity android:name=".CompanyCreation.test" />
     </application>
 
 </manifest>
