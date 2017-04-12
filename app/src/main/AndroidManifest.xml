@@ -36,6 +36,8 @@
 
         <activity android:name=".Login.ActivityRegistre" />
         <activity android:name=".CompanyCreation.Creacio_Companyia" />
+        <activity android:name=".CompanieMenu.creadorCalendari" />
+        <activity android:name=".CompanieMenu.ConfiguracioCompanyia"></activity>
     </application>
 
 </manifest>
