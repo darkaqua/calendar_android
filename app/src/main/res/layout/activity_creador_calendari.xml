@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.irene.calendar_android.CompanieMenu.creadorCalendari">
+
+
+    <EditText
+        android:id="@+id/etNomCompanyiaCrear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="208dp"
+        android:ems="10"
+        android:hint="Companyia"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="67dp"
+        android:text="Nom de la companyia"
+        android:layout_alignBottom="@+id/etNomCompanyiaCrear"
+        android:layout_alignLeft="@+id/etNomCompanyiaCrear"
+        android:layout_alignStart="@+id/etNomCompanyiaCrear" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width= "80dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/calendar_logo"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginTop="18dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etNomCompanyiaCrear"
+        android:layout_marginTop="101dp"
+        android:ems="10"
+        android:hint="Descrpició"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/btnOkCreacioCalendari"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText3"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_toRightOf="@+id/etNomCompanyiaCrear"
+        android:text="Llestos!" />
+
+</RelativeLayout>
