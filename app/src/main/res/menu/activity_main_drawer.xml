@@ -7,6 +7,7 @@
             android:icon="@drawable/icon_perfil"
             android:title="Perfil" />
         <item
+
             android:id="@+id/nav_events"
             android:icon="@drawable/icon_events"
             android:title="Events" />
@@ -14,6 +15,15 @@
             android:id="@+id/nav_maps"
             android:icon="@android:drawable/ic_menu_mylocation"
             android:title="Ubicacions Empreses" />
+
+            android:id="@+id/Perfil"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/crecioCompañia"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Crear" />
+
         <item
             android:id="@+id/nav_empreses"
             android:icon="@drawable/icon_empresas"

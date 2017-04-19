@@ -26,6 +26,7 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
@@ -33,6 +34,21 @@
         <activity android:name=".Login.ActivityRegistre" />
         <activity android:name=".CompanieMenu.Creacio_Companyia" />
         <activity android:name=".CreacioEvent.Creacio_Events"></activity>
+
+        <activity
+            android:name=".Home.PestanyesActivity"
+            android:label="@string/title_activity_secciones"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Home.MainActivity" />
+
+
+        <activity android:name=".CompanyCreation.Creacio_Companyia" />
+        <activity android:name=".CompanieMenu.creadorCalendari" />
+        <activity android:name=".CompanieMenu.ConfiguracioCompanyia"></activity>
+
     </application>
 
 </manifest>

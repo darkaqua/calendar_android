@@ -16,8 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+
 import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+
+import com.example.irene.calendar_android.CompanyCreation.Creacio_Companyia;
+
 import com.example.irene.calendar_android.R;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -131,11 +135,19 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 }
             });
 
+
             dialog1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
                     cancelar();
                 }
             });
+
+
+        } else if (id == R.id.nav_camera) {
+
+        } else if (id == R.id.crecioCompañia) {
+            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
+            startActivity(i);
 
 
 
