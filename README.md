@@ -25,7 +25,7 @@ Vistas
 
 **Menú de Grupos**
 - [x] Vista principal (calendario) [#11](../../issues/11)
-- [ ] Creador de eventos
+- [x] Creador de eventos           [#18](../../issues/18)
 - [ ] Editor de eventos
 - [ ] Configuración del grupo *1
 
