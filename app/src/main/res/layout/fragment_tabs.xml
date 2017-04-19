@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.irene.calendar_android.TabsFragment">
+    tools:context="com.example.irene.calendar_android.Home.TabsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.design.widget.TabLayout
