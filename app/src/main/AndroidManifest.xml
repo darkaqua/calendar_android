@@ -25,15 +25,14 @@
             android:name=".Home.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Home.PestanyesActivity"
-            android:label="@string/title_activity_secciones"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home.MainActivity"/>
-        <activity android:name=".Login.ActivityRegistre"></activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Home.MainActivity" />
+
+        <activity android:name=".Login.ActivityRegistre" />
+        <activity android:name=".CompanieMenu.Creacio_Companyia" />
+        <activity android:name=".CreacioEvent.Creacio_Events"></activity>
     </application>
 
 </manifest>
