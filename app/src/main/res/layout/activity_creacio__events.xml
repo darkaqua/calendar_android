@@ -37,7 +37,8 @@
 
         <View
             android:layout_height="5dip"
-            android:background="#FF909090"/>
+            android:background="#FF909090"
+            android:visibility="visible" />
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,13 +67,6 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp">
 
-            <EditText
-                android:id="@+id/etCreacioEventUbicacio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ubicacio"
-                android:inputType="text" />
         </TableRow>
 
         <TableRow
@@ -87,16 +81,16 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/btn_horaPicker"
+        android:id="@+id/btnhoraPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btn_diaPicker"
+        android:layout_alignBottom="@+id/btndiaPicker"
         android:layout_alignEnd="@+id/btnCancelaCreacioComp"
         android:layout_alignRight="@+id/btnCancelaCreacioComp"
         android:text="Hora" />
 
     <Button
-        android:id="@+id/btn_diaPicker"
+        android:id="@+id/btndiaPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dia"
@@ -130,13 +124,35 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/btn_horaPicker"
+        android:layout_below="@+id/btnhoraPicker"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:text="Data/Hora"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnhoraPicker"
+        android:layout_alignStart="@+id/btnhoraPicker"
+        android:layout_below="@+id/txt_TextDateTime"
+        android:layout_marginTop="58dp"
+        android:text="Hora"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewTime"
+        android:layout_alignStart="@+id/textViewTime"
+        android:layout_below="@+id/textViewTime"
+        android:layout_marginTop="35dp"
+        android:text="Data"
+        android:textSize="20sp" />
 
 </RelativeLayout>
 

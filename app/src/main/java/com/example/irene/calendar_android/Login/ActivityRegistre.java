@@ -34,11 +34,7 @@ public class ActivityRegistre extends AppCompatActivity {
 
              break;
 
-            case R.id.btnTornar:
 
-                Intent intent = new Intent(this, ActivityHome.class);
-                startActivity(intent);
-                break;
         }
     }
 }

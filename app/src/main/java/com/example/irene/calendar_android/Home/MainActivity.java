@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
-import com.example.irene.calendar_android.CompanyCreation.Creacio_Companyia;
 
 import com.example.irene.calendar_android.R;
 
@@ -143,9 +142,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             });
 
 
-        } else if (id == R.id.nav_camera) {
+        } //else if (id == R.id.nav_camera) {
 
-        } else if (id == R.id.crecioCompañia) {
+        else if (id == R.id.crecioCompañia) {
             Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
             startActivity(i);
 

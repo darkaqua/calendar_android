@@ -11,12 +11,14 @@
         android:id="@+id/datePicker"
         android:layout_width="1000dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
         android:calendarViewShown="false"
         android:headerBackground="@color/colorPrimary"
         android:scaleX=".9"
-        android:scaleY=".9" />
+        android:scaleY=".9"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
