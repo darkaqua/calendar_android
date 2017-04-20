@@ -18,7 +18,7 @@ Vistas
 **Menú Compañia**
 - [ ] Lista de grupos
 - [x] Creador de grupos      [#16](../../issues/16)
-- [ ] Editor de grupos *1
+- [ ] Editor de grupos *1    [#19](../../issues/19)
 - [x] Configuración de la compañia  [#16](../../issues/16)
 - [ ] Gestor de usuarios
 - [ ] Gestor de pagos
@@ -26,7 +26,7 @@ Vistas
 **Menú de Grupos**
 - [x] Vista principal (calendario) [#11](../../issues/11)
 - [x] Creador de eventos           [#18](../../issues/18)
-- [ ] Editor de eventos
+- [ ] Editor de eventos            [#19](../../issues/19)
 - [ ] Configuración del grupo *1
 
 Modelos
