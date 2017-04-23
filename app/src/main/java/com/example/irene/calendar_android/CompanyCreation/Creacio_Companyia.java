@@ -37,6 +37,10 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
     public void onClick(View v){
         int id = v.getId();
 
+
+
+
+
         switch (id){
 
             case R.id.btnAceptarCreacioComp:

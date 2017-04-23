@@ -22,7 +22,7 @@
         <item
             android:id="@+id/crecioCompañia"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Crear Companyia" />
+            android:title="Crear" />
 
         <item
             android:id="@+id/nav_empreses"
@@ -35,12 +35,11 @@
             <item
                 android:id="@+id/nav_configuracio"
                 android:icon="@drawable/icon_configuracio"
-                android:title="Configuració Usuari" />
+                android:title="Configuració" />
             <item
                 android:id="@+id/nav_sortir_sessio"
                 android:icon="@drawable/icon_sortir"
                 android:title="Tancar sessió" />
-
         </menu>
     </item>
 
