@@ -18,7 +18,7 @@ Vistas
 **Menú Compañia**
 - [ ] Lista de grupos
 - [x] Creador de grupos      [#16](../../issues/16)
-- [ ] Editor de grupos *1    [#19](../../issues/19)
+- [x] Editor de grupos *1    [#19](../../issues/19)
 - [x] Configuración de la compañia  [#16](../../issues/16)
 - [ ] Gestor de usuarios
 - [ ] Gestor de pagos
