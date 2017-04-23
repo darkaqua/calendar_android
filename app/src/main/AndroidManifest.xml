@@ -39,7 +39,6 @@
         <activity android:name=".CompanieMenu.Creacio_Companyia" />
         <activity android:name=".CreacioEvent.Creacio_Events" />
 
-
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
@@ -47,6 +46,7 @@
         <activity android:name=".CompanyCreation.Creacio_Companyia" />
         <activity android:name=".CompanieMenu.creadorCalendari" />
         <activity android:name=".CompanieMenu.ConfiguracioCompanyia" />
+        <activity android:name=".Editor.EditorGrupos"></activity>
     </application>
 
 </manifest>

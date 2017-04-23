@@ -7,9 +7,9 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <DatePicker
+   <DatePicker
         android:id="@+id/datePicker"
-        android:layout_width="1000dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
         android:headerBackground="@color/colorPrimary"
@@ -20,5 +20,6 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
