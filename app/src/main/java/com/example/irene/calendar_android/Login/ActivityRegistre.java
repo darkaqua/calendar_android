@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.irene.calendar_android.R;
 
-public class ActivityRegistre extends AppCompatActivity {
+public class ActivityRegistre extends AppCompatActivity implements View.OnClickListener {
 
     Button registrar;
     @Override
@@ -20,7 +20,8 @@ public class ActivityRegistre extends AppCompatActivity {
     }
 
 
-    public void OnClick(View v){
+    @Override
+    public void onClick(View v) {
         Bundle b = new Bundle();
         int id = v.getId();
 
@@ -32,7 +33,7 @@ public class ActivityRegistre extends AppCompatActivity {
                 startActivity(i);
                 Toast.makeText(this, "Registre correcte", Toast.LENGTH_SHORT).show();
 
-             break;
+                break;
 
 
         }
