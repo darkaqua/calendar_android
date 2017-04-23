@@ -16,7 +16,7 @@ Vistas
 - [x] Crear compañia        [#14](../../issues/14)
 
 **Menú Compañia**
-- [ ] Lista de grupos
+- [x] Lista de grupos
 - [x] Creador de grupos      [#16](../../issues/16)
 - [x] Editor de grupos *1    [#19](../../issues/19)
 - [x] Configuración de la compañia  [#16](../../issues/16)
