@@ -27,7 +27,7 @@ Vistas
 - [x] Vista principal (calendario) [#11](../../issues/11)
 - [x] Creador de eventos           [#18](../../issues/18)
 - [ ] Editor de eventos            [#19](../../issues/19)
-- [ ] Configuración del grupo *1
+- [x] Configuración del grupo *1
 
 Modelos
 -------------
