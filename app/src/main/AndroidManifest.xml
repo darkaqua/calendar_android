@@ -48,7 +48,8 @@
         <activity android:name=".CompanieMenu.ConfiguracioCompanyia" />
         <activity android:name=".Editor.EditorGrupos" />
         <activity android:name=".GestorDeUsuarios.GestorDeUsuarios" />
-        <activity android:name=".GestorDeUsuarios.AfegirUsuari"></activity>
+        <activity android:name=".GestorDeUsuarios.AfegirUsuari" />
+        <activity android:name=".Editor.ConfigGrupos"></activity>
     </application>
 
 </manifest>
