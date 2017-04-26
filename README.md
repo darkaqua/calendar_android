@@ -16,18 +16,18 @@ Vistas
 - [x] Crear compañia        [#14](../../issues/14)
 
 **Menú Compañia**
-- [ ] Lista de grupos
+- [x] Lista de grupos
 - [x] Creador de grupos      [#16](../../issues/16)
-- [ ] Editor de grupos *1
+- [x] Editor de grupos *1    [#19](../../issues/19)
 - [x] Configuración de la compañia  [#16](../../issues/16)
-- [ ] Gestor de usuarios
+- [x] Gestor de usuarios
 - [ ] Gestor de pagos
 
 **Menú de Grupos**
 - [x] Vista principal (calendario) [#11](../../issues/11)
-- [ ] Creador de eventos
-- [ ] Editor de eventos
-- [ ] Configuración del grupo *1
+- [x] Creador de eventos           [#18](../../issues/18)
+- [ ] Editor de eventos            [#19](../../issues/19)
+- [x] Configuración del grupo *1
 
 Modelos
 -------------

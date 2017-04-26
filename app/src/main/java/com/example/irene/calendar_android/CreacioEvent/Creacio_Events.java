@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,10 +25,86 @@ import com.example.irene.calendar_android.R;
 
 import java.text.DateFormat;
 
+
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Creacio_Events extends AppCompatActivity implements View.OnClickListener {
 
+    Button btnTime, btnDate;
+    TextView tvTime, tvDate;
 
+    TimePickerDialog timePickerDialog;
+    DatePickerDialog datePickerDialog;
+
+    Calendar calendar = Calendar.getInstance();
+
+    @Override
+    protected void onCreate (Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_creacio__events);
+
+        btnTime = (Button)findViewById(R.id.btnhoraPicker);
+        btnTime.setOnClickListener(this);
+        btnDate = (Button)findViewById(R.id.btndiaPicker);
+        btnDate.setOnClickListener(this);
+
+        tvTime = (TextView)findViewById(R.id.textViewTime);
+        tvDate = (TextView)findViewById(R.id.textViewDate);
+    }
+
+    @Override
+    public void onClick(View v){
+
+        calendar = Calendar.getInstance();
+
+        switch (v.getId()){
+            case R.id.btnhoraPicker:{
+
+                timePickerDialog = new TimePickerDialog(Creacio_Events.this ,new TimePickerDialog.OnTimeSetListener(){
+                    @Override
+                    public void onTimeSet (TimePicker view, int hourOfDay, int minute){
+
+                        Calendar timeCalendar = Calendar.getInstance();
+                        timeCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        timeCalendar.set(Calendar.MINUTE, minute);
+
+                        String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
+                        tvTime.setText("Hora del dia: "+timeString);
+
+                    }
+                },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), android.text.format.DateFormat.is24HourFormat(Creacio_Events.this));
+
+                timePickerDialog.show();
+                break;
+            }
+
+            case R.id.btndiaPicker:{
+
+                datePickerDialog = new DatePickerDialog(Creacio_Events.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        java.util.Calendar dateCalendar = java.util.Calendar.getInstance();
+                        dateCalendar.set(java.util.Calendar.YEAR, year);
+                        dateCalendar.set(java.util.Calendar.MONTH, monthOfYear);
+                        dateCalendar.set(java.util.Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                        String dateString = DateUtils.formatDateTime(Creacio_Events.this, dateCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_DATE);
+                        tvDate.setText("Datum: " + dateString);
+
+                    }
+                }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
+
+                datePickerDialog.show();
+                break;
+            }
+        }
+
+    }
+
+}
+
+
+/*
     DateFormat formatDateTime = DateFormat.getDateTimeInstance();
     Calendar dateTime = Calendar.getInstance();
     private TextView text;
@@ -126,7 +203,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         new TimePickerDialog(this, t, dateTime.get(Calendar.HOUR_OF_DAY), dateTime.get(Calendar.MINUTE), true).show();
     }
 
-    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+       DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             dateTime.set(Calendar.YEAR, year);
@@ -150,3 +227,4 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
     }
 
 }
+*/

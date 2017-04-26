@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,8 +21,9 @@ import android.widget.Toast;
 import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
-import com.example.irene.calendar_android.CompanyCreation.Creacio_Companyia;
 
+import com.example.irene.calendar_android.Editor.EditorGrupos;
+import com.example.irene.calendar_android.Fragments.ConfigUsuari;
 import com.example.irene.calendar_android.R;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -95,25 +97,20 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        Fragment fragment = null;
+        /*Fragment fragment = null;
         Class fragmentClass;
+         */
 
-
-
-
-
+        //Creem una flag que ens servirà per saber si estem en un Fragment o no
+        boolean FragmentTransaction = false;
+        Fragment fragment = null;
 
         if (id == R.id.nav_perfil) {
-           /* Intent i = new Intent(MainActivity.this, FragmentPerfil.class);
-            startActivity(i);*/
-
-
-
-
-
 
          /*   fragment  = new FragmentPerfil();
             FragmentTransaction = true;*/
+         Intent i = new Intent(MainActivity.this, EditorGrupos.class);
+            startActivity(i);
 
         }else if(id == R.id.nav_events){
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
@@ -143,15 +140,31 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             });
 
 
-        } else if (id == R.id.nav_camera) {
+        } else if (id == R.id.nav_configuracio) {
+            fragment = new ConfigUsuari();
+            FragmentTransaction = true;
 
-        } else if (id == R.id.crecioCompañia) {
+        }
+
+        else if (id == R.id.crecioCompañia) {
             Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
             startActivity(i);
 
 
 
         }
+
+        if(FragmentTransaction){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_main, fragment)
+                    .commit();
+
+
+            //Aquestes dues lineas faran que el titol del lloc tingui el mateix nom que el de la nav bar
+            item.setChecked(true);
+            getSupportActionBar().setTitle(item.getTitle());
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

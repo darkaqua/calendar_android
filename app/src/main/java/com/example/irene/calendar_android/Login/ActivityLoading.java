@@ -45,12 +45,17 @@ public class ActivityLoading extends AppCompatActivity {
             @Override
             public void run() {
                 try {
+
+                    //Consulta a la API si SQLITE conte les dades de sessió
                     int waited = 0;
                     // Splash screen pause time
                     while (waited < 3500) {
                         sleep(150);
                         waited += 100;
                     }
+                    //En cas de que la API respongui correctament, enviar directament a la pantalla d'usuari
+
+                    //En cas contrari, enviar a la pantalla d'iniciar sessió
                     Intent intent = new Intent(ActivityLoading.this, ActivityHome.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);

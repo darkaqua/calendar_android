@@ -150,10 +150,12 @@
         android:id="@+id/etDescCompanyConf"
         android:layout_width="1000dp"
         android:layout_height="75dp"
-        android:layout_above="@+id/btnCancelaCreacioComp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:layout_above="@+id/btnAceptarConfigComp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
