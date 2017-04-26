@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewEmpresa"
         android:layout_width="match_parent"
         android:layout_height="60dp"
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/imageViewEmpresa"
         android:layout_marginTop="41dp"
         android:text="Creacio" />
 

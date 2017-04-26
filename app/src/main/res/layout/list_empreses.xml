@@ -16,7 +16,7 @@
             android:layout_width="65dp"
             android:layout_height="57dp"
             app:srcCompat="@android:drawable/ic_menu_gallery"
-            android:id="@+id/imageView2" />
+            android:id="@+id/imageViewEmpresa" />
 
         <LinearLayout
             android:orientation="vertical"
