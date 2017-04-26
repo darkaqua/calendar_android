@@ -21,7 +21,13 @@ import java.util.ArrayList;
 
 public class EmpresaFragment extends Fragment{
 
+    //Definicions dels elements del fragment
     Button btnAceptarCrearEmpresa;
+
+    //SQlite simular en la creacció
+
+
+    //Contructor
     public EmpresaFragment() {
 
         //Constructor
