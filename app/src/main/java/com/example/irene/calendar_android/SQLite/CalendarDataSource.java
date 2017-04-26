@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class CalendarDataSource {
 
     //Creem basedadesRead i basedadesWrite per llegir i modificar la BD
-    private SQLiteDatabase bdRead, bdWrite;
+  /*  private SQLiteDatabase bdRead, bdWrite;
 
     //Fer la comunicació entre la BD
     private CalendarDataSource bdOpenHelper;
@@ -24,7 +24,7 @@ public class CalendarDataSource {
         //bdRead = bdOpenHelper.getReadableDatabase();
         //bdWrite = bdOpenHelper.getWritableDatabase();
     }
-
+*/
     /*public Cursor CarregarTotaLaTaula(){
         return bdRead.query(bdOpenHelper.T)
     }*/

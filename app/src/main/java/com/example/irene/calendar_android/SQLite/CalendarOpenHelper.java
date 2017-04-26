@@ -8,13 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Irene on 19/04/2017.
  */
 
-public class CalendarOpenHelper extends SQLiteOpenHelper {
+public class CalendarOpenHelper {
 
-/*
+/* extends SQLiteOpenHelper
 Eveents --> titol, descipcio, dia hora, temps min, assignarPErsones
  */
     //Nom de la nostre BD
-
+/*
     private static final String NOM_BD = "Usuaris";
     private static final int VERSIO_BD = 1;
 
@@ -45,5 +45,5 @@ Eveents --> titol, descipcio, dia hora, temps min, assignarPErsones
         database.execSQL("DROP TABLE IF EXISTS articulos");
         this.onCreate(database);
     }
-
+*/
 }
