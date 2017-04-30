@@ -49,7 +49,7 @@
         <activity android:name=".Editor.EditorGrupos" />
         <activity android:name=".GestorDeUsuarios.GestorDeUsuarios" />
         <activity android:name=".GestorDeUsuarios.AfegirUsuari" />
-        <activity android:name=".Editor.ConfigGrupos"></activity>
+        <activity android:name=".Editor.ConfigGrupos"/>
     </application>
 
 </manifest>
