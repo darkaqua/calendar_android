@@ -12,6 +12,7 @@ import com.example.irene.calendar_android.R;
 public class ActivityRegistre extends AppCompatActivity implements View.OnClickListener {
 
     Button registrar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                 //Comprovacions dels camps un cop es puguin fer les trucades a la api
                 Intent i = new Intent(ActivityRegistre.this, ActivityHome.class);
                 startActivity(i);
-                Toast.makeText(this, "Registre correcte", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Registre correcte", Toast.LENGTH_SHORT).show();
 
                 break;
 

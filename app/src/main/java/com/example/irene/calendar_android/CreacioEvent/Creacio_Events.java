@@ -44,11 +44,11 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
         btnTime = (Button)findViewById(R.id.btnhoraPicker);
         btnTime.setOnClickListener(this);
-        btnDate = (Button)findViewById(R.id.btndiaPicker);
+        btnDate = (Button)findViewById(R.id.btnDiaPicker);
         btnDate.setOnClickListener(this);
 
         tvTime = (TextView)findViewById(R.id.textViewTime);
-        tvDate = (TextView)findViewById(R.id.textViewDate);
+        tvDate = (TextView)findViewById(R.id.textViewDay);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                 break;
             }
 
-            case R.id.btndiaPicker:{
+            case R.id.btnDiaPicker:{
 
                 datePickerDialog = new DatePickerDialog(Creacio_Events.this, new DatePickerDialog.OnDateSetListener() {
                     @Override

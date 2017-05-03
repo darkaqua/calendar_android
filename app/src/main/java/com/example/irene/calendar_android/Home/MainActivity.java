@@ -19,11 +19,13 @@ import android.widget.Toast;
 
 
 import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
+import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
 
 import com.example.irene.calendar_android.Editor.EditorGrupos;
 import com.example.irene.calendar_android.Fragments.ConfigUsuari;
+import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -109,11 +111,17 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
          /*   fragment  = new FragmentPerfil();
             FragmentTransaction = true;*/
-         Intent i = new Intent(MainActivity.this, EditorGrupos.class);
-            startActivity(i);
+
+        // Intent i = new Intent(MainActivity.this, EditorGrupos.class);
+
+         //   startActivity(i);
 
         }else if(id == R.id.nav_events){
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
+            startActivity(i);
+        }
+        else if(id == R.id.nav_configuracio){
+            Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
             startActivity(i);
         }
 
@@ -141,18 +149,18 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
 
         } else if (id == R.id.nav_configuracio) {
-            fragment = new ConfigUsuari();
-            FragmentTransaction = true;
+           /* fragment = new ConfigUsuari();
+            FragmentTransaction = true;*/
 
         }
 
-        else if (id == R.id.crecioCompañia) {
+       /* else if (id == R.id.crecioCompañia) {
             Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
             startActivity(i);
+*/
 
 
 
-        }
 
         if(FragmentTransaction){
             getSupportFragmentManager().beginTransaction()

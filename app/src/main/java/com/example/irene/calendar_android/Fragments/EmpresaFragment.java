@@ -2,127 +2,163 @@ package com.example.irene.calendar_android.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.irene.calendar_android.CompanyCreation.Creacio_Companyia;
-import com.example.irene.calendar_android.EmpresesLlista;
-import com.example.irene.calendar_android.Home.MainActivity;
+import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.SQLite.CalendarDataSource;
+import com.example.irene.calendar_android.SQLite.CalendarOpenHelper;
 
-import org.w3c.dom.Text;
+import static android.app.Activity.RESULT_OK;
+import static com.example.irene.calendar_android.R.id.view;
 
-import java.util.ArrayList;
+
+public class EmpresaFragment extends Fragment  {
 
 
-public class EmpresaFragment extends Fragment{
+  /*  private static int ACTIVITY_TASK_ADD = 1;
+    private static int ACTIVITY_TASK_UPDATE = 2;
 
-    //Definicions dels elements del fragment
-    Button btnAceptarCrearEmpresa;
+    private CalendarDataSource BD;
+    private long idActual;
+    private int positionActual;
+    // private adaperLlistaEmpresa simpleCursorEmpresa;
 
-    //Contructor
-    public EmpresaFragment() {
 
-        //Constructor
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
+*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_company_list, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_company_list, container, false);
 
-        /*AdaptadorEmpreses adaptadorEmpreses = new AdaptadorEmpreses(this, dadesExempleEmpresa);
-        ListView llistat = (ListView)findViewById(R.id.lvCompanyList);
-        llistat.setAdapter(adaptadorEmpreses);*/
+        ListView llistat = (ListView)view.findViewById(R.id.llistatCompanyia);
 
-        //Boto per la creació de les empresa on et enviarà a un altre fragment
-        btnAceptarCrearEmpresa = (Button) v.findViewById(R.id.button);
-        btnAceptarCrearEmpresa.setOnClickListener(new View.OnClickListener() {
+        //Boto per agregar els empreses
+        Button crearEmpreses;
+        crearEmpreses = (Button) view.findViewById(R.id.btnCrearEmpresesList);
+        crearEmpreses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Crida d'un activity des de un Fragment.
-                Intent intent = new Intent(getActivity(), Creacio_Companyia.class);
-                getActivity().startActivity(intent);
+                Intent i = new Intent(getActivity(), Creacio_Events.class);
+                startActivity(i);
             }
         });
-
-
-        return v;
+        return view;
     }
 
+  //  @Override
+   // public void onClick(View view) {
 
-//Adaptardor per el llistat de les empreses on serveix per simular diferents empreses ja creades
-/*
-class AdaptadorEmpreses extends ArrayAdapter<EmpresesLlista>{
-    /*
-        Cridem a una classe anomenada EmpresesLlista on solament hi ha les seves propietats(NOM EMPRESA, CARRER),
-        més li afegom el layout per visualitzar el contingut de cada fila.
+        //btnCrearCompanyiaList
+
+     /*   switch (view.getId()){
+            case R.id.btnCrearCompanyiaList:
+
+                Bundle b = new Bundle();
+                b.putLong("id", -1);
+
+                Intent i = new Intent (getActivity(), Creacio_Companyia.class);
+                i.putExtras(b);
+                //    startActivityForResult(i,ACTIVITY_TASK_ADD);
+
+                break;
+        }*/
+  //  }
+ /*
+        BD = new CalendarDataSource(this);
+        carregarLlistat();
+
+        ListView llistatEmpreses = (ListView)getView().findViewById(R.id.llistatCompanyia);
+        llistatEmpreses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> arg0, View vista, int posicion,
+                                    long id) {
+               updateLListat(id);
+
+            }
+
+        });
+        return  v;
+    }
     */
-
 /*
+    private void carregarLlistat() {
 
-    public AdaptadorEmpreses(Context context,  EmpresesLlista[] dadesExempleEmpresa) {
-        super(context, R.layout.list_empreses);
+        Cursor cursor = BD.carregarTotaLaTaulaEmpresa();
+        ListView llistat = (ListView)getView().findViewById(R.id.llistatCompanyia);
+        simpleCursorEmpresa = new adaperLlistaEmpresa(getActivity(), R.layout.list_empreses, cursor, from, to, 1);
+        llistat.setAdapter(simpleCursorEmpresa);
     }
 
-    public View getView (int position, View convertView, ViewGroup parent){
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.list_empreses, null);
+    private void updateLListat(long id) {
+        Bundle b = new Bundle();
+        b.putLong("id", id);
 
-        //Declaració de cada element que hi ha en la fila
-        //Nom empresa
-        TextView lblNomEmpresa = (TextView) item.findViewById(R.id.txtNomEmpresa);
-        lblNomEmpresa.setText(dadesExempleEmpresa[position].getNomEmpresa());
-        //Nom carrer
-        TextView lblNomCarrer = (TextView) item.findViewById(R.id.txtCarrer);
-        lblNomCarrer.setText(dadesExempleEmpresa[position].getNomCarrer());
-        //Imatge
-        ImageView foto = (ImageView)item.findViewById(R.id.imageViewEmpresa);
-        switch (dadesExempleEmpresa[position].getImatge())
-        {
-            case "logoDarkAqua": foto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.darkaqua));
-                break;
-            case "logoApp": foto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.calendar_icon));
-                break;
+        idActual = id;
+
+        Intent i = new Intent(getActivity(), Creacio_Companyia.class);
+        i.putExtras(b);
+        startActivityForResult(i, ACTIVITY_TASK_UPDATE);
+    }
+
+    private void refreshLlistatEmpreses(){
+        Cursor cursor = BD.carregarTotaLaTaulaEmpresa();
+        simpleCursorEmpresa.changeCursor(cursor);
+        simpleCursorEmpresa.notifyDataSetChanged();
+    }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == ACTIVITY_TASK_ADD){
+            if(resultCode == RESULT_OK){
+                refreshLlistatEmpreses();
+            }
         }
-        return (item);
-    }*/
+        if(requestCode == ACTIVITY_TASK_UPDATE){
+            if(requestCode == RESULT_OK){
+                refreshLlistatEmpreses();
+            }
+        }
+    }
+*/
+
+
+
+
+
+
+
+/*
+class adaperLlistaEmpresa extends android.widget.SimpleCursorAdapter {
+
+    public adaperLlistaEmpresa(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+        super(context, layout, c, from, to, flags);
+    }
 }
-/*
-    private EmpresesLlista dadesExempleEmpresa[] =
-            new EmpresesLlista[]{
-                    new EmpresesLlista("Empresa 1", "Carrer 1", ""),
-                    new EmpresesLlista("Empresa 2", "Carrer 2", ""),
-                    new EmpresesLlista("Empresa 3", "Carrer 3", ""),
-                    new EmpresesLlista("Empresa 4", "Carrer 4", ""),
-                    new EmpresesLlista("Empresa 5", "Carrer 5", ""),
 
-
-
-            };
-*/
-/*
-     int [] imatges = {
-             R.drawable.darkaqua,
-             R.drawable.calendar_icon
-     };
 */
 
 
 
-
-
+}
 
 
 

@@ -7,39 +7,53 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:id="@+id/lvCompanyList"
-        android:layout_below="@+id/searchView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:id="@+id/searchView"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="124dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageViewEmpresa"
-        android:layout_marginTop="41dp"
-        android:text="Creacio" />
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/ibCrearEmpresa"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/searchView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Llistat Empreses"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="1" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnCrearCompanyiaList"
+            android:layout_centerHorizontal="true">
+
+        </SearchView>
+
+        <Button
+            android:id="@+id/btnCrearEmpresesList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Empreses" />
+
+        <ListView
+            android:id="@+id/llistatCompanyia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/searchView"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
 
 </RelativeLayout>

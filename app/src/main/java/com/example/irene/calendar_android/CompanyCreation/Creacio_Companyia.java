@@ -8,16 +8,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.SQLite.CalendarDataSource;
 
 public class Creacio_Companyia extends AppCompatActivity implements View.OnClickListener{
 
     Button aceptarRegistro, cancelarRegistro;
+
+
+    private CalendarDataSource bd;
+    EditText nomEmpresa, telefon, email, ciutat, adreça, codiPostal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
