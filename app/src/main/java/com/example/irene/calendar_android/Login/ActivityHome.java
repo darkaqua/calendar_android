@@ -53,6 +53,8 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         switch (id){
 
             case R.id.btnIniciar:
+                Intent i = new Intent(ActivityHome.this, MainActivity.class);
+                startActivity(i);
 
                /* if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
                    // Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
@@ -67,7 +69,7 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
                     }
                 }*/
 
-               try {
+             /*  try {
                    final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
 
                    JSONObject jsonObject = new JSONObject();
@@ -109,7 +111,7 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
                } catch (Exception e){
                    e.printStackTrace();
                }
-
+*/
 
 
 

@@ -15,8 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Login.ActivityLoading"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".Login.ActivityLoading">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +29,7 @@
         <activity
             android:name=".Home.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -54,7 +53,7 @@
         <activity android:name=".Perfil.ActivityPerfil" />
         <activity
             android:name=".ConfiguracioUsuaris.ActivityConfiguracioUsuari"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 
