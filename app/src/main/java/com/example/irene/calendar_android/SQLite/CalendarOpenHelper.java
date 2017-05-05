@@ -17,8 +17,8 @@ public class CalendarOpenHelper extends SQLiteOpenHelper {
 
     private static final String CREAR_BD = "create table "
             + TAULA_API + "( " +
-            CLIENT_ID + " integer primary key autoincrement, " +
-            CLIENT_TOKEN + " integer not null);";
+            CLIENT_ID + " text not null, " +
+            CLIENT_TOKEN + " text not null);";
 
 
     public CalendarOpenHelper(Context context) {
