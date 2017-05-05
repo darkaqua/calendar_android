@@ -8,10 +8,12 @@ public class EmpresesLlista {
 
     private String nomEmpresa;
     private String nomCarrer;
+    private String imatge;
 
-    public EmpresesLlista(String nomEmpresa, String nomCarrer) {
+    public EmpresesLlista(String nomEmpresa, String nomCarrer, String imatge) {
         this.nomEmpresa = nomEmpresa;
         this.nomCarrer = nomCarrer;
+        this.imatge = imatge;
     }
 
     public String getNomCarrer() {
@@ -30,5 +32,11 @@ public class EmpresesLlista {
         this.nomEmpresa = nomEmpresa;
     }
 
+    public String getImatge() {
+        return imatge;
+    }
 
+    public void setImatge(String imatge) {
+        this.imatge = imatge;
+    }
 }

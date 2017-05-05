@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.example.irene.calendar_android.Fragments.CalendariFragment;
 import com.example.irene.calendar_android.Fragments.EmpresaFragment;
 
-/**
- * Created by Irene on 30/03/2017.
- */
 
-//Adaptador que s'utilitza per fer el Navigation drawer en el Main Activity
+
+//Adaptador que s'utilitzà per fer el Navigation drawer amb els tabs en el Main Activity
 public class MyAdapterFragment extends FragmentPagerAdapter {
 
     public MyAdapterFragment(FragmentManager fm) {

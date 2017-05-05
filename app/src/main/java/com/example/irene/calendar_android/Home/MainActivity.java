@@ -14,16 +14,19 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 
 import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
+import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
 
 import com.example.irene.calendar_android.Editor.EditorGrupos;
 import com.example.irene.calendar_android.Fragments.ConfigUsuari;
+import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -92,6 +95,12 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             }
         });
     }
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -109,11 +118,22 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
          /*   fragment  = new FragmentPerfil();
             FragmentTransaction = true;*/
-         Intent i = new Intent(MainActivity.this, EditorGrupos.class);
-            startActivity(i);
+
+        // Intent i = new Intent(MainActivity.this, EditorGrupos.class);
+
+         //   startActivity(i);
 
         }else if(id == R.id.nav_events){
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
+            startActivity(i);
+        }else if(id == R.id.nav_empreses){
+            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
+            startActivity(i);
+        }
+
+
+        else if(id == R.id.nav_configuracio){
+            Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
             startActivity(i);
         }
 
@@ -128,10 +148,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             dialog1.setPositiveButton("Acceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
                     aceptar();
-
                 }
             });
-
 
             dialog1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
@@ -139,19 +157,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 }
             });
 
-
-        } else if (id == R.id.nav_configuracio) {
-            fragment = new ConfigUsuari();
-            FragmentTransaction = true;
-
-        }
-
-        else if (id == R.id.crecioCompañia) {
-            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
-            startActivity(i);
-
-
-
+             dialog1.show();
         }
 
         if(FragmentTransaction){
@@ -170,12 +176,11 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     }
 
     public void aceptar(){
-        Toast t=Toast.makeText(this,"Bienvenido a probar el programa.", Toast.LENGTH_SHORT);
-        t.show();
+        finish();
     }
 
     public void cancelar(){
-        finish();
+
     }
 
     @Override

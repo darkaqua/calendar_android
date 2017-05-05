@@ -28,18 +28,12 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         registrar.setOnClickListener(this);
         nomUsuari = (EditText)findViewById(R.id.editTextUser);
         password = (EditText)findViewById(R.id.editTextPassword);
-
-
     }
 
 
     public void onClick(View v){
         Bundle b = new Bundle();
         int id = v.getId();
-
-
-
-
 
         switch (id){
 

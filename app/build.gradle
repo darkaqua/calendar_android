@@ -31,5 +31,8 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
     compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.prolificinteractive:material-calendarview:1.4.3'
+    compile files('libs/apiconnector-1.0-SNAPSHOT.jar')
     testCompile 'junit:junit:4.12'
 }
