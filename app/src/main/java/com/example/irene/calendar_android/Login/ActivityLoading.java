@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class ActivityLoading extends AppCompatActivity {
 
     private static final String ip = "calendar.darkaqua.net";
-    private static final int port = 22322;
+    private static final int port = 8080;
 
     public static ApiConnector API_CONNECTOR;
 
