@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.SQLite.CalendarDataSource;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -26,6 +27,8 @@ public class ActivityLoading extends AppCompatActivity {
 
     public static ApiConnector API_CONNECTOR;
 
+    private CalendarDataSource dataSource;
+
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         Window window = getWindow();
@@ -37,6 +40,8 @@ public class ActivityLoading extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+
+        dataSource = new CalendarDataSource(this);
 
         try {
             ApiConnection();
@@ -53,10 +58,13 @@ public class ActivityLoading extends AppCompatActivity {
     private void ApiConnection() throws Exception{
         API_CONNECTOR = new ApiConnector(ip, port);
         //Valors sqlite
-        String client_id = "6eb3c233aed8d4db2e21bd72c769864c9dad06475c5b7fb8e8537b618b418b51";
-        String client_token = "48700148d6b34612264cbc940455a706c0888701f2f37aab0be9786c78fd4820";
+        String[] client = dataSource.getClient();
+        String client_id = client[0];
+        String client_token = client[1];
+        //String client_id = "6eb3c233aed8d4db2e21bd72c769864c9dad06475c5b7fb8e8537b618b418b51";
+        //String client_token = "48700148d6b34612264cbc940455a706c0888701f2f37aab0be9786c78fd4820";
 
-        if(client_id.length() == 0 && client_token.length() == 0) return;
+        if(client_id == null && client_token == null) return;
 
         API_CONNECTOR.auth(client_id, client_token);
 
@@ -97,11 +105,11 @@ public class ActivityLoading extends AppCompatActivity {
                 try {
 
                     //Consulta a la API si SQLITE conte les dades de sessió
-                    //int waited = 0;
+                    int waited = 0;
                     // Splash screen pause time
-                    while (!validatorResponse) {
+                    while (!validatorResponse || waited < 3000) {
                         sleep(150);
-                        //waited += 100;
+                        waited += 100;
                     }
                     //En cas de que la API respongui correctament, enviar directament a la pantalla d'usuari
 

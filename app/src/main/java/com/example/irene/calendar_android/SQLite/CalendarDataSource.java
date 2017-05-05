@@ -42,8 +42,32 @@ public class CalendarDataSource {
     }
 
 
+    public String[] getClient(){
+        String[] values = new String[2];
 
+        Cursor cursor = bdLlegir.query(
+                CalendarOpenHelper.TAULA_API,
+                new String[]{CalendarOpenHelper._ID, CalendarOpenHelper.CLIENT_ID, CalendarOpenHelper.CLIENT_TOKEN},
+                CalendarOpenHelper._ID + "=1",
+                null, null, null, null
+        );
+        if(cursor.moveToFirst()){
+            values[0] = cursor.getString(cursor.getColumnIndex(CalendarOpenHelper.CLIENT_ID));
+            values[1] = cursor.getString(cursor.getColumnIndex(CalendarOpenHelper.CLIENT_TOKEN));
+        }
+        cursor.close();
+        return values;
+    }
 
+    public long setClient(String client_id, String client_token){
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(CalendarOpenHelper._ID, "1");
+        contentValues.put(CalendarOpenHelper.CLIENT_ID, client_id);
+        contentValues.put(CalendarOpenHelper.CLIENT_TOKEN, client_token);
+
+        return bdEscriure.insert(CalendarOpenHelper.TAULA_API, null, contentValues);
+    }
 
 }
 
