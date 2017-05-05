@@ -13,7 +13,18 @@ import android.widget.LinearLayout;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.R;
 
+import net.darkaqua.apiconnector.ApiConnector;
+import net.darkaqua.apiconnector.Request;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ActivityLoading extends AppCompatActivity {
+
+    private static final String ip = "calendar.darkaqua.net";
+    private static final int port = 22322;
+
+    public static ApiConnector API_CONNECTOR;
 
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -26,8 +37,47 @@ public class ActivityLoading extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+
+        try {
+            ApiConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         StartAnimations();
     }
+
+    private boolean needsLogin = true;
+    private boolean validatorResponse = false;
+
+    private void ApiConnection() throws Exception{
+        API_CONNECTOR = new ApiConnector(ip, port);
+        //Valors sqlite
+        String client_id = "6eb3c233aed8d4db2e21bd72c769864c9dad06475c5b7fb8e8537b618b418b51";
+        String client_token = "48700148d6b34612264cbc940455a706c0888701f2f37aab0be9786c78fd4820";
+
+        if(client_id.length() == 0 && client_token.length() == 0) return;
+
+        API_CONNECTOR.auth(client_id, client_token);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("client_id", client_id);
+        jsonObject.put("client_token", client_token);
+
+        API_CONNECTOR.POST("Account/Validator", jsonObject, new Request() {
+            @Override
+            public void Response(Object o) {
+                JSONObject res = (JSONObject) o;
+                try {
+                    needsLogin = !res.getBoolean("valid");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                validatorResponse = true;
+            }
+        });
+    }
+
     private void StartAnimations() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
         anim.reset();
@@ -47,16 +97,16 @@ public class ActivityLoading extends AppCompatActivity {
                 try {
 
                     //Consulta a la API si SQLITE conte les dades de sessió
-                    int waited = 0;
+                    //int waited = 0;
                     // Splash screen pause time
-                    while (waited < 3500) {
+                    while (!validatorResponse) {
                         sleep(150);
-                        waited += 100;
+                        //waited += 100;
                     }
                     //En cas de que la API respongui correctament, enviar directament a la pantalla d'usuari
 
                     //En cas contrari, enviar a la pantalla d'iniciar sessió
-                    Intent intent = new Intent(ActivityLoading.this, ActivityHome.class);
+                    Intent intent = new Intent(ActivityLoading.this, needsLogin ? ActivityHome.class : MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     ActivityLoading.this.finish();
