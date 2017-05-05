@@ -9,6 +9,8 @@ public class CalendarOpenHelper extends SQLiteOpenHelper {
 
 
     public static final String TAULA_API = "api";
+
+    public static final String _ID = "_id";
     public static final String CLIENT_ID = "client_id";
     public static final String CLIENT_TOKEN = "client_token";
 
@@ -17,6 +19,7 @@ public class CalendarOpenHelper extends SQLiteOpenHelper {
 
     private static final String CREAR_BD = "create table "
             + TAULA_API + "( " +
+            _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             CLIENT_ID + " text not null, " +
             CLIENT_TOKEN + " text not null);";
 
@@ -28,10 +31,13 @@ public class CalendarOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase database) {
 
         database.execSQL(CREAR_BD);
+        database.execSQL("INSERT INTO " + TAULA_API + " VALUES (1, '', '')");
     }
 
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
         database.execSQL("DROP TABLE IF EXISTS articulos");
         this.onCreate(database);
     }
+
+
 }
