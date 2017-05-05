@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,13 @@ public class ActivityConfiguracioUsuari extends AppCompatActivity implements Vie
                 Toast.makeText(getApplicationContext(), "Cancel·lar canvis", Toast.LENGTH_SHORT).show();
 
                 break;
-
         }
+    }
+
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
     }
 }

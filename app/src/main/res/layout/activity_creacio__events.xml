@@ -31,21 +31,52 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
-        <EditText
-            android:id="@+id/editTextNomEvent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:text="Nom event" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:text="Nom Event:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextNomEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:text="Nom event" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="117dp"
+            android:layout_height="wrap_content"
+            android:text="Descripció:"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextDescripcioEvent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Descripció" />
+            android:inputType="textMultiLine"
+            tools:text="Descripció" />
+
+    </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,7 +119,21 @@
                 tools:text="Dia" />
         </LinearLayout>
 
-        <Space
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btnEventsAsignarUsuaris"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Asignar usuaris" />
+        </LinearLayout>
+
+    <Space
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 

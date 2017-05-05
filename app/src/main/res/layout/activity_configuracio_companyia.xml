@@ -6,125 +6,142 @@
     android:layout_height="match_parent"
     tools:context="com.example.irene.calendar_android.CompanieMenu.ConfiguracioCompanyia">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:stretchColumns="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Modificar Empresa"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/etNomCompanConf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nom"
-                android:inputType="textPersonName" />
-
-        </TableRow>
-
-        <TableRow
-
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="20dp">
+            android:layout_alignParentTop="true"
+            android:padding="16dp"
+            android:stretchColumns="1">
 
-            <EditText
-                android:id="@+id/etTelfCompanyConf"
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Telefono"
-                android:inputType="textPersonName" />
-        </TableRow>
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp">
 
-        <View
-            android:layout_height="5dp"
-            android:background="#FF909090"/>
+                <EditText
+                    android:id="@+id/etNomCompanConf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nom"
+                    android:inputType="textPersonName" />
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            </TableRow>
 
-            <EditText
-                android:id="@+id/etMailfCompanyConf"
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/etTelfCompanyConf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Telefono"
+                    android:inputType="textPersonName" />
+            </TableRow>
+
+            <View
+                android:layout_height="5dp"
+                android:background="#FF909090" />
+
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textPersonName" />
-        </TableRow>
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+                <EditText
+                    android:id="@+id/etMailfCompanyConf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Email"
+                    android:inputType="textPersonName" />
+            </TableRow>
 
-            <EditText
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:hint="Ciutat" />
-        </TableRow>
-        <View
-            android:layout_height="4dip"
-            android:background="#FF909090"/>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
 
-            <EditText
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ciutat"
+                    android:inputType="textPersonName" />
+            </TableRow>
+
+            <View
+                android:layout_height="4dip"
+                android:background="#FF909090" />
+
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:hint="Adreça" />
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
 
-            <EditText
-                android:id="@+id/etCpCompanyConf"
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Adreça"
+                    android:inputType="textPersonName" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Codi Postal"
-                android:inputType="textPersonName" />
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/etCpCompanyConf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Codi Postal"
+                    android:inputType="textPersonName" />
 
 
-        </TableRow>
+            </TableRow>
 
-        <View
-            android:layout_height="4dip"
-            android:background="#FF909090"/>
-    </TableLayout>
+            <View
+                android:layout_height="4dip"
+                android:background="#FF909090" />
+        </TableLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnAceptarConfigComp"

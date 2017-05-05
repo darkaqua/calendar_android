@@ -15,7 +15,10 @@
             android:id="@+id/nav_empreses"
             android:icon="@drawable/icon_empresas"
             android:title="Empreses" />
-
+        <item
+            android:id="@+id/nav_grups"
+            android:icon="@drawable/icon_empresas"
+            android:title="Grups" />
         <item
             android:id="@+id/nav_tarifes"
             android:icon="@drawable/icon_tarifes"

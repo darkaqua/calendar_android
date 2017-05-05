@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.R;
@@ -29,13 +31,19 @@ import java.text.DateFormat;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Creacio_Events extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnTime, btnDate;
+    Button btnTime, btnDate, btnCancelar;
     TextView tvTime, tvDate;
 
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
 
     Calendar calendar = Calendar.getInstance();
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
+    }
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
@@ -46,9 +54,12 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         btnTime.setOnClickListener(this);
         btnDate = (Button)findViewById(R.id.btnDiaPicker);
         btnDate.setOnClickListener(this);
+        btnCancelar = (Button)findViewById(R.id.btnCancelarEvent);
+        btnCancelar.setOnClickListener(this);
 
         tvTime = (TextView)findViewById(R.id.textViewTime);
         tvDate = (TextView)findViewById(R.id.textViewDay);
+
     }
 
     @Override
@@ -68,7 +79,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         timeCalendar.set(Calendar.MINUTE, minute);
 
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
-                        tvTime.setText("Hora del dia: "+timeString);
+                        tvTime.setText("Hora: "+timeString);
 
                     }
                 },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), android.text.format.DateFormat.is24HourFormat(Creacio_Events.this));
@@ -89,7 +100,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         dateCalendar.set(java.util.Calendar.DAY_OF_MONTH, dayOfMonth);
 
                         String dateString = DateUtils.formatDateTime(Creacio_Events.this, dateCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_DATE);
-                        tvDate.setText("Datum: " + dateString);
+                        tvDate.setText("Dia: " + dateString);
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -97,6 +108,13 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                 datePickerDialog.show();
                 break;
             }
+
+            case R.id.btnCancelarEvent:
+                Intent i = new Intent(Creacio_Events.this, MainActivity.class);
+                startActivity(i);
+                Toast.makeText(getApplicationContext(), "Cancel·lar canvis", Toast.LENGTH_SHORT).show();
+
+                break;
         }
 
     }

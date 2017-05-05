@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,12 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
     private CalendarDataSource bd;
     EditText nomEmpresa, telefon, email, ciutat, adreça, codiPostal;
 
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +61,39 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
 
             case R.id.btnCancelaCreacioComp:
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-                new AlertDialog.Builder(this)
+                builder.setTitle("Confirm");
+                builder.setMessage("Are you sure?");
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                        Toast.makeText(Creacio_Companyia.this, "Sí",
+                                Toast.LENGTH_LONG).show();
+
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        Toast.makeText(Creacio_Companyia.this, "No",
+                                Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
+                /*new AlertDialog.Builder(this)
                         .setTitle("CANCEL·lAR")
                         .setMessage("Estàs segur que vols cancel·lar l'operació ? ")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -76,7 +114,7 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
-
+*/
 
                 break;
 

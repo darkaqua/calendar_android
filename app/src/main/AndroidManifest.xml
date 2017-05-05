@@ -25,7 +25,7 @@
         <activity
             android:name=".Login.ActivityHome"
             android:label="@string/title_activity_iniciar__sessio"
-            android:theme="@style/AppTheme.NoActionBar" />
+            />
         <activity
             android:name=".Home.MainActivity"
             android:label="@string/title_activity_main"
@@ -51,7 +51,10 @@
         <activity android:name=".GestorDeUsuarios.AfegirUsuari" />
         <activity android:name=".Editor.ConfigGrupos" />
         <activity android:name=".Perfil.ActivityPerfil" />
-        <activity android:name=".ConfiguracioUsuaris.ActivityConfiguracioUsuari"></activity>
+        <activity
+            android:name=".ConfiguracioUsuaris.ActivityConfiguracioUsuari"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -94,6 +95,12 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             }
         });
     }
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -119,7 +126,12 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         }else if(id == R.id.nav_events){
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
             startActivity(i);
+        }else if(id == R.id.nav_empreses){
+            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
+            startActivity(i);
         }
+
+
         else if(id == R.id.nav_configuracio){
             Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
             startActivity(i);
@@ -136,10 +148,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             dialog1.setPositiveButton("Acceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
                     aceptar();
-
                 }
             });
-
 
             dialog1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
@@ -147,20 +157,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
                 }
             });
 
-
-        } else if (id == R.id.nav_configuracio) {
-           /* fragment = new ConfigUsuari();
-            FragmentTransaction = true;*/
-
+             dialog1.show();
         }
-
-       /* else if (id == R.id.crecioCompañia) {
-            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
-            startActivity(i);
-*/
-
-
-
 
         if(FragmentTransaction){
             getSupportFragmentManager().beginTransaction()
@@ -178,12 +176,11 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     }
 
     public void aceptar(){
-        Toast t=Toast.makeText(this,"Bienvenido a probar el programa.", Toast.LENGTH_SHORT);
-        t.show();
+        finish();
     }
 
     public void cancelar(){
-        finish();
+
     }
 
     @Override
