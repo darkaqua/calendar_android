@@ -38,10 +38,10 @@
                 android:text="Nom" />
 
             <TextView
-                android:id="@+id/txtCiutatEmpresa"
+                android:id="@+id/txtDescripcioEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ciutat" />
+                android:text="Descripcio" />
         </LinearLayout>
     </LinearLayout>
 

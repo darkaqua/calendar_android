@@ -6,21 +6,23 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.SQLite.CalendarDataSource;
 
-public class Creacio_Companyia extends AppCompatActivity implements View.OnClickListener{
+public class CreacioCompanyia extends AppCompatActivity {
 
-    Button aceptarRegistro, cancelarRegistro;
+   /* Button aceptarRegistro, cancelarRegistro;
 
 
     private CalendarDataSource bd;
@@ -42,10 +44,20 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
         cancelarRegistro = (Button) findViewById(R.id.btnCancelaCreacioComp);
         cancelarRegistro.setOnClickListener(this);
 
-
-
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //Boton atras de la toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
 
     public void onClick(View v){
         int id = v.getId();
@@ -54,43 +66,16 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
 
             case R.id.btnAceptarCreacioComp:
 
-                Intent intent = new Intent(Creacio_Companyia.this, MainActivity.class);
+                Intent intent = new Intent(CreacioCompanyia.this, MainActivity.class);
                 startActivity(intent);
 
                 break;
 
             case R.id.btnCancelaCreacioComp:
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                builder.setTitle("Confirm");
-                builder.setMessage("Are you sure?");
-
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
-                        Toast.makeText(Creacio_Companyia.this, "Sí",
-                                Toast.LENGTH_LONG).show();
-
-                        dialog.dismiss();
-                    }
-                });
-
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        // Do nothing
-                        Toast.makeText(Creacio_Companyia.this, "No",
-                                Toast.LENGTH_LONG).show();
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
+                Toast.makeText(getApplicationContext(), "Cancel·lar canvis", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(CreacioCompanyia.this, MainActivity.class);
+                startActivity(i);
 
 
                 /*new AlertDialog.Builder(this)
@@ -100,7 +85,7 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
 
-                                Toast.makeText(Creacio_Companyia.this, "Creació cancel·lada",
+                                Toast.makeText(CreacioCompanyia.this, "Creació cancel·lada",
                                         Toast.LENGTH_LONG).show();
                             }
                         })
@@ -108,7 +93,7 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
 
-                                Toast.makeText(Creacio_Companyia.this, "Acceptat",
+                                Toast.makeText(CreacioCompanyia.this, "Acceptat",
                                         Toast.LENGTH_LONG).show();
                             }
                         })
@@ -116,14 +101,14 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                         .show();
 */
 
-                break;
-
+           //     break;
+/*
 
 
         }
 
 
-    }
+    }*/
 
 
 

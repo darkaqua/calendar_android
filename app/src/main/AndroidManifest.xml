@@ -14,8 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Login.ActivityLoading">
+        <activity android:name=".Login.ActivityLoading">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +23,7 @@
         </activity>
         <activity
             android:name=".Login.ActivityHome"
-            android:label="@string/title_activity_iniciar__sessio"
-            />
+            android:label="@string/title_activity_iniciar__sessio" />
         <activity
             android:name=".Home.MainActivity"
             android:label="@string/title_activity_main"
@@ -43,8 +41,7 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
 
-        <activity android:name=".CompanyCreation.Creacio_Companyia" />
-        <activity android:name=".CompanieMenu.creadorCalendari" />
+        <activity android:name=".CompanyCreation.CreacioCompanyia" />
         <activity android:name=".CompanieMenu.ConfiguracioCompanyia" />
         <activity android:name=".Editor.EditorGrupos" />
         <activity android:name=".GestorDeUsuarios.GestorDeUsuarios" />
@@ -53,8 +50,12 @@
         <activity android:name=".Perfil.ActivityPerfil" />
         <activity
             android:name=".ConfiguracioUsuaris.ActivityConfiguracioUsuari"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CreacioGrups.Creacio_Grups" />
+        <activity android:name=".ActivityInformacio" />
+        <activity android:name=".ActivityContacte" />
+        <activity android:name=".CompanieMenu.ActivityLlistatEmpreses" />
+        <activity android:name=".CompanieMenu.ActivityInformacioEmpresa"></activity>
     </application>
 
 </manifest>
