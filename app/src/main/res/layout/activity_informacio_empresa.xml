@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.irene.calendar_android.CompanieMenu.ActivityInformacioEmpresa">
+    tools:context="com.example.irene.calendar_android.Companyies.ActivityInformacioEmpresa">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

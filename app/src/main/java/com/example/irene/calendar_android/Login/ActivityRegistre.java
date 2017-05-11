@@ -56,7 +56,7 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                // Intent i = new Intent(ActivityRegistre.this, MainActivity.class);
                // startActivity(i);
                 //  Toast.makeText(this, "Registre correcte", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_LONG).show();
                try {
                     final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
 
@@ -80,11 +80,12 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void Response(Object o) {
                             final JSONObject res = (JSONObject) o;
+
                             try{
                                 if(res.getBoolean("valid")){
+                                    Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_LONG).show();
                                     Intent i = new Intent(ActivityRegistre.this, ActivityHome.class);
                                     startActivity(i);
-                                    Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_SHORT).show();
 
 
                                     return;

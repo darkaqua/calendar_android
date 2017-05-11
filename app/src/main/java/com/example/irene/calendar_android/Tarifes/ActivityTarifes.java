@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android.CompanieMenu;
+package com.example.irene.calendar_android.Tarifes;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,12 +8,13 @@ import android.view.View;
 
 import com.example.irene.calendar_android.R;
 
-public class ConfiguracioCompanyia extends AppCompatActivity {
+public class ActivityTarifes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracio_companyia);
+        setContentView(R.layout.activity_tarifes);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Boton atras de la toolbar
@@ -28,13 +29,10 @@ public class ConfiguracioCompanyia extends AppCompatActivity {
         });
     }
 
-
-
     //Carregar ToolBar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         return  true;
     }
 }

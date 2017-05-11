@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
-import com.example.irene.calendar_android.CompanyCreation.CreacioCompanyia;
+import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
 import com.example.irene.calendar_android.R;
 
 

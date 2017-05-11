@@ -50,21 +50,10 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         switch (id){
 
             case R.id.btnIniciar:
-                //Intent i = new Intent(ActivityHome.this, MainActivity.class);
-                //startActivity(i);
+               // Intent i = new Intent(ActivityHome.this, MainActivity.class);
+               // startActivity(i);
 
-               /* if (email.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
-                   // Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(ActivityHome.this, MainActivity.class);
-                    startActivity(i);
-                } else {
-                    //Toast.makeText(getApplicationContext(), "Nom usuari o clau incorrecta", Toast.LENGTH_LONG).show();
-                    if (!email.getText().toString().equals("admin")){
-                        email.setError("Nom incorrecta");
-                    }if (!password.getText().toString().equals("123")){
-                        password.setError("Contrasenya incorrecta");
-                    }
-                }*/
+
 
                try {
                    final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;

@@ -1,6 +1,5 @@
 package com.example.irene.calendar_android.ConfiguracioUsuaris;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -13,10 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
 import com.example.irene.calendar_android.Home.MainActivity;
-import com.example.irene.calendar_android.Login.ActivityHome;
-import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
 public class ActivityConfiguracioUsuari extends AppCompatActivity implements View.OnClickListener  {

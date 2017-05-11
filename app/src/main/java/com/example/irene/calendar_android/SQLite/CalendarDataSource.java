@@ -66,6 +66,10 @@ public class CalendarDataSource {
         contentValues.put(CalendarOpenHelper.CLIENT_ID, client_id);
         contentValues.put(CalendarOpenHelper.CLIENT_TOKEN, client_token);
 
+
+        if(getClient()[0] != null){
+            return bdEscriure.update(CalendarOpenHelper.TAULA_API, contentValues, CalendarOpenHelper._ID+"=1", null);
+        }
         return bdEscriure.insert(CalendarOpenHelper.TAULA_API, null, contentValues);
     }
 

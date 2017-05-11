@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.irene.calendar_android.Tarifes.ActivityTarifes">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:title="Tarifes"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextColor="@android:color/white" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/prova"
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/relative_layout_background"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="62dp"
+            android:text="Gratis"
+            android:textAllCaps="true"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/prova1"
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:background="@drawable/relative_layout_background"
+        android:padding="16dp"
+        tools:context=".MainActivity"
+        android:layout_below="@+id/prova"
+        android:layout_alignLeft="@+id/prova"
+        android:layout_alignStart="@+id/prova"
+        android:layout_marginTop="19dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/prova2"
+        android:layout_width="330dp"
+        android:layout_height="150dp"
+        android:background="@drawable/relative_layout_background"
+        android:padding="16dp"
+        tools:context=".MainActivity"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/prova1"
+        android:layout_alignStart="@+id/prova1"
+        android:layout_marginBottom="12dp">
+
+    </RelativeLayout>
+
+</RelativeLayout>

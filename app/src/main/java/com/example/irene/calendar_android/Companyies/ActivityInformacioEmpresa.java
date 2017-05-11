@@ -1,23 +1,20 @@
-package com.example.irene.calendar_android.CompanieMenu;
+package com.example.irene.calendar_android.Companyies;
 
-import android.content.Context;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.irene.calendar_android.R;
 
-public class ActivityLlistatEmpreses extends AppCompatActivity  {
+public class ActivityInformacioEmpresa extends AppCompatActivity {
 
+    Button btnEliminar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_llistat_empreses);
+        setContentView(R.layout.activity_informacio_empresa);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -31,17 +28,22 @@ public class ActivityLlistatEmpreses extends AppCompatActivity  {
                 finish();
             }
         });
+    }
 
 
-        ListView llista=(ListView)findViewById(R.id.listViewLlistatEmpreses);
+    public void onClick(View v) {
+        int id = v.getId();
+
+        switch (id) {
+
+            case R.id.btnAceptarCreacioComp:
 
 
+                break;
 
+        }
     }
 
 
 
-
-
 }
-

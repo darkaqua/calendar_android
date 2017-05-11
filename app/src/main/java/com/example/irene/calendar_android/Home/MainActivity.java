@@ -19,8 +19,7 @@ import android.view.MenuItem;
 
 import com.example.irene.calendar_android.ActivityContacte;
 import com.example.irene.calendar_android.ActivityInformacio;
-import com.example.irene.calendar_android.CompanieMenu.ActivityLlistatEmpreses;
-import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
+import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
 import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
@@ -28,6 +27,7 @@ import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.Perfil.ActivityPerfil;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Tarifes.ActivityTarifes;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -47,7 +47,6 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         setSupportActionBar(toolbar);
-
 
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -131,8 +130,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         }else if(id == R.id.nav_grups){
             Intent i = new Intent(MainActivity.this, Creacio_Grups.class);
             startActivity(i);
-        }
-        else if(id == R.id.nav_configuracio){
+        }else if(id == R.id.nav_configuracio){
             Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
             startActivity(i);
         }else if (id == R.id.nav_informacio){
@@ -143,6 +141,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             startActivity(i);
         }else if (id == R.id.nav_perfil){
             Intent i = new Intent(MainActivity.this, ActivityPerfil.class);
+            startActivity(i);
+        }else if (id == R.id.nav_tarifes){
+            Intent i = new Intent(MainActivity.this, ActivityTarifes.class);
             startActivity(i);
         }
         else if (id == R.id.nav_sortir_sessio) {

@@ -21,13 +21,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
-import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.Home.MainActivity;
-import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.R;
-
-import java.text.DateFormat;
 
 
 @RequiresApi(api = Build.VERSION_CODES.N)

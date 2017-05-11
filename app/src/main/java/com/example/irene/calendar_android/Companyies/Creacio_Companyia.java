@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android.CompanieMenu;
+package com.example.irene.calendar_android.Companyies;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,11 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.Home.MainActivity;
-import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
-import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
 import net.darkaqua.apiconnector.ApiConnector;
