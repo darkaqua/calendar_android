@@ -23,13 +23,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView android:id="@+id/TextView"
+            <TextView
+                android:id="@+id/uuidEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:textAllCaps="true"
                 android:textSize="18sp"
-                tools:text="Empresa"
-                android:textAllCaps="true" />
+                android:textStyle="bold"
+                tools:text="Empresa" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,10 +39,10 @@
                 android:text="Nom" />
 
             <TextView
-                android:id="@+id/txtCiutatEmpresa"
+                android:id="@+id/txtDescripcioEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ciutat" />
+                android:text="Descripcio" />
         </LinearLayout>
     </LinearLayout>
 

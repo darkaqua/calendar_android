@@ -1,9 +1,7 @@
 package com.example.irene.calendar_android.Login;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,7 +13,6 @@ import android.widget.Toast;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.SQLite.CalendarDataSource;
-import com.example.irene.calendar_android.SQLite.CalendarOpenHelper;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -25,7 +22,7 @@ import org.json.JSONObject;
 
 public class ActivityHome extends AppCompatActivity implements  View.OnClickListener {
 
-    EditText nomUsuari, password;
+    EditText email, password;
     Button login, registrar;
 
     private CalendarDataSource calendarDataSource;
@@ -39,7 +36,7 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         login.setOnClickListener(this);
         registrar = (Button)findViewById(R.id.btnRegistrar);
         registrar.setOnClickListener(this);
-        nomUsuari = (EditText)findViewById(R.id.editTextUser);
+        email = (EditText)findViewById(R.id.editTextUser);
         password = (EditText)findViewById(R.id.editTextPassword);
 
         calendarDataSource = new CalendarDataSource(this);
@@ -53,25 +50,16 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
         switch (id){
 
             case R.id.btnIniciar:
+               // Intent i = new Intent(ActivityHome.this, MainActivity.class);
+               // startActivity(i);
 
-               /* if (nomUsuari.getText().toString().equals("admin") && password.getText().toString().equals("123")) {
-                   // Toast.makeText(getApplicationContext(), "Nom usuari i clau correcta", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(ActivityHome.this, MainActivity.class);
-                    startActivity(i);
-                } else {
-                    //Toast.makeText(getApplicationContext(), "Nom usuari o clau incorrecta", Toast.LENGTH_LONG).show();
-                    if (!nomUsuari.getText().toString().equals("admin")){
-                        nomUsuari.setError("Nom incorrecta");
-                    }if (!password.getText().toString().equals("123")){
-                        password.setError("Contrasenya incorrecta");
-                    }
-                }*/
+
 
                try {
                    final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
 
                    JSONObject jsonObject = new JSONObject();
-                   jsonObject.put("email", nomUsuari.getText().toString());
+                   jsonObject.put("email", email.getText().toString());
                    jsonObject.put("password", password.getText().toString());
 
                    final Context context = getApplicationContext();
@@ -110,29 +98,16 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
                    e.printStackTrace();
                }
 
-
-
-
             break;
-
 
             case R.id.btnRegistrar:
                Intent intent = new Intent(ActivityHome.this, ActivityRegistre.class);
                 startActivity(intent);
 
             break;
-
-
-
         }
-
-
     }
 
-
-
- /*
-*/
 
 
 

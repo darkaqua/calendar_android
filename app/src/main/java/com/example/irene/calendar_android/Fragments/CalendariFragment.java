@@ -32,10 +32,6 @@ public class CalendariFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calendari, container, false);
 
-
-
-
-
         //Boto per agregar els events
         FloatingActionButton fAgregarEvent;
         fAgregarEvent = (FloatingActionButton) view.findViewById(R.id.floatingActionButtonAgregarEvent);

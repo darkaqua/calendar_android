@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,18 +15,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
-import com.example.irene.calendar_android.CompanieMenu.Creacio_Companyia;
+import com.example.irene.calendar_android.ActivityContacte;
+import com.example.irene.calendar_android.ActivityInformacio;
+import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
 import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
 
-import com.example.irene.calendar_android.Editor.EditorGrupos;
-import com.example.irene.calendar_android.Fragments.ConfigUsuari;
-import com.example.irene.calendar_android.Login.ActivityRegistre;
+import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
+import com.example.irene.calendar_android.Perfil.ActivityPerfil;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Tarifes.ActivityTarifes;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -41,8 +41,6 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -127,17 +125,27 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
             startActivity(i);
         }else if(id == R.id.nav_empreses){
-            Intent i = new Intent(MainActivity.this, Creacio_Companyia.class);
+            Intent i = new Intent(MainActivity.this, ActivityLlistatEmpreses.class);
             startActivity(i);
-        }
-
-
-        else if(id == R.id.nav_configuracio){
+        }else if(id == R.id.nav_grups){
+            Intent i = new Intent(MainActivity.this, Creacio_Grups.class);
+            startActivity(i);
+        }else if(id == R.id.nav_configuracio){
             Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
             startActivity(i);
+        }else if (id == R.id.nav_informacio){
+            Intent i = new Intent(MainActivity.this, ActivityInformacio.class);
+            startActivity(i);
+        }else if (id == R.id.nav_contacte){
+            Intent i = new Intent(MainActivity.this, ActivityContacte.class);
+            startActivity(i);
+        }else if (id == R.id.nav_perfil){
+            Intent i = new Intent(MainActivity.this, ActivityPerfil.class);
+            startActivity(i);
+        }else if (id == R.id.nav_tarifes){
+            Intent i = new Intent(MainActivity.this, ActivityTarifes.class);
+            startActivity(i);
         }
-
-
         else if (id == R.id.nav_sortir_sessio) {
             AlertDialog.Builder dialog1 = new AlertDialog.Builder(this);
             dialog1.setTitle("Important");

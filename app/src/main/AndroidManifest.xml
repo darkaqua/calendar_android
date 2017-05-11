@@ -14,9 +14,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Login.ActivityLoading"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Login.ActivityLoading">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,28 +23,26 @@
         </activity>
         <activity
             android:name=".Login.ActivityHome"
-            android:label="@string/title_activity_iniciar__sessio"
-            />
+            android:label="@string/title_activity_iniciar__sessio" />
         <activity
             android:name=".Home.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
 
         <activity android:name=".Login.ActivityRegistre" />
-        <activity android:name=".CompanieMenu.Creacio_Companyia" />
+        <activity android:name=".Companyies.Creacio_Companyia" />
         <activity android:name=".CreacioEvent.Creacio_Events" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
 
-        <activity android:name=".CompanyCreation.Creacio_Companyia" />
-        <activity android:name=".CompanieMenu.creadorCalendari" />
-        <activity android:name=".CompanieMenu.ConfiguracioCompanyia" />
+        <activity android:name=".CompanyCreation.CreacioCompanyia" />
+        <activity android:name=".Companyies.ConfiguracioCompanyia" />
         <activity android:name=".Editor.EditorGrupos" />
         <activity android:name=".GestorDeUsuarios.GestorDeUsuarios" />
         <activity android:name=".GestorDeUsuarios.AfegirUsuari" />
@@ -54,8 +50,14 @@
         <activity android:name=".Perfil.ActivityPerfil" />
         <activity
             android:name=".ConfiguracioUsuaris.ActivityConfiguracioUsuari"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CreacioGrups.Creacio_Grups" />
+        <activity android:name=".ActivityInformacio" />
+        <activity android:name=".ActivityContacte" />
+        <activity android:name=".Companyies.ActivityLlistatEmpreses" />
+        <activity android:name=".Companyies.ActivityInformacioEmpresa" />
+        <activity android:name=".Tarifes.ActivityTarifes" />
+        <activity android:name=".Companyies.ActivityMostrarInfoEmpresa"></activity>
     </application>
 
 </manifest>

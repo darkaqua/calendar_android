@@ -17,7 +17,7 @@
             android:title="Empreses" />
         <item
             android:id="@+id/nav_grups"
-            android:icon="@drawable/icon_empresas"
+            android:icon="@drawable/icon_group"
             android:title="Grups" />
         <item
             android:id="@+id/nav_tarifes"
@@ -27,6 +27,13 @@
 
     <item android:title="Eines">
         <menu>
+            <item
+                android:id="@+id/nav_informacio"
+                android:title="Sobre nosaltres" />
+            <item
+                android:id="@+id/nav_contacte"
+                android:icon="@drawable/icon_contacte"
+                android:title="Contacte" />
             <item
                 android:id="@+id/nav_configuracio"
                 android:icon="@drawable/icon_configuracio"
