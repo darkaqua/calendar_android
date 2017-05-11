@@ -44,15 +44,14 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
+
         <TextView
             android:id="@+id/textView22"
-            android:layout_width="361dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:gravity="right"
+            android:gravity="center"
             android:maxLines="10"
             android:text="DarkAqua, és un equip de desenvolupadors que ofereixen solucions per qualsevol dispositiu móbil i plataforma web. Aquest equip són; Pablo González Rubio, Irene Foz Almagro i Eric Marés Aquilera."
-            android:textAlignment="center"
             android:textSize="18sp" />
 
         <ImageView
@@ -64,7 +63,7 @@
             android:layout_marginLeft="130dp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnWebPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Visitar la Web" />

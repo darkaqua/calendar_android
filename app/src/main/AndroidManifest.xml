@@ -41,7 +41,6 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Home.MainActivity" />
 
-        <activity android:name=".CompanyCreation.CreacioCompanyia" />
         <activity android:name=".Companyies.ConfiguracioCompanyia" />
         <activity android:name=".Editor.EditorGrupos" />
         <activity android:name=".GestorDeUsuarios.GestorDeUsuarios" />
@@ -55,7 +54,6 @@
         <activity android:name=".ActivityInformacio" />
         <activity android:name=".ActivityContacte" />
         <activity android:name=".Companyies.ActivityLlistatEmpreses" />
-        <activity android:name=".Companyies.ActivityInformacioEmpresa" />
         <activity android:name=".Tarifes.ActivityTarifes" />
         <activity android:name=".Companyies.ActivityMostrarInfoEmpresa"></activity>
     </application>
