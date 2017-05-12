@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import com.example.irene.calendar_android.ActivityContacte;
 import com.example.irene.calendar_android.ActivityInformacio;
 import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 

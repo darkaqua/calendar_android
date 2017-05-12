@@ -21,10 +21,10 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/frameLayout"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/frameLayout">
+        android:layout_alignParentStart="true">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="151dp"
@@ -64,6 +64,13 @@
                     android:orientation="vertical"
                     android:layout_marginBottom="20dp"
                     >
+
+                    <ImageButton
+                        android:id="@+id/imageButtonPerfilConfiguracioUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@drawable/icon_settings" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

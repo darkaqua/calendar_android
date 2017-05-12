@@ -48,6 +48,7 @@ public class ActivityLlistatEmpreses extends ListActivity {
         });*/
 
 
+
 //        ListView llista=(ListView)findViewById(R.id.listViewLlistatEmpreses);
 
 

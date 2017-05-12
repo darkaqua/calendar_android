@@ -8,9 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.Login.ActivityRegistre;
@@ -22,9 +25,10 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ActivityPerfil extends AppCompatActivity {
+public class ActivityPerfil extends AppCompatActivity implements View.OnClickListener {
 
     TextView nom, nomUsuari, uuid, telefon, ciutat, codiPostal, correu, dataRegistre, pais;
+    ImageButton btnConfiguracio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,10 @@ public class ActivityPerfil extends AppCompatActivity {
         dataRegistre =(TextView)findViewById(R.id.textViewPerfilDataRegistre);
         pais =(TextView)findViewById(R.id.textViewPerfilPais);
 
+
+        btnConfiguracio = (ImageButton)findViewById(R.id.imageButtonPerfilConfiguracioUser);
+        btnConfiguracio.setOnClickListener(this);
+
     }
 
     //Carregar ToolBar
@@ -69,10 +77,33 @@ public class ActivityPerfil extends AppCompatActivity {
         final Context context = getApplicationContext();
         final AppCompatActivity appCompatActivity = this;
 
+        JSONObject jsonObject = new JSONObject();
+
+
+        apiConnector.GET("User", jsonObject, new Request() {
+            @Override
+            public void Response(Object o) {
+
+            }
+        });
+
+
+
     }
 
 
+    @Override
+    public void onClick(View view) {
 
+        int id = view.getId();
 
+        switch (id) {
+            case R.id.imageButtonPerfilConfiguracioUser:
+                Intent i = new Intent(ActivityPerfil.this, ActivityConfiguracioUsuari.class);
+                startActivity(i);
+                break;
 
+            }
+
+    }
 }
