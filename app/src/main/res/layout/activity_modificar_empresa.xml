@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.irene.calendar_android.Companyies.ActivityInformacioEmpresa">
+    tools:context="com.example.irene.calendar_android.Companyies.ActivityModificarEmpresa">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:title="Informació empresa"
+        app:title="Modificar dades empresa"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:titleTextColor="@android:color/white" />

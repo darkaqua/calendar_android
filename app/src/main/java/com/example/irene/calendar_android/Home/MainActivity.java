@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import com.example.irene.calendar_android.ActivityContacte;
 import com.example.irene.calendar_android.ActivityInformacio;
 import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfiguracioUsuari;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
@@ -97,6 +98,9 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
+
+
         return  true;
     }
 
@@ -112,7 +116,6 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         boolean FragmentTransaction = false;
         Fragment fragment = null;
 
-        if (id == R.id.nav_perfil) {
 
          /*   fragment  = new FragmentPerfil();
             FragmentTransaction = true;*/
@@ -121,7 +124,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
          //   startActivity(i);
 
-        }else if(id == R.id.nav_events){
+        if(id == R.id.nav_events){
             Intent i = new Intent(MainActivity.this, Creacio_Events.class);
             startActivity(i);
         }else if(id == R.id.nav_empreses){

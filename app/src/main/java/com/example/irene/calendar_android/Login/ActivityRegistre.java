@@ -56,7 +56,7 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                // Intent i = new Intent(ActivityRegistre.this, MainActivity.class);
                // startActivity(i);
                 //  Toast.makeText(this, "Registre correcte", Toast.LENGTH_SHORT).show();
-                Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_LONG).show();
                try {
                     final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
 
