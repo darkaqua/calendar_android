@@ -61,6 +61,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
         btnConfiguracio = (ImageButton)findViewById(R.id.imageButtonPerfilConfiguracioUser);
         btnConfiguracio.setOnClickListener(this);
 
+        carregarDades();
     }
 
     //Carregar ToolBar
@@ -77,17 +78,21 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
         final Context context = getApplicationContext();
         final AppCompatActivity appCompatActivity = this;
 
-        JSONObject jsonObject = new JSONObject();
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("user_uuid", "96d211ac-a7dd-4301-983d-2b386c227a11");
 
+            apiConnector.GET("User", jsonObject, new Request() {
+                @Override
+                public void Response(Object o) {
+                    JSONObject object = (JSONObject) o;
+                    System.out.println(object.toString());
+                }
+            });
 
-        apiConnector.GET("User", jsonObject, new Request() {
-            @Override
-            public void Response(Object o) {
-
-            }
-        });
-
-
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
