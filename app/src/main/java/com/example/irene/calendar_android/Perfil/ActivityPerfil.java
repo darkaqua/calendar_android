@@ -75,7 +75,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
         return  true;
     }
 
-    private void carregarDades(){
+  private void carregarDades(){
         final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
         final Context context = this;
         final AppCompatActivity  appCompatActivity = this;
