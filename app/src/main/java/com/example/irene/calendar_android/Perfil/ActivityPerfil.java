@@ -61,7 +61,6 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
         dataRegistre =(TextView)findViewById(R.id.textViewPerfilDataRegistre);
         pais =(TextView)findViewById(R.id.textViewPerfilPais);
 
-
         btnConfiguracio = (ImageButton)findViewById(R.id.imageButtonPerfilConfiguracioUser);
         btnConfiguracio.setOnClickListener(this);
 
@@ -78,7 +77,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
 
     private void carregarDades(){
         final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
-        final Context context = getApplicationContext();
+        final Context context = this;
         final AppCompatActivity  appCompatActivity = this;
 
         try{
@@ -88,9 +87,32 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
             apiConnector.GET("User", jsonObject, new Request() {
                 @Override
                 public void Response(Object o) {
-                    JSONObject object = (JSONObject) o;
-                    System.out.println(object.toString());
-                    System.out.println("HOLA");
+                    try{
+                        JSONObject object = (JSONObject) o;
+                        System.out.println(object.toString());
+
+                        String name = object.getString("name");
+                        nom.setText(name);
+                        String username = object.getString("username");
+                        nomUsuari.setText(username);
+                        String telephone = object.getString("telephone");
+                        telefon.setText(telephone);
+                        String city = object.getString("city");
+                        ciutat.setText(city);
+                        String postal = object.getString("postal_code");
+                        codiPostal.setText(postal);
+                        String email = object.getString("email");
+                        correu.setText(email);
+                        String register = object.getString("register_timestamp");
+                        dataRegistre.setText(register);
+                        String country = object.getString("country");
+                        pais.setText(country);
+
+
+
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             });
 
