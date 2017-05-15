@@ -107,12 +107,4 @@ public class ActivityHome extends AppCompatActivity implements  View.OnClickList
             break;
         }
     }
-
-
-
-
-
-
-
-
 }

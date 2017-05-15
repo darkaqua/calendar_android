@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.irene.calendar_android.Home.MainActivity;
@@ -21,7 +22,8 @@ import org.json.JSONObject;
 
 public class ActivityRegistre extends AppCompatActivity implements View.OnClickListener {
 
-    Button registrar, btn;
+    Button registrar;
+    ImageButton btnAtras;
     EditText nameUser, username, email, re_email, password, re_password, telephone, city, postalCode, country;
 
     @Override
@@ -31,6 +33,9 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
 
         registrar = (Button)findViewById(R.id.btnRegistrarme);
         registrar.setOnClickListener(this);
+        btnAtras = (ImageButton)findViewById(R.id.btnAtras);
+        btnAtras.setOnClickListener(this);
+
 
         nameUser = (EditText)findViewById(R.id.etName);
         username = (EditText)findViewById(R.id.etUserName);
@@ -59,7 +64,6 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
               //  Toast.makeText(ActivityRegistre.this, "Registre creat", Toast.LENGTH_LONG).show();
                try {
                     final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
-
                     final AppCompatActivity appCompatActivity = this;
                     final Context context = getApplicationContext();
 
@@ -74,7 +78,6 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                     jsonObject.put("city", city.getText().toString());
                     jsonObject.put("postal_code", postalCode.getText().toString());
                     jsonObject.put("country", "ES");
-
 
                     apiConnector.POST("Account/Register", jsonObject, new Request() {
                         @Override
@@ -112,6 +115,11 @@ public class ActivityRegistre extends AppCompatActivity implements View.OnClickL
                     e.printStackTrace();
                 }
 
+                break;
+
+            case R.id.btnAtras:
+                    Intent i = new Intent(this, ActivityHome.class);
+                    startActivity(i);
                 break;
 
         }

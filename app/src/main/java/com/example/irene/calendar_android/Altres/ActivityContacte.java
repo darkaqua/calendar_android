@@ -1,10 +1,12 @@
-package com.example.irene.calendar_android;
+package com.example.irene.calendar_android.Altres;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+
+import com.example.irene.calendar_android.R;
 
 public class ActivityContacte extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android;
+package com.example.irene.calendar_android.Altres;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.irene.calendar_android.R;
 
 public class ActivityInformacio extends AppCompatActivity implements View.OnClickListener{
 
