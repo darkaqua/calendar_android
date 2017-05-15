@@ -49,7 +49,8 @@ public class ActivityLlistatEmpreses extends ListActivity {
 
 
 
-//        ListView llista=(ListView)findViewById(R.id.listViewLlistatEmpreses);
+        ListView llista=(ListView)findViewById(R.id.list);
+
 
 
 
@@ -58,6 +59,8 @@ public class ActivityLlistatEmpreses extends ListActivity {
 
 
     }
+
+
 
     public static final String[] FROM = new String[]{"uuid", "name", "description"};
     public static final int[] TO = new int[]{
@@ -80,12 +83,16 @@ public class ActivityLlistatEmpreses extends ListActivity {
                 @Override
                 public void Response(Object o) {
                     System.out.println(o.toString());
+                    System.out.println("HOLA");
                     final JSONArray res = (JSONArray) o;
                     MatrixCursor mc = new MatrixCursor(FROM);
                     try{
                         for(int i = 0; i<res.length(); i ++){
                             JSONObject object = res.getJSONObject(i);
-                            mc.addRow(new String[]{object.getString("uuid"), object.getString("name"), object.getString("description")});
+                            mc.addRow(new String[]{
+                                    object.getString("uuid"),
+                                    object.getString("name"),
+                                    object.getString("description")});
 
                         }
                         appCompatActivity.setListAdapter(

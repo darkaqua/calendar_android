@@ -2,6 +2,8 @@ package com.example.irene.calendar_android.Perfil;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,9 +21,11 @@ import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
+
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,6 +65,8 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
         btnConfiguracio = (ImageButton)findViewById(R.id.imageButtonPerfilConfiguracioUser);
         btnConfiguracio.setOnClickListener(this);
 
+        carregarDades();
+
     }
 
     //Carregar ToolBar
@@ -71,21 +77,28 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
     }
 
     private void carregarDades(){
-
         final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
-
         final Context context = getApplicationContext();
-        final AppCompatActivity appCompatActivity = this;
+        final AppCompatActivity  appCompatActivity = this;
 
-        JSONObject jsonObject = new JSONObject();
+        try{
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("user_uuid", "96d211ac-a7dd-4301-983d-2b386c227a11");
+
+            apiConnector.GET("User", jsonObject, new Request() {
+                @Override
+                public void Response(Object o) {
+                    JSONObject object = (JSONObject) o;
+                    System.out.println(object.toString());
+                    System.out.println("HOLA");
+                }
+            });
 
 
-        apiConnector.GET("User", jsonObject, new Request() {
-            @Override
-            public void Response(Object o) {
 
-            }
-        });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
 
