@@ -44,13 +44,15 @@ public class ActivityLlistatEmpreses extends ListActivity {
     }
 
     public static final String[] FROM = new String[]{
+            "_id",
             "uuid",
             "name",
             "description"
     };
     public static final int[] TO = new int[]{
+            -1,
             R.id.uuidEmpresa,
-            txtNomEmpresa,
+            R.id.txtNomEmpresa,
             R.id.txtDescripcioEmpresa
     };
 
@@ -69,35 +71,40 @@ public class ActivityLlistatEmpreses extends ListActivity {
                     System.out.println(o.toString());
 
                     final JSONArray res = (JSONArray) o;
-                    MatrixCursor mc = new MatrixCursor(FROM);
-                    try{
-                        String name = jsonObject.getString("name");
-                      //  txtNomEmpresa.setText(name);
+                    final MatrixCursor mc = new MatrixCursor(FROM);
 
-                        for(int i = 0; i<res.length(); i ++){
-                            JSONObject object = res.getJSONObject(i);
-                            mc.addRow(new String[]{
-                                    object.getString("uuid"),
-                                    name = object.getString("name"),
+                    appCompatActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try{
+                                for(int i = 0; i<res.length(); i ++){
+                                    JSONObject object = res.getJSONObject(i);
+                                    mc.addRow(new String[]{
+                                            i + "",
+                                            object.getString("uuid"),
+                                            object.getString("name"),
+                                            object.getString("description")});
 
-
-
-                                    object.getString("description")});
+                                }
+                                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + mc.getCount());
+                                appCompatActivity.setListAdapter(
+                                        new AdapterListEmpreses(
+                                                appCompatActivity,
+                                                R.layout.row_empreses,
+                                                mc,
+                                                FROM,
+                                                TO,
+                                                1
+                                        )
+                                );
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
 
                         }
-                        appCompatActivity.setListAdapter(
-                                new AdapterListEmpreses(
-                                        appCompatActivity,
-                                        R.layout.row_empreses,
-                                        mc,
-                                        FROM,
-                                        TO,
-                                        1
-                                )
-                        );
-                    }catch (Exception e){
+                    });
 
-                    }
+
 
                 }
             });
@@ -119,6 +126,8 @@ class AdapterListEmpreses extends SimpleCursorAdapter {
         super(context, layout, c, from, to, flags);
 
     }
+
+
 
 
 
