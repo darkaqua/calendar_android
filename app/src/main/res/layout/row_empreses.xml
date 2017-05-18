@@ -1,98 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/empresa"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageViewEmpresa"
-            android:layout_width="65dp"
-            android:layout_height="57dp"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="uuid"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/uuidEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                tools:text="Empresa" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/prova"
+            android:layout_width="358dp"
+            android:layout_height="108dp"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/relative_layout_background"
+            tools:context=".MainActivity">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView12"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="uuid" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/uuidEmpresa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAllCaps="true"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:text="Empresa" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/list_empresa" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Nom empresa:"
-                    android:textAllCaps="true"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtNomEmpresa"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Nom"
-                    android:textAllCaps="true"
-                    android:textSize="18sp" />
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Nom: "
+                            android:textAllCaps="true"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtNomEmpresa"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Nom"
+                            android:textAllCaps="true"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Descripció: "
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtDescripcioEmpresa"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Descripcio"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.27"
-                android:orientation="horizontal">
+        </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/textView26"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descripció"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txtDescripcioEmpresa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Descripcio"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

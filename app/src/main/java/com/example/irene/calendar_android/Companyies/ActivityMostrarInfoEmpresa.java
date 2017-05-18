@@ -1,5 +1,6 @@
 package com.example.irene.calendar_android.Companyies;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -13,18 +14,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.Home.MainActivity;
+import com.example.irene.calendar_android.Login.ActivityHome;
+import com.example.irene.calendar_android.Login.ActivityLoading;
+import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
+
+import net.darkaqua.apiconnector.ApiConnector;
+import net.darkaqua.apiconnector.Request;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements View.OnClickListener{
 
-    TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais;
-    Button btnEliminar, btnModificar;
+    TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais, dataRegistre;
+    Button btnEliminar, btnCrearGrup;
+
+    private String uuid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_info_empresa);
 
+        dataRegistre = (TextView)findViewById(R.id.textViewInfoEmpresaDataRegistre);
         nomEmpresa = (TextView)findViewById(R.id.textViewInfoEmpresaNom);
         descripcio = (TextView)findViewById(R.id.textViewInfoEmpresaDescripcio);
         email = (TextView)findViewById(R.id.textViewInfoEmpresaEmail);
@@ -37,8 +51,8 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
         btnEliminar = (Button)findViewById(R.id.btnEliminarEmpresa);
         btnEliminar.setOnClickListener(this);
 
-        btnModificar = (Button)findViewById(R.id.btnModificarEmpresa);
-        btnModificar.setOnClickListener(this);
+        btnCrearGrup = (Button)findViewById(R.id.btnCreacioGrup);
+        btnCrearGrup.setOnClickListener(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,6 +66,70 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                 finish();
             }
         });
+
+
+        uuid = getIntent().getExtras().getString("uuid");
+
+        carregarDades();
+    }
+
+    private void carregarDades(){
+        final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
+        final Context context = this;
+        final AppCompatActivity appCompatActivity = this;
+
+        try{
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("company_uuid", uuid);
+
+            apiConnector.GET("Company", jsonObject, new Request() {
+
+                @Override
+                public void Response(Object o) {
+                    try{
+                        final JSONObject object = ((JSONObject) o).getJSONObject("content");
+                        System.out.println("==========" + object.toString());
+
+                        appCompatActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try{
+
+                                    String name = object.getString("name");
+                                    String description = object.getString("description");
+                                    String mail = object.getString("email");
+                                    String telephone = object.getString("telephone");
+                                    String address = object.getString("address");
+                                    String postalCode = object.getString("postal_code");
+                                    int members = object.getInt("members_count");
+                                    String register = object.getString("register");
+
+                                    nomEmpresa.setText(name);
+                                    descripcio.setText(description);
+                                    email.setText(mail);
+                                    telefon.setText(telephone);
+                                    adreça.setText(address);
+                                    codiPostal.setText(postalCode);
+                                    //membres.setText(members);
+                                    pais.setText("ES");
+                                    dataRegistre.setText(register);
+
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
     }
 
 
@@ -62,19 +140,48 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
         switch (id) {
 
             case R.id.btnEliminarEmpresa:
+                final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
+                final Context context = this;
+                final AppCompatActivity  appCompatActivity = this;
 
                 new AlertDialog.Builder(this)
                         .setTitle("Important")
                         .setMessage("Estàs segur que vols eliminar aquesta empresa? ")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-
+                                try{
+                                    final JSONObject jsonObject = new JSONObject();
+                                    jsonObject.put("company_uuid", uuid);
+                                    System.out.println("===================>"+uuid);
+                                    apiConnector.DELETE("Company", jsonObject, new Request() {
+                                        @Override
+                                        public void Response(Object o) {
+                                            final JSONObject res = (JSONObject) o;
+                                            appCompatActivity.runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                                        Intent i = new Intent(ActivityMostrarInfoEmpresa.this, MainActivity.class);
+                                                        startActivity(i);
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
                                 //ELiminar empresa
+                                Toast toast;
                             }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
+                                Toast.makeText(ActivityMostrarInfoEmpresa.this, "NO ELIMINAR EMPRESA", Toast.LENGTH_LONG).show();
 
                             }
                         })
@@ -82,8 +189,11 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                         .show();
 
                 break;
-            case R.id.btnModificarEmpresa:
-                Intent i = new Intent(ActivityMostrarInfoEmpresa.this, ActivityModificarEmpresa.class);
+            case R.id.btnCreacioGrup:
+
+
+                Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
+                i.putExtra("company_uuid", uuid);
                 startActivity(i);
                 break;
         }

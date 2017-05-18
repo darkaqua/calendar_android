@@ -96,15 +96,11 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                             public void run() {
                                 try{
                                     String name = object.getString("name");
-
                                     String username = object.getString("username");
-
                                     String telephone = object.getString("telephone");
                                     String city = object.getString("city");
                                     String postal = object.getString("postal_code");
-
                                     String email = object.getString("email");
-
                                     String register = object.getString("register_timestamp");
                                     String country = object.getString("country");
 
@@ -116,6 +112,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                                     correu.setText(email);
                                     dataRegistre.setText(register);
                                     pais.setText(country);
+
                                 } catch (Exception e){
                                     e.printStackTrace();
                                 }

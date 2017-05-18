@@ -2,14 +2,21 @@ package com.example.irene.calendar_android.Companyies;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.SQLite.CalendarDataSource;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -17,16 +24,22 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import static com.example.irene.calendar_android.R.id.txtNomEmpresa;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-public class ActivityLlistatEmpreses extends ListActivity {
+public class ActivityLlistatEmpreses extends AppCompatActivity implements View.OnClickListener{
 
+    ListView llistat;
+    private AdaptadorEmpreses cAdapter;
+    Button btnVeureGrups;
+    private CalendarDataSource BD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llistat_empreses);
 
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //  BD = new CalendarDataSource(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Boton atras de la toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -37,30 +50,37 @@ public class ActivityLlistatEmpreses extends ListActivity {
             public void onClick(View v) {
                 finish();
             }
-        });*/
+        });
 
-        ListView llista=(ListView)findViewById(R.id.list);
+        btnVeureGrups = (Button)findViewById(R.id.btnMostrarGrups);
+        btnVeureGrups.setOnClickListener(this);
+        llistat = (ListView)findViewById(R.id.list);
         carregarLlistat();
+
     }
 
     public static final String[] FROM = new String[]{
             "_id",
             "uuid",
             "name",
-            "description"
+            "description",
+            "jsonObject"
     };
     public static final int[] TO = new int[]{
             -1,
             R.id.uuidEmpresa,
             R.id.txtNomEmpresa,
-            R.id.txtDescripcioEmpresa
+            R.id.txtDescripcioEmpresa,
+            -1
     };
 
     private void carregarLlistat(){
 
+
+
         try {
             final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
-            final ListActivity appCompatActivity = this;
+            final AppCompatActivity appCompatActivity = this;
             final Context context = this;
 
             final JSONObject jsonObject = new JSONObject();
@@ -70,67 +90,96 @@ public class ActivityLlistatEmpreses extends ListActivity {
                 public void Response(Object o) {
                     System.out.println(o.toString());
 
-                    final JSONArray res = (JSONArray) o;
-                    final MatrixCursor mc = new MatrixCursor(FROM);
+                        final JSONArray res = (JSONArray) o;
+                        final MatrixCursor mc = new MatrixCursor(FROM);
 
-                    appCompatActivity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try{
-                                for(int i = 0; i<res.length(); i ++){
-                                    JSONObject object = res.getJSONObject(i);
-                                    mc.addRow(new String[]{
-                                            i + "",
-                                            object.getString("uuid"),
-                                            object.getString("name"),
-                                            object.getString("description")});
+                        appCompatActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try{
+                                    for(int i = 0; i<res.length(); i ++){
+                                        JSONObject object = res.getJSONObject(i);
+                                        mc.addRow(new Object[]{
+                                                i + "",
+                                                object.getString("uuid"),
+                                                object.getString("name"),
+                                                object.getString("description"),
+                                                object
+                                        });
 
+                                    }
+                                    if(mc.getCount() == 0){
+                                        System.out.print("No hi ha empreses creades");
+
+
+                                    }
+                                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + mc.getCount());
+                                    cAdapter= new AdaptadorEmpreses(
+                                                    appCompatActivity,
+                                                    R.layout.row_empreses,
+                                                    mc,
+                                                    FROM,
+                                                    TO,
+                                                    1
+                                            );
+                                    llistat.setAdapter(cAdapter);
+                                    llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                        @Override
+                                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                                            try{
+                                                JSONObject jsonObject1 = res.getJSONObject(0);
+                                                Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoEmpresa.class);
+                                                i.putExtra("uuid", jsonObject1.getString("uuid"));
+                                                startActivity(i);
+
+
+                                            }catch (Exception e){
+                                                e.printStackTrace();
+                                            }
+
+                                            //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+                                            //mostrarInfoEmpreses(id);
+                                            //
+                                        }
+                                    });
+
+                                }catch (Exception e){
+                                    e.printStackTrace();
                                 }
-                                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + mc.getCount());
-                                appCompatActivity.setListAdapter(
-                                        new AdapterListEmpreses(
-                                                appCompatActivity,
-                                                R.layout.row_empreses,
-                                                mc,
-                                                FROM,
-                                                TO,
-                                                1
-                                        )
-                                );
-                            }catch (Exception e){
-                                e.printStackTrace();
+
                             }
-
-                        }
-                    });
-
-
-
+                        });
                 }
             });
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
-}
+    private void mostrarInfoEmpreses(long id){
 
+        Cursor cursor = BD.getEmpreses(id);
+        cursor.moveToFirst();
 
-class AdapterListEmpreses extends SimpleCursorAdapter {
+        //String idEmpresa = cursor.getString(cursor.getColumnIndex("client_id"));
+        //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(cursor.getCount()), Toast.LENGTH_SHORT).show();
 
-
-    public AdapterListEmpreses(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
-        super(context, layout, c, from, to, flags);
-
+        Intent i = new Intent(this, ActivityMostrarInfoEmpresa.class);
+        startActivity(i);
     }
 
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+
+        switch (id) {
+
+            case R.id.btnMostrarGrups:
 
 
-
-
-
+        }
+    }
 }
+
 
