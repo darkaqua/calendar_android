@@ -28,6 +28,7 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
     EditText nomGrup, descripcio;
     Button guardarCanvis, cancelar;
     public String company_uuid;
+    int group_id;
     public static ApiConnector API_CONNECTOR;
 
     @Override
@@ -112,6 +113,7 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
 
                         JSONObject jsonObject = new JSONObject();
                         jsonObject.put("company_uuid", company_uuid);
+                        jsonObject.put("id", group_id);
                         jsonObject.put("name", nomGrup.getText().toString());
                         jsonObject.put("description", descripcio.getText().toString());
 
@@ -125,9 +127,18 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                                         public void run() {
                                             try {
                                                 if(res.getBoolean("valid")){
-                                                    Intent i = new Intent(Creacio_Grups.this, ActivityLlistatGrups.class);
-                                                    i.putExtra("company_uuid", company_uuid);
+                                                   //bundle
+                                                    Bundle b =  new Bundle();
+                                                    b.putString("company_uuid", company_uuid);
+                                                    b.putInt("group_id", group_id);
+
+                                                    Intent i = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
+                                                    i.putExtras(b);
+
+//                                                    i.putExtra("company_uuid", company_uuid);
+//                                                    i.putExtra("group_id", company_uuid);
                                                     Toast.makeText(Creacio_Grups.this, "Grup creat", Toast.LENGTH_LONG).show();
+                                                //    i.putExtras(b);
                                                     startActivity(i);
 
 
@@ -136,7 +147,7 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                                                 }
 
 
-                                                Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                 Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
                                             } catch (JSONException e) {
                                                 e.printStackTrace();
                                             }

@@ -58,7 +58,8 @@
         <activity android:name=".Calendari.Calendari" />
         <activity android:name=".CreacioGrups.ActivityLlistatGrups" />
         <activity android:name=".CreacioEvent.ActivityLlistatEvents" />
-        <activity android:name=".CreacioGrups.ActivityMostrarInfoGrup"></activity>
+        <activity android:name=".CreacioGrups.ActivityMostrarInfoGrup" />
+        <activity android:name=".CreacioEvent.ActivityMostrarInfoEvents"></activity>
     </application>
 
 </manifest>

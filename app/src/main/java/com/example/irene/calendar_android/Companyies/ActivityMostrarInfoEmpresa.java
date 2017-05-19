@@ -88,7 +88,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                 public void Response(Object o) {
                     try{
                         final JSONObject object = ((JSONObject) o).getJSONObject("content");
-                        System.out.println("==========" + object.toString());
+                      //  System.out.println("==========>>>>>>><<<><<<<<<>>><<<<<" + object.toString());
 
                         appCompatActivity.runOnUiThread(new Runnable() {
                             @Override
@@ -152,7 +152,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                                 try{
                                     final JSONObject jsonObject = new JSONObject();
                                     jsonObject.put("company_uuid", uuid);
-                                    System.out.println("===================>"+uuid);
+                                 //   System.out.println("===================>"+uuid);
                                     apiConnector.DELETE("Company", jsonObject, new Request() {
                                         @Override
                                         public void Response(Object o) {

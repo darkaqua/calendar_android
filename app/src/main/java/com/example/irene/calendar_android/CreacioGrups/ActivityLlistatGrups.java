@@ -56,7 +56,7 @@ public class ActivityLlistatGrups extends ListActivity {
     public static final String[] FROM = new String[]{
             "_id",
             "company_uuid",
-            "id",
+            "group_id",
             "name",
             "description",
     };
@@ -142,7 +142,7 @@ public class ActivityLlistatGrups extends ListActivity {
             Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoGrup.class);
 
             i.putExtra("company_uuid", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("company_uuid")));
-            i.putExtra("group_id", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("id")));
+            i.putExtra("group_id", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("group_id")));
             startActivity(i);
 
 

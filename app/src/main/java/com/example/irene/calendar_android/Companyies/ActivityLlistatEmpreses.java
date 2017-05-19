@@ -54,6 +54,7 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
 
         btnVeureGrups = (Button)findViewById(R.id.btnMostrarGrups);
         btnVeureGrups.setOnClickListener(this);
+
         llistat = (ListView)findViewById(R.id.list);
         carregarLlistat();
 
