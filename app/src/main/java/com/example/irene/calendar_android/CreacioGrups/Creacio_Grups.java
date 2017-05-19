@@ -127,7 +127,6 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                                         public void run() {
                                             try {
                                                 if(res.getBoolean("valid")){
-                                                   //bundle
                                                     Bundle b =  new Bundle();
                                                     b.putString("company_uuid", company_uuid);
                                                     b.putInt("group_id", group_id);
@@ -135,7 +134,7 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                                                     Intent i = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
                                                     i.putExtras(b);
 
-//                                                    i.putExtra("company_uuid", company_uuid);
+    //                                                    i.putExtra("company_uuid", company_uuid);
 //                                                    i.putExtra("group_id", company_uuid);
                                                     Toast.makeText(Creacio_Grups.this, "Grup creat", Toast.LENGTH_LONG).show();
                                                 //    i.putExtras(b);
