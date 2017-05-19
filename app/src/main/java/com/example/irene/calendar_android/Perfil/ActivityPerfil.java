@@ -82,33 +82,42 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
 
         try{
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("user_uuid", "96d211ac-a7dd-4301-983d-2b386c227a11");
+            //jsonObject.put("user_uuid", "96d211ac-a7dd-4301-983d-2b386c227a11");
 
             apiConnector.GET("User", jsonObject, new Request() {
                 @Override
                 public void Response(Object o) {
                     try{
-                        JSONObject object = (JSONObject) o;
+                        final JSONObject object = (JSONObject) o;
                         System.out.println(object.toString());
 
-                        String name = object.getString("name");
-                        nom.setText(name);
-                        String username = object.getString("username");
-                        nomUsuari.setText(username);
-                        String telephone = object.getString("telephone");
-                        telefon.setText(telephone);
-                        String city = object.getString("city");
-                        ciutat.setText(city);
-                        String postal = object.getString("postal_code");
-                        codiPostal.setText(postal);
-                        String email = object.getString("email");
-                        correu.setText(email);
-                        String register = object.getString("register_timestamp");
-                        dataRegistre.setText(register);
-                        String country = object.getString("country");
-                        pais.setText(country);
+                        appCompatActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try{
+                                    String name = object.getString("name");
+                                    String username = object.getString("username");
+                                    String telephone = object.getString("telephone");
+                                    String city = object.getString("city");
+                                    String postal = object.getString("postal_code");
+                                    String email = object.getString("email");
+                                    String register = object.getString("register_timestamp");
+                                    String country = object.getString("country");
 
+                                    nom.setText(name);
+                                    nomUsuari.setText(username);
+                                    telefon.setText(telephone);
+                                    ciutat.setText(city);
+                                    codiPostal.setText(postal);
+                                    correu.setText(email);
+                                    dataRegistre.setText(register);
+                                    pais.setText(country);
 
+                                } catch (Exception e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
 
                     } catch (Exception e){
                         e.printStackTrace();

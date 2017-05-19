@@ -1,4 +1,4 @@
-package com.example.irene.calendar_android.Companyies;
+package com.example.irene.calendar_android.CreacioGrups;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,52 +7,36 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
-import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.Home.MainActivity;
-import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
-import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements View.OnClickListener{
+public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.OnClickListener{
 
-    TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais, dataRegistre;
-    Button btnEliminar, btnCrearGrup;
+    public String company_uuid ;
+    public String group_id;
+    TextView nomGrup, descripcio, creacio, edit;
 
-    private String uuid;
+    Button btnCrearEvents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mostrar_info_empresa);
-
-        dataRegistre = (TextView)findViewById(R.id.textViewInfoEmpresaDataRegistre);
-        nomEmpresa = (TextView)findViewById(R.id.textViewInfoEmpresaNom);
-        descripcio = (TextView)findViewById(R.id.textViewInfoEmpresaDescripcio);
-        email = (TextView)findViewById(R.id.textViewInfoEmpresaEmail);
-        telefon = (TextView)findViewById(R.id.textViewInfoEmpresaTelefon);
-        adreça = (TextView)findViewById(R.id.textViewInfoEmpresaDireccio);
-        codiPostal = (TextView)findViewById(R.id.textViewInfoEmpresaCodiPostal);
-        membres = (TextView)findViewById(R.id.textViewInfoEmpresaMembres);
-        pais = (TextView)findViewById(R.id.textViewInfoEmpresaPais);
-
-        btnEliminar = (Button)findViewById(R.id.btnEliminarEmpresa);
-        btnEliminar.setOnClickListener(this);
-
-        btnCrearGrup = (Button)findViewById(R.id.btnCreacioGrup);
-        btnCrearGrup.setOnClickListener(this);
+        setContentView(R.layout.activity_mostrar_info_grup);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -67,10 +51,25 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
             }
         });
 
+        btnCrearEvents = (Button)findViewById(R.id.btnGrupCrearEvent);
+        btnCrearEvents.setOnClickListener(this);
 
-        uuid = getIntent().getExtras().getString("uuid");
+        nomGrup = (TextView)findViewById(R.id.textViewInfoGrupNom);
+        descripcio = (TextView)findViewById(R.id.textViewInfoGrupDescripcio);
+        creacio = (TextView)findViewById(R.id.textViewInfoGrupCreacio);
 
+
+        company_uuid = getIntent().getExtras().getString("company_uuid");
+        group_id = getIntent().getExtras().getString("group_id");
         carregarDades();
+    }
+
+
+    //Carregar ToolBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return  true;
     }
 
     private void carregarDades(){
@@ -80,58 +79,49 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
         try{
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("company_uuid", uuid);
+            jsonObject.put("company_uuid", company_uuid);
+            jsonObject.put("group_id", group_id);
 
-            apiConnector.GET("Company", jsonObject, new Request() {
+            System.out.println("UUID de la companyia "+company_uuid);
+            System.out.println("ID del grup "+group_id);
 
+            apiConnector.GET("Company/Group", jsonObject, new Request() {
                 @Override
                 public void Response(Object o) {
+
+                    final JSONObject res = (JSONObject) o;
                     try{
-                        final JSONObject object = ((JSONObject) o).getJSONObject("content");
-                      //  System.out.println("==========>>>>>>><<<><<<<<<>>><<<<<" + object.toString());
+                        //final JSONObject object = ((JSONObject) o).getJSONObject("content");
+                        System.out.println("==========" + res.toString());
 
                         appCompatActivity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 try{
+                                    String name = res.getString("name");
+                                    String description = res.getString("description");
+                                    String creation = res.getString("creation");
 
-                                    String name = object.getString("name");
-                                    String description = object.getString("description");
-                                    String mail = object.getString("email");
-                                    String telephone = object.getString("telephone");
-                                    String address = object.getString("address");
-                                    String postalCode = object.getString("postal_code");
-                                    int members = object.getInt("members_count");
-                                    String register = object.getString("register");
-
-                                    nomEmpresa.setText(name);
+                                    nomGrup.setText(name);
                                     descripcio.setText(description);
-                                    email.setText(mail);
-                                    telefon.setText(telephone);
-                                    adreça.setText(address);
-                                    codiPostal.setText(postalCode);
-                                    //membres.setText(members);
-                                    pais.setText("ES");
-                                    dataRegistre.setText(register);
+                                    creacio.setText(creation);
 
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
                             }
                         });
-
                     }catch (Exception e){
                         e.printStackTrace();
                     }
+
                 }
             });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
     }
-
 
 
     public void onClick(View v) {
@@ -139,21 +129,23 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
         switch (id) {
 
-            case R.id.btnEliminarEmpresa:
+            case R.id.btnGrupEliminar:
+
                 final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
                 final Context context = this;
                 final AppCompatActivity  appCompatActivity = this;
 
                 new AlertDialog.Builder(this)
                         .setTitle("Important")
-                        .setMessage("Estàs segur que vols eliminar aquesta empresa? ")
+                        .setMessage("Estàs segur que vols eliminar aquest grup? ")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 try{
                                     final JSONObject jsonObject = new JSONObject();
-                                    jsonObject.put("company_uuid", uuid);
-                                 //   System.out.println("===================>"+uuid);
-                                    apiConnector.DELETE("Company", jsonObject, new Request() {
+                                    jsonObject.put("company_uuid", company_uuid);
+                                    jsonObject.put("group_id", group_id);
+                                    //   System.out.println("===================>"+uuid);
+                                    apiConnector.DELETE("Company/Group", jsonObject, new Request() {
                                         @Override
                                         public void Response(Object o) {
                                             final JSONObject res = (JSONObject) o;
@@ -162,7 +154,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                                                 public void run() {
                                                     try {
                                                         Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
-                                                        Intent i = new Intent(ActivityMostrarInfoEmpresa.this, MainActivity.class);
+                                                        Intent i = new Intent(ActivityMostrarInfoGrup.this, MainActivity.class);
                                                         startActivity(i);
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
@@ -174,14 +166,14 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
-                                //ELiminar empresa
+                                //ELiminar grup
                                 Toast toast;
                             }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
-                                Toast.makeText(ActivityMostrarInfoEmpresa.this, "NO ELIMINAR EMPRESA", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ActivityMostrarInfoGrup.this, "NO ELIMINAR GRUP", Toast.LENGTH_LONG).show();
 
                             }
                         })
@@ -189,14 +181,18 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                         .show();
 
                 break;
-            case R.id.btnCreacioGrup:
+            case R.id.btnGrupCrearEvent:
 
-
-                Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
-                i.putExtra("company_uuid", uuid);
+                Intent i = new Intent(getApplicationContext(), Creacio_Events.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
                 startActivity(i);
                 break;
+
+
+
         }
     }
+
 
 }

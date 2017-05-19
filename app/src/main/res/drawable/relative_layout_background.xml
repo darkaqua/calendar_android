@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <!-- solid background -->
-            <solid android:color="#C4BCBC"/>
+            <solid android:color="@color/colorFons"/>
             <!-- draw a border around rectangle shape -->
             <stroke
                 android:color="@color/colorPrimaryDark"
@@ -12,7 +12,7 @@
                 />
             <!-- draw 35 dp radius for each corner -->
             <corners android:radius="5dp"/>
-            <stroke android:width="15px" android:color="#000000" />
+            <stroke android:width="5px" android:color="#000000" />
         </shape>
     </item>
 </selector>

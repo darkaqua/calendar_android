@@ -27,7 +27,8 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
 
     EditText nomGrup, descripcio;
     Button guardarCanvis, cancelar;
-
+    public String company_uuid;
+    int group_id;
     public static ApiConnector API_CONNECTOR;
 
     @Override
@@ -48,9 +49,16 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
             }
         });
 
+        nomGrup = (EditText)findViewById(R.id.editTextCreacioGrupNom);
+        descripcio = (EditText)findViewById(R.id.editTextCreacioEventsDescripcio);
+
+        company_uuid = getIntent().getExtras().getString("company_uuid");
+        System.out.println("=========="+company_uuid);
+
+
+
         cancelar = (Button)findViewById(R.id.btnCreacioGrupsCancelar);
         cancelar.setOnClickListener(this);
-
         guardarCanvis = (Button)findViewById(R.id.btnCreacioGrupsGuardar);
         guardarCanvis.setOnClickListener(this);
     }
@@ -104,7 +112,8 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                         final Context context = getApplicationContext();
 
                         JSONObject jsonObject = new JSONObject();
-                        jsonObject.put("company_uuid", nomGrup.getText().toString());
+                        jsonObject.put("company_uuid", company_uuid);
+                        jsonObject.put("id", group_id);
                         jsonObject.put("name", nomGrup.getText().toString());
                         jsonObject.put("description", descripcio.getText().toString());
 
@@ -112,30 +121,40 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                             @Override
                             public void Response(Object o) {
                                 final JSONObject res = (JSONObject) o;
-                                try{
-                                    if(res.getBoolean("valid")){
-                                        Intent i = new Intent(Creacio_Grups.this, MainActivity.class);
-                                        startActivity(i);
-                                        Toast.makeText(Creacio_Grups.this, "Grup creat", Toast.LENGTH_LONG).show();
-
-
-                                        return;
-                                    }
 
                                     appCompatActivity.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
                                             try {
-                                                Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                                if(res.getBoolean("valid")){
+                                                   //bundle
+                                                    Bundle b =  new Bundle();
+                                                    b.putString("company_uuid", company_uuid);
+                                                    b.putInt("group_id", group_id);
+
+                                                    Intent i = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
+                                                    i.putExtras(b);
+
+//                                                    i.putExtra("company_uuid", company_uuid);
+//                                                    i.putExtra("group_id", company_uuid);
+                                                    Toast.makeText(Creacio_Grups.this, "Grup creat", Toast.LENGTH_LONG).show();
+                                                //    i.putExtras(b);
+                                                    startActivity(i);
+
+
+
+                                                    return;
+                                                }
+
+
+                 Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
                                             } catch (JSONException e) {
                                                 e.printStackTrace();
                                             }
                                         }
                                     });
 
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+
                             }
                         });
 

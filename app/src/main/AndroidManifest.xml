@@ -54,7 +54,12 @@
         <activity android:name=".Companyies.ActivityLlistatEmpreses" />
         <activity android:name=".Tarifes.ActivityTarifes" />
         <activity android:name=".Companyies.ActivityMostrarInfoEmpresa" />
-        <activity android:name=".Companyies.ActivityModificarEmpresa"></activity>
+        <activity android:name=".Companyies.ActivityModificarEmpresa" />
+        <activity android:name=".Calendari.Calendari" />
+        <activity android:name=".CreacioGrups.ActivityLlistatGrups" />
+        <activity android:name=".CreacioEvent.ActivityLlistatEvents" />
+        <activity android:name=".CreacioGrups.ActivityMostrarInfoGrup" />
+        <activity android:name=".CreacioEvent.ActivityMostrarInfoEvents"></activity>
     </application>
 
 </manifest>

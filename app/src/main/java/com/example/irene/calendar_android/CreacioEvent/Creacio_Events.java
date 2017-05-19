@@ -3,6 +3,7 @@ package com.example.irene.calendar_android.CreacioEvent;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.util.Calendar;
@@ -17,12 +18,21 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
 import com.example.irene.calendar_android.Home.MainActivity;
+import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+
+import net.darkaqua.apiconnector.ApiConnector;
+import net.darkaqua.apiconnector.Request;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -30,12 +40,17 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
     Button btnTime, btnDate, btnCancelar;
     TextView tvTime, tvDate;
+    EditText titolEvent, descripcio;
+
+    private String company_uuid;
+    private int group_id;
 
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
 
     Calendar calendar = Calendar.getInstance();
 
+    String[] pickedDateTime = { "00/00/0000", "00:00" };
 
     @Override
     protected void onCreate (Bundle savedInstanceState){
@@ -52,6 +67,14 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         tvTime = (TextView)findViewById(R.id.textViewTime);
         tvDate = (TextView)findViewById(R.id.textViewDay);
 
+        titolEvent = (EditText)findViewById(R.id.editTextNomEvent);
+        descripcio = (EditText)findViewById(R.id.editTextDescripcioEvent);
+
+        company_uuid = getIntent().getExtras().getString("company_uuid");
+        group_id = getIntent().getExtras().getInt("group_id");
+
+
+        //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Boton atras de la toolbar
@@ -83,7 +106,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         timeCalendar.set(Calendar.MINUTE, minute);
 
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
-                        tvTime.setText("Hora: "+  timeString);
+                        pickedDateTime[1] = timeString;
 
                     }
                 },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), android.text.format.DateFormat.is24HourFormat(Creacio_Events.this));
@@ -98,13 +121,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                        java.util.Calendar dateCalendar = java.util.Calendar.getInstance();
-                        dateCalendar.set(java.util.Calendar.YEAR, year);
-                        dateCalendar.set(java.util.Calendar.MONTH, monthOfYear);
-                        dateCalendar.set(java.util.Calendar.DAY_OF_MONTH, dayOfMonth);
-
-                        String dateString = DateUtils.formatDateTime(Creacio_Events.this, dateCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_DATE);
-                        tvDate.setText("Dia: " + dateString);
+                        pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -138,6 +155,62 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
+
+                break;
+
+            case R.id.btnAcceptarEvent:
+
+                try{
+                    final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
+                    final AppCompatActivity appCompatActivity = this;
+                    final Context context = getApplicationContext();
+
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("company_uuid", company_uuid);
+                    jsonObject.put("group_id", group_id);
+                    jsonObject.put("title", titolEvent.getText().toString());
+                    jsonObject.put("description", descripcio.getText().toString());
+                    jsonObject.put("datetime", pickedDateTime[0] + " " + pickedDateTime[1]);
+
+
+                    apiConnector.PUT("Company/Group/Date", jsonObject, new Request() {
+                        @Override
+                        public void Response(Object o) {
+                            final JSONObject res = (JSONObject) o;
+                            try{
+                                if(res.getBoolean("valid")){
+                                    Intent i = new Intent(Creacio_Events.this, MainActivity.class);
+                                    Toast.makeText(Creacio_Events.this, "Empresa creada", Toast.LENGTH_LONG).show();
+                                    startActivity(i);
+                                    return;
+                                }
+
+                                appCompatActivity.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+
+                            }catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
 
                 break;
         }

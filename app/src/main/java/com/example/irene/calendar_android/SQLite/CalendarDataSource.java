@@ -4,10 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.irene.calendar_android.Fragments.EmpresaFragment;
 
-
+import static com.example.irene.calendar_android.SQLite.CalendarOpenHelper.TAULA_API;
 
 
 public class CalendarDataSource {
@@ -46,7 +47,7 @@ public class CalendarDataSource {
         String[] values = new String[2];
 
         Cursor cursor = bdLlegir.query(
-                CalendarOpenHelper.TAULA_API,
+                TAULA_API,
                 new String[]{CalendarOpenHelper._ID, CalendarOpenHelper.CLIENT_ID, CalendarOpenHelper.CLIENT_TOKEN},
                 CalendarOpenHelper._ID + "=1",
                 null, null, null, null
@@ -68,10 +69,23 @@ public class CalendarDataSource {
 
 
         if(getClient()[0] != null){
-            return bdEscriure.update(CalendarOpenHelper.TAULA_API, contentValues, CalendarOpenHelper._ID+"=1", null);
+            return bdEscriure.update(TAULA_API, contentValues, CalendarOpenHelper._ID+"=1", null);
         }
-        return bdEscriure.insert(CalendarOpenHelper.TAULA_API, null, contentValues);
+        return bdEscriure.insert(TAULA_API, null, contentValues);
     }
+
+    public Cursor getEmpreses(long id) {
+
+
+        Cursor cursor = bdLlegir.rawQuery("Select * from "+ TAULA_API +" where _id = "+id,null);
+
+
+        return cursor;
+    }
+
+
+
+
 
 }
 

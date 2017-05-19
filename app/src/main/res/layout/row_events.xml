@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/empresa"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +30,7 @@
                 android:textAllCaps="false"
                 android:textSize="12sp"
                 android:visibility="invisible"
-                tools:text="Empresa" />
+               />
         </LinearLayout>
 
         <RelativeLayout
@@ -44,25 +41,12 @@
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/relative_layout_background"
-            tools:context=".MainActivity">
+            android:background="@drawable/relative_layout_background">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="75dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/list_empresa" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,7 +69,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/txtNomEmpresa"
+                            android:id="@+id/txtTitolEvent"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Nom"
@@ -109,17 +93,18 @@
                             android:id="@+id/textView26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Descripció: "
+                            android:text="Hora:"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/txtDescripcioEmpresa"
+                            android:id="@+id/txtHoraEvent"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Descripcio"
+                            android:text="hora"
                             android:textSize="18sp" />
                     </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
