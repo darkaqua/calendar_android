@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Llistat Grups"
-        app:titleTextColor="@android:color/white"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,9 +14,42 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Llistat Grups"
+            app:titleTextColor="@android:color/white"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnListEliminarGrup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Eliminar grup" />
+
+            <Button
+                android:id="@+id/btnListCrearGrup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Crear Grup" />
+        </LinearLayout>
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_height="20dp" />
 
         <ListView
             android:id="@android:id/list"

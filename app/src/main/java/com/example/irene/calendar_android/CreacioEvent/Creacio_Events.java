@@ -61,6 +61,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         btnTime.setOnClickListener(this);
         btnDate = (Button)findViewById(R.id.btnDiaPicker);
         btnDate.setOnClickListener(this);
+
         btnCancelar = (Button)findViewById(R.id.btnCancelarEvent);
         btnCancelar.setOnClickListener(this);
 
@@ -107,7 +108,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     public void onTimeSet (TimePicker view, int hourOfDay, int minute){
 
                         Calendar timeCalendar = Calendar.getInstance();
-                        timeCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        timeCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay-2);
                         timeCalendar.set(Calendar.MINUTE, minute);
 
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
@@ -196,7 +197,9 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                                     try{
 
                                         if(res.getBoolean("valid")){
-                                            Intent i = new Intent(Creacio_Events.this, MainActivity.class);
+                                          //  Intent i = new Intent(Creacio_Events.this, MainActivity.class);
+                                            Intent i = new Intent(Creacio_Events.this ,ActivityLlistatEvents.class);
+
                                             Toast.makeText(Creacio_Events.this, "Event creat", Toast.LENGTH_LONG).show();
                                             startActivity(i);
                                             return;
