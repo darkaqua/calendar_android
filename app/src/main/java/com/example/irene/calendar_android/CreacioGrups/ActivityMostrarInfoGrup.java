@@ -32,7 +32,7 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
     public String group_id;
     TextView nomGrup, descripcio, creacio, edit;
 
-    Button btnCrearEvents;
+    Button btnCrearEvents, btnEliminarGrup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,9 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
 
         btnCrearEvents = (Button)findViewById(R.id.btnGrupCrearEvent);
         btnCrearEvents.setOnClickListener(this);
+
+        btnEliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
+        btnEliminarGrup.setOnClickListener(this);
 
         nomGrup = (TextView)findViewById(R.id.textViewInfoGrupNom);
         descripcio = (TextView)findViewById(R.id.textViewInfoGrupDescripcio);

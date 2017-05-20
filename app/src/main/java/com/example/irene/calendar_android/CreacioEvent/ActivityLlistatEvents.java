@@ -1,14 +1,29 @@
 package com.example.irene.calendar_android.CreacioEvent;
 
+import android.content.Context;
+import android.content.Intent;
+import android.database.MatrixCursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
+import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
+import net.darkaqua.apiconnector.ApiConnector;
+import net.darkaqua.apiconnector.Request;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class ActivityLlistatEvents extends AppCompatActivity {
+
+    private AdaptadorEvents cAdapter;
+    ListView llistat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +42,107 @@ public class ActivityLlistatEvents extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        llistat = (ListView)findViewById(R.id.listEvents);
+        carregarLlistat();
+
+    }
+
+
+    public static final String[] FROM = new String[]{
+            "_id",
+            "date_id",
+            "title",
+            "datetime",
+            "long_minutes",
+    };
+
+    public static final int[] TO = new int[]{
+            -1,
+            R.id.uuidEvent,
+            R.id.txtTitolEvent,
+            R.id.txtDiaEvent,
+            R.id.txtHoraEvent,
+    };
+
+    private void carregarLlistat (){
+
+        try{
+
+            final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
+            final AppCompatActivity appCompatActivity = this;
+            final Context context = this;
+
+            final JSONObject jsonObject = new JSONObject();
+            apiConnector.GET("User/Dates", jsonObject, new Request(){
+
+                @Override
+                public void Response(Object o) {
+                    System.out.println("=====>====>===> "+o.toString());
+
+                    final JSONArray res = (JSONArray) o ;
+                    final MatrixCursor mc = new MatrixCursor(FROM);
+
+                    appCompatActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try{
+                                for(int i = 0; i<res.length(); i++){
+                                    JSONObject object = res.getJSONObject(i);
+                                    mc.addRow(new Object[]{
+                                            i + "",
+                                            object.getString("id"),
+                                            object.getString("title"),
+                                            object.getString("datetime"),
+                                            object.getString("long_minutes")
+                                    });
+                                }
+                                System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>> "+mc.getCount());
+
+                                cAdapter = new AdaptadorEvents(
+                                        appCompatActivity,
+                                        R.layout.row_events,
+                                        mc,
+                                        FROM,
+                                        TO,
+                                        1
+                                );
+
+                                llistat.setAdapter(cAdapter);
+                                llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        try{
+
+                                            Intent intent = new Intent(getApplicationContext(), ActivityMostrarInfoEvents.class);
+                                            startActivity(intent);
+
+
+                                        }catch (Exception e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                });
+
+
+
+
+
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+
+                }
+            });
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
