@@ -144,9 +144,9 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
                                         }
                                     });
 
-                                }catch (Exception e){
-                                    e.printStackTrace();
-                                }
+                                    }catch (Exception e){
+                                        e.printStackTrace();
+                                    }
 
                             }
                         });
@@ -176,7 +176,7 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
 
         switch (id) {
 
-            case R.id.btnMostrarGrups:
+//            case R.id.btnMostrarGrups:
 
 
         }

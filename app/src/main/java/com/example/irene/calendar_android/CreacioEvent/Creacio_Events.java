@@ -38,9 +38,9 @@ import org.json.JSONObject;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Creacio_Events extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnTime, btnDate, btnCancelar;
+    Button btnTime, btnDate, btnCancelar, btnCrearEvent;
     TextView tvTime, tvDate;
-    EditText titolEvent, descripcio;
+    EditText titolEvent, descripcio, duracio;
 
     private String company_uuid;
     private int group_id;
@@ -61,14 +61,20 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         btnTime.setOnClickListener(this);
         btnDate = (Button)findViewById(R.id.btnDiaPicker);
         btnDate.setOnClickListener(this);
+
         btnCancelar = (Button)findViewById(R.id.btnCancelarEvent);
         btnCancelar.setOnClickListener(this);
+
+        btnCrearEvent = (Button)findViewById(R.id.btnAcceptarEvent) ;
+        btnCrearEvent.setOnClickListener(this);
 
         tvTime = (TextView)findViewById(R.id.textViewTime);
         tvDate = (TextView)findViewById(R.id.textViewDay);
 
+
         titolEvent = (EditText)findViewById(R.id.editTextNomEvent);
         descripcio = (EditText)findViewById(R.id.editTextDescripcioEvent);
+        duracio = (EditText)findViewById(R.id.editTextDuracioEvent);
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getInt("group_id");
@@ -102,7 +108,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     public void onTimeSet (TimePicker view, int hourOfDay, int minute){
 
                         Calendar timeCalendar = Calendar.getInstance();
-                        timeCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        timeCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay-2);
                         timeCalendar.set(Calendar.MINUTE, minute);
 
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
@@ -122,6 +128,10 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                         pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
+
+
+
+
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -171,48 +181,41 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     jsonObject.put("title", titolEvent.getText().toString());
                     jsonObject.put("description", descripcio.getText().toString());
                     jsonObject.put("datetime", pickedDateTime[0] + " " + pickedDateTime[1]);
-
+                    jsonObject.put("long_minutes", duracio.getText().toString());
+                    System.out.println("===========> "+jsonObject);
 
                     apiConnector.PUT("Company/Group/Date", jsonObject, new Request() {
                         @Override
                         public void Response(Object o) {
                             final JSONObject res = (JSONObject) o;
-                            try{
-                                if(res.getBoolean("valid")){
-                                    Intent i = new Intent(Creacio_Events.this, MainActivity.class);
-                                    Toast.makeText(Creacio_Events.this, "Empresa creada", Toast.LENGTH_LONG).show();
-                                    startActivity(i);
-                                    return;
-                                }
+                            System.out.println("===========> "+res);
 
-                                appCompatActivity.runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
+                            appCompatActivity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    try{
+
+                                        if(res.getBoolean("valid")){
+                                          //  Intent i = new Intent(Creacio_Events.this, MainActivity.class);
+                                            Intent i = new Intent(Creacio_Events.this ,ActivityLlistatEvents.class);
+
+                                            Toast.makeText(Creacio_Events.this, "Event creat", Toast.LENGTH_LONG).show();
+                                            startActivity(i);
+                                            return;
                                         }
+
+                                    }catch (JSONException e) {
+                                        e.printStackTrace();
                                     }
-                                });
 
-
-                            }catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
+                                }
+                            });
                         }
                     });
-
-
-                }catch (Exception e) {
+                }catch (Exception e){
                     e.printStackTrace();
                 }
-
-
-
-
-                break;
         }
 
     }
