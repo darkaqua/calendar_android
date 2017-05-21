@@ -27,8 +27,11 @@ import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
 import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.CreacioGrups.ListActivityGrups;
+import com.example.irene.calendar_android.Login.ActivityHome;
+import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.Perfil.ActivityPerfil;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.SQLite.CalendarDataSource;
 import com.example.irene.calendar_android.Tarifes.ActivityTarifes;
 
 public  class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -38,6 +41,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     private TabLayout tabLayout;
     private String[] pageTitle = {"Calendari", "Empreses"};
 
+
+    private CalendarDataSource calendarDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
 
             }
         });
+
+        calendarDataSource = new CalendarDataSource(this);
     }
     //Carregar ToolBar
     @Override
@@ -188,7 +195,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
     }
 
     public void aceptar(){
-        finish();
+        calendarDataSource.setClient("", "");
+        startActivity(new Intent(this, ActivityHome.class));
     }
 
     public void cancelar(){

@@ -31,7 +31,7 @@ import org.json.JSONObject;
 
 public class ActivityPerfil extends AppCompatActivity implements View.OnClickListener {
 
-    TextView nom, nomUsuari, uuid, telefon, ciutat, codiPostal, correu, dataRegistre, pais;
+    TextView uuidText, nom, nomUsuari, uuid, telefon, ciutat, codiPostal, correu, dataRegistre, pais;
     ImageButton btnConfiguracio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+        uuidText = (TextView) findViewById(R.id.textViewPerfilUuid);
         nom =(TextView)findViewById(R.id.textViewPerfilNom);
         nomUsuari =(TextView)findViewById(R.id.textViewPerfilNomUsuari);
        // uuid =(TextView)findViewById(R.id.textViewPerfilNom);
@@ -95,6 +96,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void run() {
                                 try{
+                                    String uuid = object.getString("uuid");
                                     String name = object.getString("name");
                                     String username = object.getString("username");
                                     String telephone = object.getString("telephone");
@@ -102,8 +104,9 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                                     String postal = object.getString("postal_code");
                                     String email = object.getString("email");
                                     String register = object.getString("register_timestamp");
-                                    String country = object.getString("country");
+                                    String country = object.getJSONObject("country").getString("name");
 
+                                    uuidText.setText(uuid);
                                     nom.setText(name);
                                     nomUsuari.setText(username);
                                     telefon.setText(telephone);
