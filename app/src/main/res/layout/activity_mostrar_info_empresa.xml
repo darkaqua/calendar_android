@@ -61,6 +61,13 @@
                     android:layout_weight="1"
                     android:text="Creació Grup" />
 
+                <Button
+                    android:id="@+id/btnListCompanyGrups"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Llista Grups" />
+
             </LinearLayout>
 
             <ScrollView
