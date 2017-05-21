@@ -84,7 +84,6 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getInt("group_id");
 
-
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -133,10 +132,6 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                         pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
-
-
-
-
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -209,6 +204,16 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                                             startActivity(i);
                                             return;
                                         }
+                                        appCompatActivity.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        });
 
                                     }catch (JSONException e) {
                                         e.printStackTrace();

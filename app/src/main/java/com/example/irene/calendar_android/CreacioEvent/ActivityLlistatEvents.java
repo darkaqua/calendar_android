@@ -114,8 +114,9 @@ public class ActivityLlistatEvents extends AppCompatActivity {
                                     @Override
                                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                         try{
-
+                                            JSONObject jsonObject1 = res.getJSONObject(0);
                                             Intent intent = new Intent(getApplicationContext(), ActivityMostrarInfoEvents.class);
+                                            intent.putExtra("id", jsonObject1.getString("id"));
                                             startActivity(intent);
 
 

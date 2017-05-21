@@ -47,8 +47,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/toolbar"
-                android:layout_marginEnd="63dp"
-                android:layout_marginRight="63dp"
                 android:text="Eliminar grup" />
 
             <Button
@@ -67,8 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/toolbar"
-            android:layout_marginTop="81dp">
+            android:layout_below="@+id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,37 +75,7 @@
                 android:layout_below="@+id/toolbar"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/text"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Id"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-
-                    <TextView
-                        android:id="@+id/textViewInfoGrupID"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="uuid"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
 
                 <View
                     android:layout_width="fill_parent"
@@ -143,7 +110,7 @@
                         android:gravity="left"
                         android:maxLength="12"
                         android:padding="16dp"
-                        android:text="Nom empresa"
+                        android:text=""
                         android:textColor="#a2a1b8"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -180,7 +147,7 @@
                         android:gravity="left"
                         android:maxLength="12"
                         android:padding="16dp"
-                        android:text="Descipció"
+                        android:text=""
                         android:textColor="#a2a1b8"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -204,7 +171,7 @@
                         android:gravity="left"
                         android:maxLength="20"
                         android:padding="16dp"
-                        android:text="Creació"
+                        android:text="Creació del grup"
                         android:textAllCaps="true"
                         android:textColor="#a2a1b8"
                         android:textSize="16sp" />
@@ -217,7 +184,7 @@
                         android:gravity="left"
                         android:maxLength="12"
                         android:padding="16dp"
-                        android:text="Email"
+                        android:text=""
                         android:textColor="#a2a1b8"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -228,36 +195,7 @@
                     android:background="@android:color/darker_gray"
                     android:visibility="visible" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="20"
-                        android:padding="16dp"
-                        android:text="Edit"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textViewInfoGrupEdit"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Telefon"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
 
                 <View
                     android:layout_width="fill_parent"
