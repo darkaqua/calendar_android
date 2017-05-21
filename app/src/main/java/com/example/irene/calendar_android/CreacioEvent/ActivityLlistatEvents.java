@@ -1,5 +1,6 @@
 package com.example.irene.calendar_android.CreacioEvent;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.MatrixCursor;
@@ -20,10 +21,12 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ActivityLlistatEvents extends AppCompatActivity {
+public class ActivityLlistatEvents extends ListActivity {
+
+    public String company_uuid ;
+    public String group_id;
 
     private AdaptadorEvents cAdapter;
-    ListView llistat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +34,6 @@ public class ActivityLlistatEvents extends AppCompatActivity {
         setContentView(R.layout.activity_llistat_events);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //Boton atras de la toolbar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +42,6 @@ public class ActivityLlistatEvents extends AppCompatActivity {
             }
         });
 
-
-        llistat = (ListView)findViewById(R.id.listEvents);
         carregarLlistat();
 
     }
@@ -71,7 +68,7 @@ public class ActivityLlistatEvents extends AppCompatActivity {
         try{
 
             final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
-            final AppCompatActivity appCompatActivity = this;
+            final ListActivity appCompatActivity = this;
             final Context context = this;
 
             final JSONObject jsonObject = new JSONObject();
@@ -109,8 +106,8 @@ public class ActivityLlistatEvents extends AppCompatActivity {
                                         1
                                 );
 
-                                llistat.setAdapter(cAdapter);
-                                llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                setListAdapter(cAdapter);
+                                /*llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                         try{
@@ -124,7 +121,7 @@ public class ActivityLlistatEvents extends AppCompatActivity {
                                             e.printStackTrace();
                                         }
                                     }
-                                });
+                                });*/
 
 
 
