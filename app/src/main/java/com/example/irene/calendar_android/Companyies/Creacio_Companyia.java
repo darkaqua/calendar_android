@@ -3,6 +3,7 @@ package com.example.irene.calendar_android.Companyies;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
 
     Button aceptarRegistro, cancelarRegistro;
     EditText nomEmpresa, descripcio, email, telefon, adreça, ciutat, postal, pais;
+    FloatingActionButton btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
         aceptarRegistro.setOnClickListener(this);
         cancelarRegistro = (Button) findViewById(R.id.btnCancelaCreacioComp);
         cancelarRegistro.setOnClickListener(this);
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
 
         nomEmpresa = (EditText)findViewById(R.id.etNomCompanyia);
         descripcio = (EditText)findViewById(R.id.etDescripcioCompanyia);
@@ -156,6 +160,12 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                         .show();
 
 
+                break;
+
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
                 break;
 
 

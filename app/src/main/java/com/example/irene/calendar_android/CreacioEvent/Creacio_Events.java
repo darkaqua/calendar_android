@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
     Button btnTime, btnDate, btnCancelar, btnCrearEvent;
     TextView tvTime, tvDate;
     EditText titolEvent, descripcio, duracio;
+    FloatingActionButton btnHome;
 
     private String company_uuid;
     private int group_id;
@@ -67,6 +69,9 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
         btnCrearEvent = (Button)findViewById(R.id.btnAcceptarEvent) ;
         btnCrearEvent.setOnClickListener(this);
+
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
 
         tvTime = (TextView)findViewById(R.id.textViewTime);
         tvDate = (TextView)findViewById(R.id.textViewDay);
@@ -216,6 +221,13 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+
+                break;
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                break;
         }
 
     }

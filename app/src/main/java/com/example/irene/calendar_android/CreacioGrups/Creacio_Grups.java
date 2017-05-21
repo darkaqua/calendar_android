@@ -3,6 +3,7 @@ package com.example.irene.calendar_android.CreacioGrups;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
     public String company_uuid;
     int group_id;
     public static ApiConnector API_CONNECTOR;
+    FloatingActionButton btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +54,10 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
         nomGrup = (EditText)findViewById(R.id.editTextCreacioGrupNom);
         descripcio = (EditText)findViewById(R.id.editTextCreacioEventsDescripcio);
 
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
+
         company_uuid = getIntent().getExtras().getString("company_uuid");
-        System.out.println("=========="+company_uuid);
-
-
 
         cancelar = (Button)findViewById(R.id.btnCreacioGrupsCancelar);
         cancelar.setOnClickListener(this);
@@ -161,6 +163,14 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
                         e.printStackTrace();
                     }
                 break;
+
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                break;
+
+
         }
     }
 }
