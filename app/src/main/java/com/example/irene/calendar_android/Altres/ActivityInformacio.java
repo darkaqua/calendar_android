@@ -52,7 +52,7 @@ public class ActivityInformacio extends AppCompatActivity implements View.OnClic
         switch (id) {
 
             case R.id.btnWebPage:
-                Uri uri = Uri.parse("https://www.google.es/");
+                Uri uri = Uri.parse("https://darkaqua.net/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 break;
