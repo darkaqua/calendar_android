@@ -40,21 +40,6 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llistat_grups);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        //Boton atras de la toolbar
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
-
-      //  eliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
-     //   eliminarGrup.setOnClickListener(this);
         company_uuid = getIntent().getExtras().getString("company_uuid");
         System.out.println("==================>"+company_uuid);
 
@@ -62,9 +47,6 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
 
-
-
-       // llistat = (ListView)findViewById(R.id.llistatGrups);
         carregarLlistat();
 
     }
@@ -129,27 +111,15 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
                                         1
                                 );
                                 setListAdapter(cAdapter);
-//                                llistat.setAdapter(cAdapter);
-//                                llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                                    @Override
-//                                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                                        try{
-//                                            JSONObject jsonObject1 = res.getJSONObject(0);
-//                                            Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoGrup.class);
-//                                            i.putExtra("company_uuid", jsonObject1.getString("company_uuid"));
-//                                            i.putExtra("id", jsonObject1.getString("group_id"));
-//                                            startActivity(i);
-//
-//
-//                                        }catch (Exception e){
-//                                            e.printStackTrace();
-//                                        }
-//
-//                                        //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
-//                                        //mostrarInfoEmpreses(id);
-//                                        //
-//                                    }
-//                                });
+
+                                findViewById(R.id.btnListCrearGrup).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
+                                        i.putExtra("company_uuid", company_uuid);
+                                        startActivity(i);
+                                    }
+                                });
 
 
 
