@@ -26,12 +26,10 @@ public class ListActivityGrups extends AppCompatActivity {
     ListView llistat;
     private Adapter cAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_grups);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,12 +45,13 @@ public class ListActivityGrups extends AppCompatActivity {
         });
 
         llistat = (ListView)findViewById(R.id.listViewGrups);
+        carregarLlistat();
     }
 
     public static final String[] FROM = new String[]{
             "_id",
             "company_uuid",
-            "group_id",
+            "id",
             "name",
             "description",
     };
@@ -72,8 +71,6 @@ public class ListActivityGrups extends AppCompatActivity {
             final Context context = this;
 
             final JSONObject jsonObject = new JSONObject();
-          //  jsonObject.put("company_uuid", company_uuid);
-
             apiConnector.GET("User/Groups", jsonObject, new Request() {
                 @Override
                 public void Response(Object o) {
@@ -111,9 +108,10 @@ public class ListActivityGrups extends AppCompatActivity {
                                         @Override
                                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                                             try{
-                                             //   JSONObject jsonObject1 = res.getJSONObject(0);
+                                                JSONObject jsonObject1 = res.getJSONObject(0);
                                                 Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoGrup.class);
-                                            //    i.putExtra("uuid", jsonObject1.getString("uuid"));
+                                                i.putExtra("company_uuid", jsonObject1.getString("company_uuid"));
+                                              //  i.putExtra("id", jsonObject1.getString("id"));
                                                 startActivity(i);
 
 
