@@ -2,12 +2,16 @@ package com.example.irene.calendar_android.CreacioGrups;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.irene.calendar_android.Login.ActivityLoading;
@@ -24,6 +28,7 @@ public class ActivityLlistatGrups extends ListActivity {
     ListView llistat;
     private AdaptadorGrups cAdapter;
     public String company_uuid;
+    Button eliminarGrup;
 
 
     @Override
@@ -44,7 +49,8 @@ public class ActivityLlistatGrups extends ListActivity {
 //            }
 //        });
 
-
+      //  eliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
+     //   eliminarGrup.setOnClickListener(this);
         company_uuid = getIntent().getExtras().getString("company_uuid");
         System.out.println("==================>"+company_uuid);
 
@@ -156,5 +162,43 @@ public class ActivityLlistatGrups extends ListActivity {
     }
 
 
-
+//    @Override
+//    public void onClick(View view) {
+//        int id = view.getId();
+//
+//        switch (id) {
+//
+//            case R.id.btnGrupEliminar:
+//                final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
+//                final Context context = this;
+//                final ListActivity appCompatActivity = this;
+//
+//                new AlertDialog.Builder(this)
+//                        .setTitle("Important")
+//                        .setMessage("Estàs segur que vols eliminar aquest grup?")
+//                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnCancelListener(){
+//                            public void onClick(DialogInterface dialog, int which){
+//                                try{//ELIMINAR GRUP
+//                                    final JSONObject jsonObject = new JSONObject();
+//                                    jsonObject.put("company_uuid", company_uuid);
+//                                    jsonObject.put("group_id", g)
+//
+//
+//                                }catch (Exception e){
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//
+//
+//
+//                        });
+//
+//
+//
+//
+//                break;
+//
+//        }
+//
+//    }
 }

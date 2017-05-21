@@ -98,7 +98,7 @@ public class Creacio_Companyia extends AppCompatActivity implements View.OnClick
                             try{
                                 if(res.getBoolean("valid")){
                                     Intent i = new Intent(Creacio_Companyia.this, MainActivity.class);
-                                    Toast.makeText(Creacio_Companyia.this, "Empresa creada", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(Creacio_Companyia.this, "Empresa creada", Toast.LENGTH_LONG).show();
                                     startActivity(i);
                                     return;
                                 }
