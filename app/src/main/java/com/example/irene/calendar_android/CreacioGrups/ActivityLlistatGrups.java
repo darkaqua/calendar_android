@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
+import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -23,12 +26,13 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ActivityLlistatGrups extends ListActivity {
+public class ActivityLlistatGrups extends ListActivity implements View.OnClickListener{
 
     ListView llistat;
     private AdaptadorGrups cAdapter;
     public String company_uuid;
     Button eliminarGrup;
+    FloatingActionButton btnHome;
 
 
     @Override
@@ -54,7 +58,13 @@ public class ActivityLlistatGrups extends ListActivity {
         company_uuid = getIntent().getExtras().getString("company_uuid");
         System.out.println("==================>"+company_uuid);
 
-        //llistat = (ListView)findViewById(R.id.llistatGrups);
+
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
+
+
+
+       // llistat = (ListView)findViewById(R.id.llistatGrups);
         carregarLlistat();
 
     }
@@ -110,10 +120,6 @@ public class ActivityLlistatGrups extends ListActivity {
                                     });
 
                                 }
-                                if(mc.getCount() == 0){
-                                    System.out.print("No hi ha grups creats");
-
-                                }
                                 cAdapter= new AdaptadorGrups(
                                         appCompatActivity,
                                         R.layout.row_grups,
@@ -123,8 +129,28 @@ public class ActivityLlistatGrups extends ListActivity {
                                         1
                                 );
                                 setListAdapter(cAdapter);
-                            //    llistat.setAdapter(cAdapter);
+//                                llistat.setAdapter(cAdapter);
 //                                llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                                    @Override
+//                                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                                        try{
+//                                            JSONObject jsonObject1 = res.getJSONObject(0);
+//                                            Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoGrup.class);
+//                                            i.putExtra("company_uuid", jsonObject1.getString("company_uuid"));
+//                                            i.putExtra("id", jsonObject1.getString("group_id"));
+//                                            startActivity(i);
+//
+//
+//                                        }catch (Exception e){
+//                                            e.printStackTrace();
+//                                        }
+//
+//                                        //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+//                                        //mostrarInfoEmpreses(id);
+//                                        //
+//                                    }
+//                                });
+
 
 
                             }catch (Exception e){
@@ -161,44 +187,18 @@ public class ActivityLlistatGrups extends ListActivity {
 
     }
 
+    @Override
+    public void onClick(View view) {
 
-//    @Override
-//    public void onClick(View view) {
-//        int id = view.getId();
-//
-//        switch (id) {
-//
-//            case R.id.btnGrupEliminar:
-//                final ApiConnector apiConnector = ActivityLoading.API_CONNECTOR;
-//                final Context context = this;
-//                final ListActivity appCompatActivity = this;
-//
-//                new AlertDialog.Builder(this)
-//                        .setTitle("Important")
-//                        .setMessage("Estàs segur que vols eliminar aquest grup?")
-//                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnCancelListener(){
-//                            public void onClick(DialogInterface dialog, int which){
-//                                try{//ELIMINAR GRUP
-//                                    final JSONObject jsonObject = new JSONObject();
-//                                    jsonObject.put("company_uuid", company_uuid);
-//                                    jsonObject.put("group_id", g)
-//
-//
-//                                }catch (Exception e){
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//
-//
-//
-//                        });
-//
-//
-//
-//
-//                break;
-//
-//        }
-//
-//    }
+        int id = view.getId();
+
+        switch (id) {
+
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }

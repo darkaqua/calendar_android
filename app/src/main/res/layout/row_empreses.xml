@@ -38,10 +38,11 @@
 
         <RelativeLayout
             android:id="@+id/prova"
-            android:layout_width="358dp"
+            android:layout_width="335dp"
             android:layout_height="108dp"
             android:layout_below="@+id/toolbar"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/relative_layout_background"
@@ -60,6 +61,7 @@
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="75dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/list_empresa" />
                 </LinearLayout>
@@ -73,6 +75,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -95,7 +98,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20dp" />
+                        android:layout_height="15dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

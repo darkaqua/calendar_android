@@ -6,242 +6,208 @@
     android:layout_height="match_parent"
     tools:context="com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:title="Informació grups"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@android:color/white" />
+        android:layout_marginLeft="300dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorButton2"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/icon_house" />
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="81dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Informació grups"
+            app:titleTextColor="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/toolbar"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/btnGrupEliminar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/toolbar"
+                android:text="Eliminar grup" />
 
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Id"
-                    android:textAllCaps="true"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-
-
-                <TextView
-                    android:id="@+id/textViewInfoGrupID"
-                    android:layout_width="237dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="uuid"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-            </LinearLayout>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.2dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="visible" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnGrupCrearEvent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Nom Grup"
-                    android:textAllCaps="true"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-
-
-                <TextView
-                    android:id="@+id/textViewInfoGrupNom"
-                    android:layout_width="237dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Nom empresa"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.2dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="visible" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="20"
-                    android:padding="16dp"
-                    android:text="Descripció"
-                    android:textAllCaps="true"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewInfoGrupDescripcio"
-                    android:layout_width="237dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Descipció"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.2dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="visible" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="20"
-                    android:padding="16dp"
-                    android:text="Creació"
-                    android:textAllCaps="true"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewInfoGrupCreacio"
-                    android:layout_width="237dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Email"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.2dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="visible" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="20"
-                    android:padding="16dp"
-                    android:text="Edit"
-                    android:textAllCaps="true"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewInfoGrupEdit"
-                    android:layout_width="237dp"
-                    android:layout_height="wrap_content"
-                    android:background="#0000"
-                    android:gravity="left"
-                    android:maxLength="12"
-                    android:padding="16dp"
-                    android:text="Telefon"
-                    android:textColor="#a2a1b8"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.2dp"
-                android:background="@android:color/darker_gray"
-                android:visibility="visible" />
-
-
-
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/toolbar"
+                android:layout_weight="1"
+                android:text="Creació event" />
         </LinearLayout>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/btnGrupCrearEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
-        android:text="Creació event" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/toolbar">
 
-    <Button
-        android:id="@+id/btnGrupEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eliminar grup"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="63dp"
-        android:layout_marginEnd="63dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/toolbar"
+                android:orientation="vertical">
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="12"
+                        android:padding="16dp"
+                        android:text="Nom Grup"
+                        android:textAllCaps="true"
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/textViewInfoGrupNom"
+                        android:layout_width="237dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="12"
+                        android:padding="16dp"
+                        android:text=""
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="20"
+                        android:padding="16dp"
+                        android:text="Descripció"
+                        android:textAllCaps="true"
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewInfoGrupDescripcio"
+                        android:layout_width="237dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="12"
+                        android:padding="16dp"
+                        android:text=""
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="20"
+                        android:padding="16dp"
+                        android:text="Creació del grup"
+                        android:textAllCaps="true"
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textViewInfoGrupCreacio"
+                        android:layout_width="237dp"
+                        android:layout_height="wrap_content"
+                        android:background="#0000"
+                        android:gravity="left"
+                        android:maxLength="12"
+                        android:padding="16dp"
+                        android:text=""
+                        android:textColor="#a2a1b8"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible" />
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@android:color/darker_gray"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

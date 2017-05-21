@@ -3,6 +3,7 @@ package com.example.irene.calendar_android.CreacioGrups;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
     public String company_uuid ;
     public String group_id;
     TextView nomGrup, descripcio, creacio, edit;
+    FloatingActionButton btnHome;
 
     Button btnCrearEvents, btnEliminarGrup;
     @Override
@@ -53,6 +55,9 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
 
         btnCrearEvents = (Button)findViewById(R.id.btnGrupCrearEvent);
         btnCrearEvents.setOnClickListener(this);
+
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
 
         btnEliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
         btnEliminarGrup.setOnClickListener(this);
@@ -190,6 +195,12 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                 i.putExtra("company_uuid", company_uuid);
                 i.putExtra("group_id", group_id);
                 startActivity(i);
+                break;
+
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
                 break;
 
 

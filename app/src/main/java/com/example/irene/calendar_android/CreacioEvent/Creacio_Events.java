@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
     Button btnTime, btnDate, btnCancelar, btnCrearEvent;
     TextView tvTime, tvDate;
     EditText titolEvent, descripcio, duracio;
+    FloatingActionButton btnHome;
 
     private String company_uuid;
     private int group_id;
@@ -68,6 +70,9 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         btnCrearEvent = (Button)findViewById(R.id.btnAcceptarEvent) ;
         btnCrearEvent.setOnClickListener(this);
 
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
+
         tvTime = (TextView)findViewById(R.id.textViewTime);
         tvDate = (TextView)findViewById(R.id.textViewDay);
 
@@ -78,7 +83,6 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getInt("group_id");
-
 
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -128,10 +132,6 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                         pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
-
-
-
-
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -204,6 +204,16 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                                             startActivity(i);
                                             return;
                                         }
+                                        appCompatActivity.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        });
 
                                     }catch (JSONException e) {
                                         e.printStackTrace();
@@ -216,6 +226,13 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+
+                break;
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                break;
         }
 
     }

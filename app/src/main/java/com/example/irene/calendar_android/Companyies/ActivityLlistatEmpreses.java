@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.SQLite.CalendarDataSource;
@@ -31,7 +33,7 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
 
     ListView llistat;
     private AdaptadorEmpreses cAdapter;
-    Button btnVeureGrups;
+    FloatingActionButton btnHome;
     private CalendarDataSource BD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +53,8 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
             }
         });
 
-        btnVeureGrups = (Button)findViewById(R.id.btnMostrarGrups);
-        btnVeureGrups.setOnClickListener(this);
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
 
         llistat = (ListView)findViewById(R.id.list);
         carregarLlistat();
@@ -172,9 +174,11 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
 
         switch (id) {
 
-//            case R.id.btnMostrarGrups:
+            case R.id.floatingActionButtonMain:
 
-
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                break;
         }
     }
 }

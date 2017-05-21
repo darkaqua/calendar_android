@@ -3,6 +3,7 @@ package com.example.irene.calendar_android.Companyies;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
     TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais, dataRegistre;
     Button btnEliminar, btnCrearGrup;
+    FloatingActionButton btnHome;
 
     private String uuid;
     @Override
@@ -50,6 +52,9 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
         btnEliminar = (Button)findViewById(R.id.btnEliminarEmpresa);
         btnEliminar.setOnClickListener(this);
+
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
 
         btnCrearGrup = (Button)findViewById(R.id.btnCreacioGrup);
         btnCrearGrup.setOnClickListener(this);
@@ -195,6 +200,12 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                 Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
                 i.putExtra("company_uuid", uuid);
                 startActivity(i);
+                break;
+
+            case R.id.floatingActionButtonMain:
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
                 break;
         }
     }
