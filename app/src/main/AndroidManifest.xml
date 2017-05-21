@@ -60,7 +60,8 @@
         <activity android:name=".CreacioEvent.ActivityLlistatEvents" />
         <activity android:name=".CreacioGrups.ActivityMostrarInfoGrup" />
         <activity android:name=".CreacioEvent.ActivityMostrarInfoEvents" />
-        <activity android:name=".CreacioEvent.ListActivityEvents"></activity>
+        <activity android:name=".CreacioEvent.ListActivityEvents" />
+        <activity android:name=".CreacioGrups.ListActivityGrups"></activity>
     </application>
 
 </manifest>

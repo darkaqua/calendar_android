@@ -38,7 +38,6 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_llistat_empreses);
 
-      //  BD = new CalendarDataSource(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Boton atras de la toolbar
@@ -76,9 +75,6 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
     };
 
     private void carregarLlistat(){
-
-
-
         try {
             final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
             final AppCompatActivity appCompatActivity = this;
