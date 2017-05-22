@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
+import com.example.irene.calendar_android.CreacioEvent.ActivityLlistatEvents;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
@@ -117,6 +118,16 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
+
+                                findViewById(R.id.btnGrupLlistaEvent).setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(getApplicationContext(), ActivityLlistatEvents.class);
+                                        i.putExtra("company_uuid", company_uuid);
+                                        i.putExtra("group_id", group_id);
+                                        startActivity(i);
+                                    }
+                                });
                             }
                         });
                     }catch (Exception e){
