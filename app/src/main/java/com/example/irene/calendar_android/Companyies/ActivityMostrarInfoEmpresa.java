@@ -15,7 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
+import com.example.irene.calendar_android.CreacioGrups.ListActivityGrups;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
@@ -76,6 +79,15 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
         uuid = getIntent().getExtras().getString("uuid");
 
         carregarDades();
+
+        findViewById(R.id.btnListCompanyGrups).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
+                i.putExtra("company_uuid", uuid);
+                startActivity(i);
+            }
+        });
     }
 
     private void carregarDades(){

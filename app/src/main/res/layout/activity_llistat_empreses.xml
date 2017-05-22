@@ -39,8 +39,14 @@
             app:title="Llistat empreses"
             app:titleTextColor="@android:color/white" />
 
+        <Button
+            android:id="@+id/btnLlistCrearEmpresa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crear Empresa" />
+
         <ListView
-            android:id="@+id/list"
+            android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="463dp"
             android:layout_alignParentLeft="true"

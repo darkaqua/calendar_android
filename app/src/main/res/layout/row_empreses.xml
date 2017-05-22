@@ -37,7 +37,7 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/prova"
+            android:id="@+id/tarifa_1"
             android:layout_width="335dp"
             android:layout_height="108dp"
             android:layout_below="@+id/toolbar"
@@ -85,7 +85,8 @@
                             android:text="Nom: "
                             android:textAllCaps="true"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
 
                         <TextView
                             android:id="@+id/txtNomEmpresa"
@@ -93,7 +94,8 @@
                             android:layout_height="match_parent"
                             android:text="Nom"
                             android:textAllCaps="true"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:visibility="visible" />
                     </LinearLayout>
 
                     <Space
@@ -114,14 +116,16 @@
                             android:layout_height="wrap_content"
                             android:text="Descripció: "
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="visible" />
 
                         <TextView
                             android:id="@+id/txtDescripcioEmpresa"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Descripcio"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:visibility="visible" />
                     </LinearLayout>
                 </LinearLayout>
 

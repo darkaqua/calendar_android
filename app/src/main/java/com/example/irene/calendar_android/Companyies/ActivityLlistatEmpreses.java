@@ -1,5 +1,6 @@
 package com.example.irene.calendar_android.Companyies;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
+import com.example.irene.calendar_android.CreacioGrups.AdaptadorGrups;
+import com.example.irene.calendar_android.CreacioGrups.ListActivityGrups;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -29,10 +33,9 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class ActivityLlistatEmpreses extends AppCompatActivity implements View.OnClickListener{
+public class ActivityLlistatEmpreses extends ListActivity implements View.OnClickListener{
 
-    ListView llistat;
-    private AdaptadorEmpreses cAdapter;
+    private AdaptadorGrups cAdapter;
     FloatingActionButton btnHome;
     private CalendarDataSource BD;
     @Override
@@ -41,10 +44,10 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_llistat_empreses);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*setSupportActionBar(toolbar);
         //Boton atras de la toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);*/
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +59,6 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
 
-        llistat = (ListView)findViewById(R.id.list);
         carregarLlistat();
 
     }
@@ -65,21 +67,19 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
             "_id",
             "uuid",
             "name",
-            "description",
-            "jsonObject"
+            "description"
     };
     public static final int[] TO = new int[]{
             -1,
             R.id.uuidEmpresa,
-            R.id.txtNomEmpresa,
-            R.id.txtDescripcioEmpresa,
-            -1
+            R.id.txtNomGrup,
+            R.id.txtDescripcioGrup
     };
 
     private void carregarLlistat(){
         try {
             final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
-            final AppCompatActivity appCompatActivity = this;
+            final ListActivity appCompatActivity = this;
             final Context context = this;
 
             final JSONObject jsonObject = new JSONObject();
@@ -102,8 +102,7 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
                                                 i + "",
                                                 object.getString("uuid"),
                                                 object.getString("name"),
-                                                object.getString("description"),
-                                                object
+                                                object.getString("description")
                                         });
 
                                     }
@@ -113,16 +112,16 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
 
                                     }
                                     System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + mc.getCount());
-                                    cAdapter= new AdaptadorEmpreses(
+                                    cAdapter= new AdaptadorGrups(
                                                     appCompatActivity,
-                                                    R.layout.row_empreses,
+                                                    R.layout.row_grups,
                                                     mc,
                                                     FROM,
                                                     TO,
                                                     1
                                             );
-                                    llistat.setAdapter(cAdapter);
-                                    llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    setListAdapter(cAdapter);
+                                   /* llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                         @Override
                                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                                             try{
@@ -139,6 +138,13 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
                                             //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
                                             //mostrarInfoEmpreses(id);
                                             //
+                                        }
+                                    });*/
+
+                                    findViewById(R.id.btnLlistCrearEmpresa).setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            startActivity(new Intent(getApplicationContext(), Creacio_Companyia.class));
                                         }
                                     });
 
@@ -180,6 +186,25 @@ public class ActivityLlistatEmpreses extends AppCompatActivity implements View.O
                 startActivity(i);
                 break;
         }
+    }
+
+    @Override
+    public void onListItemClick(ListView l , View view, int position, long id) {
+        try{
+            Cursor jsonObject1 = (Cursor) getListAdapter().getItem(position);
+            Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoEmpresa.class);
+
+            i.putExtra("uuid", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("uuid")));
+            startActivity(i);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+        //mostrarInfoEmpreses(id);
+
     }
 }
 
