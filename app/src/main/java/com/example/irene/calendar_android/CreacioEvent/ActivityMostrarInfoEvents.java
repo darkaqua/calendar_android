@@ -17,18 +17,17 @@ import org.json.JSONObject;
 
 public class ActivityMostrarInfoEvents extends AppCompatActivity {
 
-    TextView nomEvent, descripcio, hora, dia, duracio;
+    TextView nomEvent, descripcio, data, duracio;
+    String company_uuid, group_id, date_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_info_events);
 
-
         nomEvent = (TextView)findViewById(R.id.textViewInfoEventNom);
         descripcio = (TextView)findViewById(R.id.textViewInfoEventDescripcio);
-        hora = (TextView)findViewById(R.id.textViewInfoHoraEvent);
-        dia = (TextView)findViewById(R.id.textViewInfoDiaEvent);
+        data = (TextView)findViewById(R.id.textViewInfoDataEvent);
         duracio = (TextView)findViewById(R.id.textViewInfoDuracioEvent);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -44,6 +43,10 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity {
             }
         });
 
+        company_uuid = getIntent().getExtras().getString("company_uuid");
+        group_id = getIntent().getExtras().getString("group_id");
+        date_id = getIntent().getExtras().getString("date_id");
+
         carregarDades();
     }
 
@@ -54,7 +57,11 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity {
 
         try{
             JSONObject jsonObject = new JSONObject();
-            apiConnector.GET("User/Dates", jsonObject, new Request() {
+            jsonObject.put("company_uuid", company_uuid);
+            jsonObject.put("group_id", group_id);
+            jsonObject.put("date_id", date_id);
+
+            apiConnector.GET("Company/Group/Date", jsonObject, new Request() {
                 @Override
                 public void Response(Object o) {
                     try{
@@ -73,7 +80,7 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity {
 
                                     nomEvent.setText(title);
                                     descripcio.setText(description);
-                                    hora.setText(datetime);
+                                    data.setText(datetime);
                                     duracio.setText(longMinutes);
 
                                 }catch (Exception e){

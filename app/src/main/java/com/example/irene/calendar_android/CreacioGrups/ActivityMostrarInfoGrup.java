@@ -14,9 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
-import com.example.irene.calendar_android.CreacioEvent.ActivityLlistatEvents;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioEvent.ListActivityEvents;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -24,7 +23,6 @@ import com.example.irene.calendar_android.R;
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -122,7 +120,7 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                                 findViewById(R.id.btnGrupLlistaEvent).setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Intent i = new Intent(getApplicationContext(), ActivityLlistatEvents.class);
+                                        Intent i = new Intent(getApplicationContext(), ListActivityEvents.class);
                                         i.putExtra("company_uuid", company_uuid);
                                         i.putExtra("group_id", group_id);
                                         startActivity(i);
@@ -173,7 +171,8 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                                                 public void run() {
                                                     try {
                                                         Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
-                                                        Intent i = new Intent(ActivityMostrarInfoGrup.this, MainActivity.class);
+                                                        Intent i = new Intent(ActivityMostrarInfoGrup.this, ActivityLlistatGrups.class);
+                                                        i.putExtra("company_uuid", company_uuid);
                                                         startActivity(i);
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
