@@ -117,6 +117,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
                         System.out.println(timeString);
                         pickedDateTime[1] = timeString.split(" ")[0];
+                        ((TextView)findViewById(R.id.textViewTime)).setText(pickedDateTime[1]);
 
                     }
                 },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), android.text.format.DateFormat.is24HourFormat(Creacio_Events.this));
@@ -133,6 +134,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
                         System.out.println(dayOfMonth + "/" + monthOfYear + "/" + year);
                         pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
+                        ((TextView)findViewById(R.id.textViewDay)).setText(pickedDateTime[0]);
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
