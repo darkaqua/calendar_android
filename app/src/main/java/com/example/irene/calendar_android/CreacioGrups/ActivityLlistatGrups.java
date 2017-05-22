@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -42,6 +43,19 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
         System.out.println("==================>"+company_uuid);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*setSupportActionBar(toolbar);
+        //Boton atras de la toolbar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);*/
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);

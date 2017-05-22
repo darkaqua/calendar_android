@@ -44,8 +44,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
     EditText titolEvent, descripcio, duracio;
     FloatingActionButton btnHome;
 
-    private String company_uuid;
-    private int group_id;
+    private String company_uuid, group_id;
 
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
@@ -82,7 +81,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         duracio = (EditText)findViewById(R.id.editTextDuracioEvent);
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
-        group_id = getIntent().getExtras().getInt("group_id");
+        group_id = getIntent().getExtras().getString("group_id");
 
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -116,7 +115,9 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                         timeCalendar.set(Calendar.MINUTE, minute);
 
                         String timeString = DateUtils.formatDateTime(Creacio_Events.this, timeCalendar.getTimeInMillis(), DateUtils.FORMAT_SHOW_TIME);
-                        pickedDateTime[1] = timeString;
+                        System.out.println(timeString);
+                        pickedDateTime[1] = timeString.split(" ")[0];
+                        ((TextView)findViewById(R.id.textViewTime)).setText(pickedDateTime[1]);
 
                     }
                 },calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), android.text.format.DateFormat.is24HourFormat(Creacio_Events.this));
@@ -131,7 +132,9 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
+                        System.out.println(dayOfMonth + "/" + monthOfYear + "/" + year);
                         pickedDateTime[0] = dayOfMonth + "/" + monthOfYear + "/" + year;
+                        ((TextView)findViewById(R.id.textViewDay)).setText(pickedDateTime[0]);
 
                     }
                 }, calendar.get(java.util.Calendar.YEAR), calendar.get(java.util.Calendar.MONTH), calendar.get(java.util.Calendar.DAY_OF_MONTH));
@@ -198,7 +201,10 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
                                         if(res.getBoolean("valid")){
                                           //  Intent i = new Intent(Creacio_Events.this, MainActivity.class);
-                                            Intent i = new Intent(Creacio_Events.this ,ActivityLlistatEvents.class);
+                                            Intent i = new Intent(getApplicationContext(), ListActivityEvents.class);
+                                            i.putExtra("company_uuid", company_uuid);
+                                            i.putExtra("group_id", group_id);
+                                            startActivity(i);
 
                                             Toast.makeText(Creacio_Events.this, "Event creat", Toast.LENGTH_LONG).show();
                                             startActivity(i);

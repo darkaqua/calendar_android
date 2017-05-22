@@ -23,7 +23,7 @@
                 android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/uuidEvent"
+                android:id="@+id/idEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -31,6 +31,24 @@
                 android:textSize="12sp"
                 android:visibility="invisible"
                />
+            <TextView
+                android:id="@+id/idGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/uuidCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                />
         </LinearLayout>
 
         <RelativeLayout
@@ -89,7 +107,7 @@
                             android:id="@+id/textView26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hora:"
+                            android:text="Data:"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -108,20 +126,6 @@
                         android:layout_alignParentStart="true"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dia:"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txtDiaEvent"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="dia"
-                            android:textSize="18sp" />
                     </LinearLayout>
 
                 </LinearLayout>
