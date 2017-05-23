@@ -24,7 +24,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -201,7 +200,7 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
 
                                         if(res.getBoolean("valid")){
                                           //  Intent i = new Intent(Creacio_Events.this, MainActivity.class);
-                                            Intent i = new Intent(getApplicationContext(), ListActivityEvents.class);
+                                            Intent i = new Intent(getApplicationContext(), ActivityLlistatEvents.class);
                                             i.putExtra("company_uuid", company_uuid);
                                             i.putExtra("group_id", group_id);
                                             startActivity(i);

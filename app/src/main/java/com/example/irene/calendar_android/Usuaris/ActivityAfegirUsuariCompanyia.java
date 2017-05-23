@@ -12,9 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
-import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
-import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -27,15 +24,14 @@ import org.json.JSONObject;
 public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements View.OnClickListener{
 
     FloatingActionButton btnHome;
-    Button btnAfegir, btnEiminar;
+    Button btnAfegir, btnEliminar;
     public String company_uuid;
-    public boolean can_edit;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afegir_usuari_companyia);
+        setContentView(R.layout.activity_afegir_usuari);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,6 +52,9 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
         btnAfegir = (Button)findViewById(R.id.btnAfegirUsuari);
         btnAfegir.setOnClickListener(this);
 
+        btnEliminar = (Button)findViewById(R.id.btnEliminarUsuari);
+        btnEliminar.setOnClickListener(this);
+
         company_uuid = getIntent().getExtras().getString("company_uuid");
 
     }
@@ -68,31 +67,33 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
     @Override
     public void onClick(View view) {
 
-        int id = view.getId();
+        final int id = view.getId();
 
-        switch (id){
-            case R.id.btnAfegirUsuari:
+        System.out.println(id);
 
-                try{
+        try{
 
-                    final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
-                    final AppCompatActivity appCompatActivity = this;
-                    final Context context = getApplicationContext();
+            final ApiConnector apiConnector  = ActivityLoading.API_CONNECTOR;
+            final AppCompatActivity appCompatActivity = this;
+            final Context context = getApplicationContext();
 
-                    JSONObject jObject = new JSONObject();
-                    jObject.put("username",  ((EditText)findViewById(R.id.editTextNomUsuari)).getText());
-                    System.out.println("===================="+jObject);
+            JSONObject jObject = new JSONObject();
+            jObject.put("username",  ((EditText)findViewById(R.id.editTextNomUsuari)).getText());
+            System.out.println("===================="+jObject);
 
-                    apiConnector.GET("User/uuid", jObject, new Request() {
+            apiConnector.GET("User/uuid", jObject, new Request() {
 
+                @Override
+                public void Response(Object o) {
 
-                        @Override
-                        public void Response(Object o) {
+                    System.out.println("--------------------$--------------------->" + o.toString());
 
+                    switch (id){
+                        case R.id.btnAfegirUsuari:
                             try{
 
                                 final JSONObject res = (JSONObject) o;
-                                System.out.println("========="+ res);
+                                System.out.println("=========>>>"+ res);
 
                                 if(!res.getBoolean("valid")){
                                     appCompatActivity.runOnUiThread(new Runnable() {
@@ -152,25 +153,79 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
                             }catch (Exception e) {
                                 e.printStackTrace();
                             }
+                            break;
+                        case R.id.btnEliminarUsuari:
+                            try{
+
+                                final JSONObject res = (JSONObject) o;
+                                System.out.println("=========>>>"+ res);
+
+                                if(!res.getBoolean("valid")){
+                                    appCompatActivity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    });
+                                    return;
+                                }
+
+                                JSONObject jsonObject = new JSONObject();
+                                jsonObject.put("company_uuid", company_uuid);
+                                jsonObject.put("user_uuid", res.getString("user_uuid"));
+
+                                apiConnector.DELETE("Company/User", jsonObject, new Request() {
+
+                                    @Override
+                                    public void Response(Object o) {
+
+                                        final JSONObject res = (JSONObject) o;
+
+                                        try{
+
+                                            if(res.getBoolean("valid")){
+                                                Intent i = new Intent(ActivityAfegirUsuariCompanyia.this, ActivityLlistatUsersCompanyies.class);
+                                                i.putExtra("company_uuid", company_uuid);
+                                                startActivity(i);
+                                                return;
+                                            }
+                                            appCompatActivity.runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            });
+
+                                        }catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                });
+
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
 
 
-                        }
-
-                    });
-
-
-
-                    }catch (Exception e) {
-                    e.printStackTrace();
                 }
 
-                break;
+            });
 
-            case R.id.floatingActionButtonMain:
 
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                break;
+
+            }catch (Exception e) {
+            e.printStackTrace();
         }
 
 

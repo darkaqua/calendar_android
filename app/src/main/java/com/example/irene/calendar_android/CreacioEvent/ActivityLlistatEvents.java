@@ -5,13 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
 import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
+import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -21,11 +25,14 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ListActivityEvents extends ListActivity {
+public class ActivityLlistatEvents extends ListActivity implements View.OnClickListener{
 
     public String company_uuid, group_id;
+    FloatingActionButton btnHome;
 
     private AdaptadorEvents cAdapter;
+
+    Button btnLlistCrearEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +48,15 @@ public class ListActivityEvents extends ListActivity {
             }
         });
 
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
+
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getString("group_id");
+
+
+        btnLlistCrearEvent = (Button) findViewById(R.id.btnLlistCrearEvent);
+        btnLlistCrearEvent.setOnClickListener(this);
 
         carregarLlistat();
 
@@ -150,6 +164,27 @@ public class ListActivityEvents extends ListActivity {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+
+        switch (id) {
+
+            case R.id.floatingActionButtonMain:
+
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.btnLlistCrearEvent:
+                Intent i2 = new Intent(getApplicationContext(), Creacio_Events.class);
+                i2.putExtra("company_uuid", company_uuid);
+                i2.putExtra("group_id", group_id);
+                startActivity(i2);
+                break;
+        }
     }
 
     @Override

@@ -38,6 +38,8 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
     private AdaptadorGrups cAdapter;
     FloatingActionButton btnHome;
     private CalendarDataSource BD;
+
+    Button btnLlistCrearEmpresa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,9 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
+
+        btnLlistCrearEmpresa = (Button) findViewById(R.id.btnLlistCrearEmpresa);
+        btnLlistCrearEmpresa.setOnClickListener(this);
 
         carregarLlistat();
 
@@ -121,32 +126,6 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
                                                     1
                                             );
                                     setListAdapter(cAdapter);
-                                   /* llistat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                        @Override
-                                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                                            try{
-                                                JSONObject jsonObject1 = res.getJSONObject(0);
-                                                Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoEmpresa.class);
-                                                i.putExtra("uuid", jsonObject1.getString("uuid"));
-                                                startActivity(i);
-
-
-                                            }catch (Exception e){
-                                                e.printStackTrace();
-                                            }
-
-                                            //Toast.makeText(ActivityLlistatEmpreses.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
-                                            //mostrarInfoEmpreses(id);
-                                            //
-                                        }
-                                    });*/
-
-                                    findViewById(R.id.btnLlistCrearEmpresa).setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            startActivity(new Intent(getApplicationContext(), Creacio_Companyia.class));
-                                        }
-                                    });
 
                                     }catch (Exception e){
                                         e.printStackTrace();
@@ -184,6 +163,10 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
 
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
+                break;
+
+            case R.id.btnLlistCrearEmpresa:
+                startActivity(new Intent(getApplicationContext(), Creacio_Companyia.class));
                 break;
         }
     }
