@@ -14,28 +14,26 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
-import com.example.irene.calendar_android.CreacioEvent.ActivityLlistatEvents;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioEvent.ActivityLlistatEvents;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserGrups;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.OnClickListener{
 
-    public String company_uuid ;
-    public String group_id;
+    public String company_uuid, group_id;
     TextView nomGrup, descripcio, creacio, edit;
     FloatingActionButton btnHome;
 
-    Button btnCrearEvents, btnEliminarGrup;
+    Button btnCrearEvents, btnEliminarGrup, btnGrupLlistaUsuaris, btnGrupLlistaEvent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +60,12 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
 
         btnEliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
         btnEliminarGrup.setOnClickListener(this);
+
+        btnGrupLlistaUsuaris = (Button)findViewById(R.id.btnGrupLlistaUsuaris);
+        btnGrupLlistaUsuaris.setOnClickListener(this);
+
+        btnGrupLlistaEvent = (Button)findViewById(R.id.btnGrupLlistaEvent);
+        btnGrupLlistaEvent.setOnClickListener(this);
 
         nomGrup = (TextView)findViewById(R.id.textViewInfoGrupNom);
         descripcio = (TextView)findViewById(R.id.textViewInfoGrupDescripcio);
@@ -118,16 +122,6 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                                 }catch (Exception e){
                                     e.printStackTrace();
                                 }
-
-                                findViewById(R.id.btnGrupLlistaEvent).setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Intent i = new Intent(getApplicationContext(), ActivityLlistatEvents.class);
-                                        i.putExtra("company_uuid", company_uuid);
-                                        i.putExtra("group_id", group_id);
-                                        startActivity(i);
-                                    }
-                                });
                             }
                         });
                     }catch (Exception e){
@@ -173,7 +167,8 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                                                 public void run() {
                                                     try {
                                                         Toast.makeText(context, res.get("message").toString(), Toast.LENGTH_SHORT).show();
-                                                        Intent i = new Intent(ActivityMostrarInfoGrup.this, MainActivity.class);
+                                                        Intent i = new Intent(ActivityMostrarInfoGrup.this, ActivityLlistatGrups.class);
+                                                        i.putExtra("company_uuid", company_uuid);
                                                         startActivity(i);
                                                     } catch (JSONException e) {
                                                         e.printStackTrace();
@@ -215,6 +210,20 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                 break;
 
 
+            case R.id.btnGrupLlistaUsuaris:
+
+                Intent intent2 = new Intent(getApplicationContext(), ActivityLlistatUserGrups.class);
+                intent2.putExtra("company_uuid", company_uuid);
+                intent2.putExtra("group_id", group_id);
+                startActivity(intent2);
+                break;
+
+            case R.id.btnGrupLlistaEvent:
+                Intent i4 = new Intent(getApplicationContext(), ActivityLlistatEvents.class);
+                i4.putExtra("company_uuid", company_uuid);
+                i4.putExtra("group_id", group_id);
+                startActivity(i4);
+                break;
 
         }
     }

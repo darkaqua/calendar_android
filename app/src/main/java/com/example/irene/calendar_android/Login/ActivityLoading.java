@@ -24,6 +24,8 @@ public class ActivityLoading extends AppCompatActivity {
 
     private static final String ip = "calendar.darkaqua.net";
     private static final int port = 8080;
+    //private static final String ip = "10.0.3.2";
+    //private static final int port = 22322;
 
     public static ApiConnector API_CONNECTOR;
 

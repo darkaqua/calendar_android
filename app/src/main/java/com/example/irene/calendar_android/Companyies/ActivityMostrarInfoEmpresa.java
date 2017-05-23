@@ -24,6 +24,7 @@ import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.Login.ActivityRegistre;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUsersCompanyies;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -34,7 +35,7 @@ import org.json.JSONObject;
 public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements View.OnClickListener{
 
     TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais, dataRegistre;
-    Button btnEliminar, btnCrearGrup;
+    Button btnEliminar, btnCrearGrup, btnLlistatUsers;
     FloatingActionButton btnHome;
 
     private String uuid;
@@ -55,6 +56,9 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
         btnEliminar = (Button)findViewById(R.id.btnEliminarEmpresa);
         btnEliminar.setOnClickListener(this);
+
+        btnLlistatUsers = (Button)findViewById(R.id.btnCompanyLlistatUsers);
+        btnLlistatUsers.setOnClickListener(this);
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -218,6 +222,13 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.btnCompanyLlistatUsers:
+
+                Intent intent1 = new Intent(getApplicationContext(), ActivityLlistatUsersCompanyies.class);
+                intent1.putExtra("company_uuid", uuid);
+                startActivity(intent1);
                 break;
         }
     }

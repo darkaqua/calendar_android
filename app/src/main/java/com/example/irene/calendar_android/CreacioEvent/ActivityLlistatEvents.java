@@ -3,15 +3,19 @@ package com.example.irene.calendar_android.CreacioEvent;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
+import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
+import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -21,12 +25,14 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ActivityLlistatEvents extends ListActivity {
+public class ActivityLlistatEvents extends ListActivity implements View.OnClickListener{
 
-    public String company_uuid ;
-    public String group_id;
+    public String company_uuid, group_id;
+    FloatingActionButton btnHome;
 
     private AdaptadorEvents cAdapter;
+
+    Button btnLlistCrearEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,16 @@ public class ActivityLlistatEvents extends ListActivity {
             }
         });
 
+        btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
+        btnHome.setOnClickListener(this);
+
+        company_uuid = getIntent().getExtras().getString("company_uuid");
+        group_id = getIntent().getExtras().getString("group_id");
+
+
+        btnLlistCrearEvent = (Button) findViewById(R.id.btnLlistCrearEvent);
+        btnLlistCrearEvent.setOnClickListener(this);
+
         carregarLlistat();
 
     }
@@ -50,17 +66,19 @@ public class ActivityLlistatEvents extends ListActivity {
     public static final String[] FROM = new String[]{
             "_id",
             "date_id",
+            "group_id",
+            "company_uuid",
             "title",
-            "datetime",
-            "long_minutes",
+            "datetime"
     };
 
     public static final int[] TO = new int[]{
             -1,
-            R.id.uuidEvent,
+            R.id.idEvent,
+            R.id.idGroup,
+            R.id.uuidCompany,
             R.id.txtTitolEvent,
-            R.id.txtDiaEvent,
-            R.id.txtHoraEvent,
+            R.id.txtHoraEvent
     };
 
     private void carregarLlistat (){
@@ -72,7 +90,10 @@ public class ActivityLlistatEvents extends ListActivity {
             final Context context = this;
 
             final JSONObject jsonObject = new JSONObject();
-            apiConnector.GET("User/Dates", jsonObject, new Request(){
+            jsonObject.put("company_uuid", company_uuid);
+            jsonObject.put("group_id", group_id);
+
+            apiConnector.GET("Company/Group/Dates", jsonObject, new Request(){
 
                 @Override
                 public void Response(Object o) {
@@ -90,12 +111,13 @@ public class ActivityLlistatEvents extends ListActivity {
                                     mc.addRow(new Object[]{
                                             i + "",
                                             object.getString("id"),
+                                            group_id,
+                                            company_uuid,
                                             object.getString("title"),
-                                            object.getString("datetime"),
-                                            object.getString("long_minutes")
+                                            object.getString("datetime")
                                     });
                                 }
-                                System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>> "+mc.getCount());
+                                System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>> " + mc.getCount());
 
                                 cAdapter = new AdaptadorEvents(
                                         appCompatActivity,
@@ -141,6 +163,48 @@ public class ActivityLlistatEvents extends ListActivity {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+
+        switch (id) {
+
+            case R.id.floatingActionButtonMain:
+
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.btnLlistCrearEvent:
+                Intent i2 = new Intent(getApplicationContext(), Creacio_Events.class);
+                i2.putExtra("company_uuid", company_uuid);
+                i2.putExtra("group_id", group_id);
+                startActivity(i2);
+                break;
+        }
+    }
+
+    @Override
+    public void onListItemClick(ListView l , View view, int position, long id) {
+        try{
+            Cursor jsonObject1 = (Cursor) getListAdapter().getItem(position);
+            Intent i = new Intent(getApplicationContext(), ActivityMostrarInfoEvents.class);
+
+            i.putExtra("company_uuid", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("company_uuid")));
+            i.putExtra("group_id", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("group_id")));
+            i.putExtra("date_id", jsonObject1.getString(jsonObject1.getColumnIndexOrThrow("date_id")));
+            startActivity(i);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        // Toast.makeText(ActivityLlistatGrups.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+        // mostrarInfoEmpreses(id);
 
     }
 }
