@@ -66,6 +66,7 @@
         <activity android:name=".Usuaris.ActivityAfegirUsuariGrup"></activity>
         <activity android:name=".Usuaris.ActivityLlistatUserEvents"></activity>
         <activity android:name=".Usuaris.ActivityAfegirUsuariEvent"></activity>
+        <activity android:name=".CreacioEvent.ListActivityEvents"></activity>
     </application>
 
 </manifest>
