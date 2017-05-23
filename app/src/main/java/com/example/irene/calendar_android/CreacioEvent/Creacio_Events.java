@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -89,10 +91,14 @@ public class Creacio_Events extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i = new Intent(Creacio_Events.this, ActivityMostrarInfoGrup.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
+                startActivity(i);
             }
         });
     }

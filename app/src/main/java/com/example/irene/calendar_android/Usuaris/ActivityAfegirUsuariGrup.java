@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -42,12 +43,6 @@ public class ActivityAfegirUsuariGrup extends AppCompatActivity implements View.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -61,6 +56,15 @@ public class ActivityAfegirUsuariGrup extends AppCompatActivity implements View.
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getString("group_id");
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityAfegirUsuariGrup.this, ActivityLlistatUserGrups.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
+                startActivity(i);
+            }
+        });
 
 
     }

@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.CreacioGrups.AdaptadorGrups;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
@@ -39,12 +41,6 @@ public class ActivityLlistatUserGrups extends ListActivity implements View.OnCli
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);*/
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -56,6 +52,16 @@ public class ActivityLlistatUserGrups extends ListActivity implements View.OnCli
         group_id = getIntent().getExtras().getString("group_id");
 
         carregarLlistat();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityLlistatUserGrups.this, ActivityMostrarInfoGrup.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
+                startActivity(i);
+            }
+        });
     }
 
     public static final String[] FROM = new String[]{

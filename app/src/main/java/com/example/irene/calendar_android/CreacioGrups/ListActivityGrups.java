@@ -13,8 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
+import com.example.irene.calendar_android.Home.MainActivity;
+import com.example.irene.calendar_android.Login.ActivityHome;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityAfegirUsuariCompanyia;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUsersCompanyies;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -36,7 +40,8 @@ public class ListActivityGrups extends ListActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i = new Intent(ListActivityGrups.this, MainActivity.class);
+                startActivity(i);
             }
         });
 

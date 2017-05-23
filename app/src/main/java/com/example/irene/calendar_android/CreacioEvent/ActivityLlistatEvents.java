@@ -14,10 +14,12 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
+import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
 import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserGrups;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -41,12 +43,6 @@ public class ActivityLlistatEvents extends ListActivity implements View.OnClickL
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -59,6 +55,16 @@ public class ActivityLlistatEvents extends ListActivity implements View.OnClickL
         btnLlistCrearEvent.setOnClickListener(this);
 
         carregarLlistat();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityLlistatEvents.this, ActivityMostrarInfoGrup.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
+                startActivity(i);
+            }
+        });
 
     }
 

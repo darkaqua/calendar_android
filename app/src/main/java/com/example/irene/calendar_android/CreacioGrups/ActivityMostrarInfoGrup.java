@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.CreacioEvent.ActivityLlistatEvents;
 import com.example.irene.calendar_android.Home.MainActivity;
@@ -45,12 +47,6 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnCrearEvents = (Button)findViewById(R.id.btnGrupCrearEvent);
         btnCrearEvents.setOnClickListener(this);
@@ -75,6 +71,15 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
         company_uuid = getIntent().getExtras().getString("company_uuid");
         group_id = getIntent().getExtras().getString("group_id");
         carregarDades();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityMostrarInfoGrup.this, ActivityLlistatGrups.class);
+                i.putExtra("company_uuid", company_uuid);
+                startActivity(i);
+            }
+        });
     }
 
 

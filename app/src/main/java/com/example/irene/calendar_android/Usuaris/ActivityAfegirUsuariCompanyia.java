@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -39,12 +40,6 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -56,6 +51,15 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
         btnEliminar.setOnClickListener(this);
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityAfegirUsuariCompanyia.this, ActivityLlistatUsersCompanyies.class);
+                i.putExtra("company_uuid", company_uuid);
+                startActivity(i);
+            }
+        });
 
     }
     //Carregar ToolBar

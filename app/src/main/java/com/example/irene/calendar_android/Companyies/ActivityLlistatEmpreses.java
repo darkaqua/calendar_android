@@ -54,7 +54,8 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i = new Intent(ActivityLlistatEmpreses.this, MainActivity.class);
+                startActivity(i);
             }
         });
 
