@@ -51,7 +51,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        uuidText = (TextView) findViewById(R.id.textViewPerfilUuid);
+        //uuidText = (TextView) findViewById(R.id.textViewPerfilUuid);
         nom =(TextView)findViewById(R.id.textViewPerfilNom);
         nomUsuari =(TextView)findViewById(R.id.textViewPerfilNomUsuari);
        // uuid =(TextView)findViewById(R.id.textViewPerfilNom);
