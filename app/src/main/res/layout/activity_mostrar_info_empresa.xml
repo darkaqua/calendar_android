@@ -21,7 +21,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -43,23 +46,9 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnEliminarEmpresa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Eliminar " />
-
-                <Button
-                    android:id="@+id/btnCreacioGrup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Creació Grup" />
 
                 <Button
                     android:id="@+id/btnListCompanyGrups"
@@ -67,6 +56,31 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Llista Grups" />
+
+                <Button
+                    android:id="@+id/btnCompanyLlistatUsers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Llistat usuaris" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEliminarEmpresa"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:text="Eliminar GRUP" />
+
+                <Button
+                    android:id="@+id/btnCreacioGrup"
+                    android:layout_width="205dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nou Grup" />
 
             </LinearLayout>
 

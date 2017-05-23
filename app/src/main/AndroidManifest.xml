@@ -55,13 +55,17 @@
         <activity android:name=".Tarifes.ActivityTarifes" />
         <activity android:name=".Companyies.ActivityMostrarInfoEmpresa" />
         <activity android:name=".Companyies.ActivityModificarEmpresa" />
-        <activity android:name=".Calendari.Calendari" />
+        <activity android:name=".Usuaris.ActivityLlistatUserGrups" />
         <activity android:name=".CreacioGrups.ActivityLlistatGrups" />
-        <activity android:name=".CreacioEvent.ActivityLlistatEvents" />
         <activity android:name=".CreacioGrups.ActivityMostrarInfoGrup" />
         <activity android:name=".CreacioEvent.ActivityMostrarInfoEvents" />
-        <activity android:name=".CreacioEvent.ListActivityEvents" />
-        <activity android:name=".CreacioGrups.ListActivityGrups"></activity>
+        <activity android:name=".Usuaris.ActivityLlistatUsersCompanyies" />
+        <activity android:name=".CreacioEvent.ActivityLlistatEvents" />
+        <activity android:name=".CreacioGrups.ListActivityGrups" />
+        <activity android:name=".Usuaris.ActivityAfegirUsuariCompanyia"></activity>
+        <activity android:name=".Usuaris.ActivityAfegirUsuariGrup"></activity>
+        <activity android:name=".Usuaris.ActivityLlistatUserEvents"></activity>
+        <activity android:name=".Usuaris.ActivityAfegirUsuariEvent"></activity>
     </application>
 
 </manifest>
