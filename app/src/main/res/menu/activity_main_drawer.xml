@@ -8,11 +8,6 @@
             android:icon="@drawable/icon_perfil"
             android:title="Perfil" />
         <item
-            android:id="@+id/nav_events"
-            android:icon="@drawable/icon_events"
-            android:title="Events" />
-
-        <item
             android:id="@+id/nav_empreses"
             android:icon="@drawable/icon_empresas"
             android:title="Empreses" />
@@ -20,6 +15,10 @@
             android:id="@+id/nav_grups"
             android:icon="@drawable/icon_group"
             android:title="Grups" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/icon_events"
+            android:title="Events" />
         <item
             android:id="@+id/nav_tarifes"
             android:icon="@drawable/icon_tarifes"
@@ -31,15 +30,6 @@
             <item
                 android:id="@+id/nav_informacio"
                 android:title="Sobre nosaltres" />
-            <item
-                android:id="@+id/nav_contacte"
-                android:icon="@drawable/icon_contacte"
-                android:title="Contacte" />
-            <item
-                android:id="@+id/nav_configuracio"
-                android:icon="@drawable/icon_configuracio"
-                android:title="Configuració Usuari" />
-
             <item
                 android:id="@+id/nav_sortir_sessio"
                 android:icon="@drawable/icon_sortir"

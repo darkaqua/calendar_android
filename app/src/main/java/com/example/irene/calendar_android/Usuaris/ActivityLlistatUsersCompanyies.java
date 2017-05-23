@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.CreacioGrups.AdaptadorGrups;
+import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -40,12 +42,6 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);*/
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
@@ -57,6 +53,15 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
         System.out.println("=================> "+company_uuid);
 
         carregarLlistat();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityLlistatUsersCompanyies.this, ActivityMostrarInfoEmpresa.class);
+                i.putExtra("uuid", company_uuid);
+                startActivity(i);
+            }
+        });
     }
 
     public static final String[] FROM = new String[]{

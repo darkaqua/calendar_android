@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
+import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserEvents;
@@ -44,12 +46,6 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity implements View
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         btnEliminarEvent = (Button)findViewById(R.id.btnEliminarEvent);
         btnEliminarEvent.setOnClickListener(this);
@@ -62,6 +58,16 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity implements View
         date_id = getIntent().getExtras().getString("date_id");
 
         carregarDades();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityMostrarInfoEvents.this, ActivityLlistatEvents.class);
+                i.putExtra("company_uuid", company_uuid);
+                i.putExtra("group_id", group_id);
+                startActivity(i);
+            }
+        });
     }
 
 
@@ -188,8 +194,6 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity implements View
                 intent2.putExtra("company_uuid", company_uuid);
                 intent2.putExtra("group_id", group_id);
                 intent2.putExtra("date_id", date_id);
-
-                System.out.println("btnEventsLlistaUsers------------>" + date_id);
                 startActivity(intent2);
                 break;
 

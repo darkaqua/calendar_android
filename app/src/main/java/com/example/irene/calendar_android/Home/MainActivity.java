@@ -24,6 +24,7 @@ import com.example.irene.calendar_android.ConfiguracioUsuaris.ActivityConfigurac
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 
 
+import com.example.irene.calendar_android.CreacioEvent.ListActivityEvents;
 import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
 import com.example.irene.calendar_android.CreacioGrups.Creacio_Grups;
 import com.example.irene.calendar_android.CreacioGrups.ListActivityGrups;
@@ -133,7 +134,7 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
          //   startActivity(i);
 
         if(id == R.id.nav_events){
-            Intent i = new Intent(MainActivity.this, Creacio_Events.class);
+            Intent i = new Intent(MainActivity.this, ListActivityEvents.class);
             startActivity(i);
         }else if(id == R.id.nav_empreses){
             Intent i = new Intent(MainActivity.this, ActivityLlistatEmpreses.class);

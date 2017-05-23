@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.CreacioEvent.ActivityMostrarInfoEvents;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
 import com.example.irene.calendar_android.CreacioGrups.ActivityLlistatGrups;
 import com.example.irene.calendar_android.CreacioGrups.ActivityMostrarInfoGrup;
@@ -35,7 +36,7 @@ import org.json.JSONObject;
 public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements View.OnClickListener{
 
     TextView nomEmpresa, descripcio, email, telefon, adreça, codiPostal, membres, pais, dataRegistre;
-    Button btnEliminar, btnCrearGrup, btnLlistatUsers;
+    Button btnEliminar, btnCrearGrup, btnLlistatUsers, btnListCompanyGrups;
     FloatingActionButton btnHome;
 
     private String uuid;
@@ -66,29 +67,25 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
         btnCrearGrup = (Button)findViewById(R.id.btnCreacioGrup);
         btnCrearGrup.setOnClickListener(this);
 
+        btnListCompanyGrups = (Button)findViewById(R.id.btnListCompanyGrups);
+        btnListCompanyGrups.setOnClickListener(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Boton atras de la toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
 
         uuid = getIntent().getExtras().getString("uuid");
 
         carregarDades();
 
-        findViewById(R.id.btnListCompanyGrups).setOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
-                i.putExtra("company_uuid", uuid);
+                Intent i = new Intent(ActivityMostrarInfoEmpresa.this, ActivityLlistatEmpreses.class);
                 startActivity(i);
             }
         });
@@ -229,6 +226,12 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                 Intent intent1 = new Intent(getApplicationContext(), ActivityLlistatUsersCompanyies.class);
                 intent1.putExtra("company_uuid", uuid);
                 startActivity(intent1);
+                break;
+
+            case  R.id.btnListCompanyGrups:
+                Intent i3 = new Intent(getApplicationContext(), ActivityLlistatGrups.class);
+                i3.putExtra("company_uuid", uuid);
+                startActivity(i3);
                 break;
         }
     }

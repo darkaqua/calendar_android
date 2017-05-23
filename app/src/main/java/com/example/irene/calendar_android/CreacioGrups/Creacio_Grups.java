@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
+import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
@@ -44,12 +46,6 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
         nomGrup = (EditText)findViewById(R.id.editTextCreacioGrupNom);
         descripcio = (EditText)findViewById(R.id.editTextCreacioEventsDescripcio);
@@ -63,6 +59,15 @@ public class Creacio_Grups extends AppCompatActivity implements View.OnClickList
         cancelar.setOnClickListener(this);
         guardarCanvis = (Button)findViewById(R.id.btnCreacioGrupsGuardar);
         guardarCanvis.setOnClickListener(this);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Creacio_Grups.this, ActivityMostrarInfoEmpresa.class);
+                i.putExtra("uuid", company_uuid);
+                startActivity(i);
+            }
+        });
     }
     //Carregar ToolBar
     @Override

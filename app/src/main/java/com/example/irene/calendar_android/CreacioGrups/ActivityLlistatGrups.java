@@ -16,10 +16,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
 import com.example.irene.calendar_android.Companyies.ActivityMostrarInfoEmpresa;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUsersCompanyies;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -32,7 +34,7 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
     ListView llistat;
     private AdaptadorGrups cAdapter;
     public String company_uuid;
-    Button eliminarGrup;
+    Button btnListCrearGrup;
     FloatingActionButton btnHome;
 
 
@@ -50,18 +52,24 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);*/
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.icon_flecha));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
+        btnListCrearGrup = (Button) findViewById(R.id.btnListCrearGrup);
+        btnListCrearGrup.setOnClickListener(this);
 
 
         btnHome = (FloatingActionButton)findViewById(R.id.floatingActionButtonMain);
         btnHome.setOnClickListener(this);
 
         carregarLlistat();
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityLlistatGrups.this, ActivityMostrarInfoEmpresa.class);
+                i.putExtra("uuid", company_uuid);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -126,14 +134,7 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
                                 );
                                 setListAdapter(cAdapter);
 
-                                findViewById(R.id.btnListCrearGrup).setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
-                                        i.putExtra("company_uuid", company_uuid);
-                                        startActivity(i);
-                                    }
-                                });
+
 
 
 
@@ -182,6 +183,12 @@ public class ActivityLlistatGrups extends ListActivity implements View.OnClickLi
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.btnListCrearGrup:
+                Intent i = new Intent(getApplicationContext(), Creacio_Grups.class);
+                i.putExtra("company_uuid", company_uuid);
+                startActivity(i);
                 break;
         }
     }
