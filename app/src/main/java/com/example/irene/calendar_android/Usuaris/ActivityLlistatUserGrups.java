@@ -17,7 +17,7 @@ public class ActivityLlistatUserGrups extends ListActivity implements View.OnCli
     private AdaptadorGrups cAdapter;
     FloatingActionButton btnHome;
     public String company_uuid;
-    Button btnAgregarUser, btnEliminarUser;
+    Button btnAgregarUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,6 @@ public class ActivityLlistatUserGrups extends ListActivity implements View.OnCli
 
         btnAgregarUser = (Button)findViewById(R.id.btnLlistAfegirUsuaris);
         btnAgregarUser.setOnClickListener(this);
-
-        btnEliminarUser = (Button)findViewById(R.id.btnListEliminarUsuari);
-        btnEliminarUser.setOnClickListener(this);
 
         carregarLlistat();
     }

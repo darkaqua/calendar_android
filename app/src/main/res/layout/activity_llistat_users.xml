@@ -48,14 +48,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Afegir usuaris" />
+                android:text="Afegir/eliminar usuaris" />
 
-            <Button
-                android:id="@+id/btnListEliminarUsuari"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Eliminar usuari" />
         </LinearLayout>
 
 

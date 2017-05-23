@@ -27,7 +27,7 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
     private AdaptadorGrups cAdapter;
     FloatingActionButton btnHome;
     public String company_uuid;
-    Button btnAgregarUser, btnEliminarUser;
+    Button btnAgregarUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,6 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
 
         btnAgregarUser = (Button)findViewById(R.id.btnLlistAfegirUsuaris);
         btnAgregarUser.setOnClickListener(this);
-
-        btnEliminarUser = (Button)findViewById(R.id.btnListEliminarUsuari);
-        btnEliminarUser.setOnClickListener(this);
 
         company_uuid = getIntent().getExtras().getString("company_uuid");
         System.out.println("=================> "+company_uuid);
@@ -151,11 +148,6 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
                 Intent intent = new Intent(getApplicationContext(), ActivityAfegirUsuariCompanyia.class);
                 intent.putExtra("company_uuid", company_uuid);
                 startActivity(intent);
-                break;
-            case R.id.btnListEliminarUsuari:
-
-
-
                 break;
 
 
