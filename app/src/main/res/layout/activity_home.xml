@@ -71,6 +71,7 @@
                     android:background="@drawable/edittext_default_bg"
                     android:hint="Contraseña"
                     android:padding="10dp"
+                    android:password="true"
                     android:textColorHint="#bbbbbb"
                     android:textSize="15sp" />
 
