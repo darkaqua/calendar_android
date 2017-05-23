@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserEvents;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserGrups;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -182,7 +184,13 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity implements View
                         .show();
                 break;
             case R.id.btnEventsLlistatUsers:
+                Intent intent2 = new Intent(getApplicationContext(), ActivityLlistatUserEvents.class);
+                intent2.putExtra("company_uuid", company_uuid);
+                intent2.putExtra("group_id", group_id);
+                intent2.putExtra("date_id", date_id);
 
+                System.out.println("btnEventsLlistaUsers------------>" + date_id);
+                startActivity(intent2);
                 break;
 
         }

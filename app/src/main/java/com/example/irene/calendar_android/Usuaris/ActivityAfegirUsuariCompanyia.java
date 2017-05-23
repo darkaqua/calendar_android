@@ -12,9 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
-import com.example.irene.calendar_android.Companyies.Creacio_Companyia;
-import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
 
@@ -34,7 +31,7 @@ public class ActivityAfegirUsuariCompanyia extends AppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afegir_usuari_companyia);
+        setContentView(R.layout.activity_afegir_usuari);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

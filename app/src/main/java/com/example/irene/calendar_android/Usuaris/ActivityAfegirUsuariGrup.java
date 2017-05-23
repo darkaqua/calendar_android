@@ -34,7 +34,7 @@ public class ActivityAfegirUsuariGrup extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_afegir_usuari_companyia);
+        setContentView(R.layout.activity_afegir_usuari);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,6 +75,12 @@ public class ActivityAfegirUsuariGrup extends AppCompatActivity implements View.
     public void onClick(View view) {
 
         final int id = view.getId();
+
+        if(id == R.id.floatingActionButtonMain){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            return;
+        }
 
         System.out.println(id);
 

@@ -64,6 +64,8 @@
         <activity android:name=".CreacioGrups.ListActivityGrups" />
         <activity android:name=".Usuaris.ActivityAfegirUsuariCompanyia"></activity>
         <activity android:name=".Usuaris.ActivityAfegirUsuariGrup"></activity>
+        <activity android:name=".Usuaris.ActivityLlistatUserEvents"></activity>
+        <activity android:name=".Usuaris.ActivityAfegirUsuariEvent"></activity>
     </application>
 
 </manifest>
