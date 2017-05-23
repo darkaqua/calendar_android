@@ -96,7 +96,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void run() {
                                 try{
-                                    String uuid = object.getString("uuid");
+                                 //   String uuid = object.getString("uuid");
                                     String name = object.getString("name");
                                     String username = object.getString("username");
                                     String telephone = object.getString("telephone");
@@ -106,7 +106,7 @@ public class ActivityPerfil extends AppCompatActivity implements View.OnClickLis
                                     String register = object.getString("register_timestamp");
                                     String country = object.getJSONObject("country").getString("name");
 
-                                    uuidText.setText(uuid);
+//                                    uuidText.setText(uuid);
                                     nom.setText(name);
                                     nomUsuari.setText(username);
                                     telefon.setText(telephone);

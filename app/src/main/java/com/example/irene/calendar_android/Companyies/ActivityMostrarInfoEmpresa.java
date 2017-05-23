@@ -52,7 +52,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
         telefon = (TextView)findViewById(R.id.textViewInfoEmpresaTelefon);
         adreça = (TextView)findViewById(R.id.textViewInfoEmpresaDireccio);
         codiPostal = (TextView)findViewById(R.id.textViewInfoEmpresaCodiPostal);
-        membres = (TextView)findViewById(R.id.textViewInfoEmpresaMembres);
+     //   membres = (TextView)findViewById(R.id.textViewInfoEmpresaMembres);
         pais = (TextView)findViewById(R.id.textViewInfoEmpresaPais);
 
         btnEliminar = (Button)findViewById(R.id.btnEliminarEmpresa);
@@ -119,7 +119,7 @@ public class ActivityMostrarInfoEmpresa extends AppCompatActivity implements Vie
                                     String telephone = object.getString("telephone");
                                     String address = object.getString("address");
                                     String postalCode = object.getString("postal_code");
-                                    int members = object.getInt("members_count");
+                             //       int members = object.getInt("members_count");
                                     String register = object.getString("register");
 
                                     nomEmpresa.setText(name);

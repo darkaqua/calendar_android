@@ -142,14 +142,8 @@ public  class MainActivity extends AppCompatActivity implements NavigationView.O
         }else if(id == R.id.nav_grups){
             Intent i = new Intent(MainActivity.this, ListActivityGrups.class);
             startActivity(i);
-        }else if(id == R.id.nav_configuracio){
-            Intent i = new Intent(MainActivity.this, ActivityConfiguracioUsuari.class);
-            startActivity(i);
         }else if (id == R.id.nav_informacio){
             Intent i = new Intent(MainActivity.this, ActivityInformacio.class);
-            startActivity(i);
-        }else if (id == R.id.nav_contacte){
-            Intent i = new Intent(MainActivity.this, ActivityContacte.class);
             startActivity(i);
         }else if (id == R.id.nav_perfil){
             Intent i = new Intent(MainActivity.this, ActivityPerfil.class);

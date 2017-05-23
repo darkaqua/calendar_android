@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.irene.calendar_android.Companyies.ActivityLlistatEmpreses;
 import com.example.irene.calendar_android.CreacioEvent.Creacio_Events;
+import com.example.irene.calendar_android.CreacioEvent.ListActivityEvents;
+import com.example.irene.calendar_android.CreacioGrups.ListActivityGrups;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.R;
 import com.example.irene.calendar_android.SQLite.CalendarDataSource;
@@ -38,7 +40,8 @@ public class CalendariFragment extends Fragment {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    Intent i = new Intent(getActivity())
+                Intent i = new Intent(getActivity(), ListActivityEvents.class);
+                startActivity(i);
             }
         });
 
@@ -55,8 +58,8 @@ public class CalendariFragment extends Fragment {
         grups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            /*    Intent i = new Intent(getActivity(), .class);
-                startActivity(i);*/
+                Intent i = new Intent(getActivity(), ListActivityGrups.class);
+                startActivity(i);
             }
         });
 
