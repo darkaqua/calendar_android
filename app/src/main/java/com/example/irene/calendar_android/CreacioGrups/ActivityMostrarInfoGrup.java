@@ -19,6 +19,8 @@ import com.example.irene.calendar_android.CreacioEvent.ListActivityEvents;
 import com.example.irene.calendar_android.Home.MainActivity;
 import com.example.irene.calendar_android.Login.ActivityLoading;
 import com.example.irene.calendar_android.R;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUserGrups;
+import com.example.irene.calendar_android.Usuaris.ActivityLlistatUsersCompanyies;
 
 import net.darkaqua.apiconnector.ApiConnector;
 import net.darkaqua.apiconnector.Request;
@@ -33,7 +35,7 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
     TextView nomGrup, descripcio, creacio, edit;
     FloatingActionButton btnHome;
 
-    Button btnCrearEvents, btnEliminarGrup;
+    Button btnCrearEvents, btnEliminarGrup, btnGrupLlistaUsuaris;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,9 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
 
         btnEliminarGrup = (Button)findViewById(R.id.btnGrupEliminar);
         btnEliminarGrup.setOnClickListener(this);
+
+        btnGrupLlistaUsuaris = (Button)findViewById(R.id.btnGrupLlistaUsuaris);
+        btnGrupLlistaUsuaris.setOnClickListener(this);
 
         nomGrup = (TextView)findViewById(R.id.textViewInfoGrupNom);
         descripcio = (TextView)findViewById(R.id.textViewInfoGrupDescripcio);
@@ -213,6 +218,14 @@ public class ActivityMostrarInfoGrup extends AppCompatActivity implements View.O
                 startActivity(intent);
                 break;
 
+
+            case R.id.btnGrupLlistaUsuaris:
+
+                Intent intent2 = new Intent(getApplicationContext(), ActivityLlistatUserGrups.class);
+                intent2.putExtra("company_uuid", company_uuid);
+                intent2.putExtra("group_id", group_id);
+                startActivity(intent2);
+                break;
 
 
         }

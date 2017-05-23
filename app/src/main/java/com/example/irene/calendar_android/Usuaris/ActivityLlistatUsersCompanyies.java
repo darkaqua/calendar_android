@@ -121,9 +121,6 @@ public class ActivityLlistatUsersCompanyies  extends ListActivity implements Vie
                 }
             });
 
-
-
-
         }catch (Exception e) {
             e.printStackTrace();
         }
