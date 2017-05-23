@@ -25,7 +25,7 @@ import net.darkaqua.apiconnector.Request;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class ListActivityEvents extends ListActivity implements View.OnClickListener{
+public class ActivityLlistatEvents extends ListActivity implements View.OnClickListener{
 
     public String company_uuid, group_id;
     FloatingActionButton btnHome;
