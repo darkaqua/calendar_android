@@ -18,7 +18,7 @@ public class TabsFragment extends Fragment {
         public  static TabLayout tabLayout;
         public  static ViewPager viewPager;
         //Numeros de pestanyes que tenim
-        public  static int int_items= 2;
+        public  static int int_items= 1;
 
         public TabsFragment() {
             //Constructor
