@@ -73,7 +73,7 @@
                         android:id="@+id/imageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="94dp"
-                        app:srcCompat="@drawable/list_group_calendar" />
+                        android:src="@drawable/list_group_calendar"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -94,7 +94,7 @@
                             android:id="@+id/textView24"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="Nom:"
+                            android:text="Nom: "
                             android:textAllCaps="true"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -124,7 +124,8 @@
                             android:id="@+id/textView26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Descripció"
+                            android:text="Descripció: "
+                            android:textAllCaps="true"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 

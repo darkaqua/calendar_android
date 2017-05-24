@@ -40,17 +40,21 @@
 
         <Button
             android:id="@+id/btnLlistCrearEvent"
-            android:layout_width="match_parent"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
-            android:text="Crear Event" />
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#ef9a9a"
+            android:layout_marginLeft="80dp"
+            android:text="Crear Event"
+            android:textAlignment="center" />
 
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="466dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView23"
-            android:layout_marginTop="50dp" />
+            android:layout_below="@+id/textView23"/>
     </LinearLayout>
 </RelativeLayout>

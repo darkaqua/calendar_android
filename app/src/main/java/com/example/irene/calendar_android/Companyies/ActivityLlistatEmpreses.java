@@ -78,8 +78,8 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
     public static final int[] TO = new int[]{
             -1,
             R.id.uuidEmpresa,
-            R.id.txtNomGrup,
-            R.id.txtDescripcioGrup
+            R.id.txtNomEmpresa,
+            R.id.txtDescripcioEmpresa
     };
 
     private void carregarLlistat(){
@@ -120,7 +120,7 @@ public class ActivityLlistatEmpreses extends ListActivity implements View.OnClic
                                     System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + mc.getCount());
                                     cAdapter= new AdaptadorGrups(
                                                     appCompatActivity,
-                                                    R.layout.row_grups,
+                                                    R.layout.row_empreses,
                                                     mc,
                                                     FROM,
                                                     TO,

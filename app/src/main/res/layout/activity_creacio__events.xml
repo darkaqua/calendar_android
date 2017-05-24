@@ -34,178 +34,169 @@
             app:title="Creació events"
             app:titleTextColor="@android:color/white" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/toolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:id="@+id/titolEvents"
-            android:layout_width="384dp"
-            android:layout_height="wrap_content"
-            android:text="Creació Events"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="24sp" />
-
-        <View
-            android:layout_height="5dp"
-            android:background="#FF909090"
-            android:layout_marginLeft="40dp"
-            android:visibility="visible"
-            android:layout_width="300dp"
-            android:id="@+id/view" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="117dp"
-                android:layout_height="wrap_content"
-                android:text="Nom Event:"
-                android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
 
-            <EditText
-                android:id="@+id/editTextNomEvent"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                tools:text="Nom event" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="117dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nom Event:"
+                    android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="117dp"
-            android:layout_height="wrap_content"
-            android:text="Descripció:"
-            android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/editTextNomEvent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    tools:text="Nom event" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/editTextDescripcioEvent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            tools:text="Descripció" />
-
-    </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnhoraPicker"
-                android:layout_width="104dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hora" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewTime"
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="117dp"
+                    android:layout_height="wrap_content"
+                    android:text="Descripció:"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editTextDescripcioEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    tools:text="Descripció" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnhoraPicker"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#ef9a9a"
+                    android:text="Hora" />
+
+                <TextView
+                    android:id="@+id/textViewTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    tools:text="Hora" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnDiaPicker"
+                    android:layout_width="104dp"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#ef9a9a"
+                    android:layout_height="wrap_content"
+                    android:text="Dia" />
+
+                <TextView
+                    android:id="@+id/textViewDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    tools:text="Dia" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                tools:text="Hora" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnDiaPicker"
-                android:layout_width="104dp"
-                android:layout_height="wrap_content"
-                android:text="Dia" />
 
-            <TextView
-                android:id="@+id/textViewDay"
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="116dp"
+                    android:layout_height="wrap_content"
+                    android:text="Duració:"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editTextDuracioEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    tools:text="Duracio event" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                tools:text="Dia" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:orientation="horizontal">
 
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="116dp"
-                android:layout_height="wrap_content"
-                android:text="Duració"
-                android:textSize="20sp" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/editTextDuracioEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                tools:text="Duracio event" />
-        </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btnCancelarEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#ef9a9a"
+                    android:layout_weight="1"
+                    android:text="Cancel·lar" />
+
+                <Button
+                    android:id="@+id/btnAcceptarEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#ef9a9a"                    android:layout_weight="1"
+                    android:text="Crear" />
+            </LinearLayout>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnCancelarEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancel·lar" />
-
-            <Button
-                android:id="@+id/btnAcceptarEvent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Acceptar" />
-        </LinearLayout>
-
-    </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
 

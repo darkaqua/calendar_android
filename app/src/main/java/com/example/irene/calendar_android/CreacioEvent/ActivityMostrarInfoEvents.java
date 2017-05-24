@@ -182,7 +182,7 @@ public class ActivityMostrarInfoEvents extends AppCompatActivity implements View
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
-                                Toast.makeText(ActivityMostrarInfoEvents.this, "NO ELIMINAR EVENT", Toast.LENGTH_LONG).show();
+                            //    Toast.makeText(ActivityMostrarInfoEvents.this, "NO ELIMINAR EVENT", Toast.LENGTH_LONG).show();
 
                             }
                         })

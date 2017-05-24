@@ -40,6 +40,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -47,16 +48,21 @@
                 android:id="@+id/btnGrupLlistaEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/toolbar"
                 android:layout_weight="1"
-                android:text="Llista events" />
+
+                android:text="Llistat events" />
 
             <Button
                 android:id="@+id/btnGrupLlistaUsuaris"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/toolbar"
@@ -69,23 +75,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:weightSum="1">
 
             <Button
                 android:id="@+id/btnGrupEliminar"
-                android:layout_width="wrap_content"
+                android:layout_width="193dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_below="@+id/toolbar"
-                android:text="Eliminar grup"
-                android:layout_weight="0.99" />
+                android:text="Eliminar grup" />
 
             <Button
                 android:id="@+id/btnGrupCrearEvent"
-                android:layout_width="188dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/toolbar"
                 android:text="Nou event" />
@@ -93,6 +103,7 @@
         </LinearLayout>
 
         <ScrollView
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -126,7 +137,6 @@
                         android:layout_height="wrap_content"
                         android:background="#0000"
                         android:gravity="left"
-                        android:maxLength="12"
                         android:padding="16dp"
                         android:text="Nom Grup"
                         android:textAllCaps="true"
@@ -140,7 +150,6 @@
                         android:layout_height="wrap_content"
                         android:background="#0000"
                         android:gravity="left"
-                        android:maxLength="12"
                         android:padding="16dp"
                         android:text=""
                         android:textColor="#a2a1b8"
@@ -177,7 +186,6 @@
                         android:layout_height="wrap_content"
                         android:background="#0000"
                         android:gravity="left"
-                        android:maxLength="12"
                         android:padding="16dp"
                         android:text=""
                         android:textColor="#a2a1b8"
@@ -211,10 +219,10 @@
                     <TextView
                         android:id="@+id/textViewInfoGrupCreacio"
                         android:layout_width="237dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="#0000"
                         android:gravity="left"
-                        android:maxLength="12"
+                        android:maxLength="10"
                         android:padding="16dp"
                         android:text=""
                         android:textColor="#a2a1b8"

@@ -48,20 +48,24 @@
 
             <Button
                 android:id="@+id/btnListCrearGrup"
-                android:layout_width="wrap_content"
+                android:layout_width="172dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Crear Grup" />
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="100dp"
+                android:backgroundTint="#ef9a9a"
+                android:textColor="@android:color/white"
+                android:text="Crear Grup"
+                 />
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
 
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="445dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
     </LinearLayout>
 

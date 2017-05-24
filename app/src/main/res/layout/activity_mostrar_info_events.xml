@@ -28,12 +28,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnEliminarEvent"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_weight="0.03"
                 android:text="Eliminar Event" />
 
@@ -41,8 +44,172 @@
                 android:id="@+id/btnEventsLlistatUsers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#ef9a9a"
                 android:layout_weight="1"
                 android:text="Llistat usuaris" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:maxLength="12"
+                    android:padding="16dp"
+                    android:text="Títol event"
+                    android:textAllCaps="true"
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/textViewInfoEventNom"
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:padding="16dp"
+                    android:text=""
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.2dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:padding="16dp"
+                    android:text="Descripció"
+                    android:textAllCaps="true"
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewInfoEventDescripcio"
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:padding="16dp"
+                    android:text=""
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.2dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:maxLength="20"
+                    android:padding="16dp"
+                    android:text="Data"
+                    android:textAllCaps="true"
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewInfoDataEvent"
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:padding="16dp"
+                    android:text=""
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.2dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.2dp"
+                android:background="@android:color/darker_gray"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:maxLength="20"
+                    android:padding="16dp"
+                    android:text="Duració event"
+                    android:textAllCaps="true"
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewInfoDuracioEvent"
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:background="#0000"
+                    android:gravity="left"
+                    android:maxLength="10"
+                    android:padding="16dp"
+                    android:text=""
+                    android:textColor="#a2a1b8"
+                    android:textSize="16sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <ScrollView
@@ -53,170 +220,6 @@
             android:layout_below="@+id/toolbar"
             android:layout_marginTop="81dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/toolbar"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Títol event"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-
-                    <TextView
-                        android:id="@+id/textViewInfoEventNom"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="titol event"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.2dp"
-                    android:background="@android:color/darker_gray"
-                    android:visibility="visible" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="20"
-                        android:padding="16dp"
-                        android:text="Descripció"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textViewInfoEventDescripcio"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Descipció"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.2dp"
-                    android:background="@android:color/darker_gray"
-                    android:visibility="visible" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="20"
-                        android:padding="16dp"
-                        android:text="Data"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textViewInfoDataEvent"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Hora"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.2dp"
-                    android:background="@android:color/darker_gray"
-                    android:visibility="visible" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.2dp"
-                    android:background="@android:color/darker_gray"
-                    android:visibility="visible" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="20"
-                        android:padding="16dp"
-                        android:text="Duració event"
-                        android:textAllCaps="true"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textViewInfoDuracioEvent"
-                        android:layout_width="237dp"
-                        android:layout_height="wrap_content"
-                        android:background="#0000"
-                        android:gravity="left"
-                        android:maxLength="12"
-                        android:padding="16dp"
-                        android:text="Duracio"
-                        android:textColor="#a2a1b8"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
